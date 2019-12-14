@@ -11,10 +11,16 @@ readings=14
 skipstart=1
 df=pd.read_csv("exampledata/191128-pLipA-PNPB-288-1.csv",sep=",")
 columns=df.columns
+velocityvsconcentration= pd.DataFrame(columns=["Concentration","Velocity","StdErr"])
 for position in range(0,positions*2,2):
     absorbancevstime=df[[columns[position],columns[position+1]]][skipstart:readings]
     avt=absorbancevstime.astype(float)
-    avt.plot(x=columns[position],y=columns[position+1])
+    Y=avt[columns[position+1]]
+    X=avt[columns[position]]
+    X=sm.add_constant(X)
+    linearmodel=sm.OLS(Y,X).fit()
+    velocityvsconcentration.loc[position]= [float(columns[position][columns[position].find("-")+2:]),linearmodel.params[1],linearmodel.bse[1]]
+velocityvsconcentration.plot(x="Concentration",y="Velocity")
 plt.show()
 
 
