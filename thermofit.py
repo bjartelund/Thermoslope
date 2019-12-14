@@ -4,7 +4,13 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import statsmodels.api as sm
+from scipy.optimize import curve_fit
 
+def MichaelisMenten(x,Km,Vmax):
+    return (Vmax*x)/(Km+x)
+
+Kmguess=1e-3 #initial guess
+Vmaxguess=1 #initial guess
 
 positions=6
 readings=14
@@ -21,6 +27,10 @@ for position in range(0,positions*2,2):
     linearmodel=sm.OLS(Y,X).fit()
     velocityvsconcentration.loc[position]= [float(columns[position][columns[position].find("-")+2:]),linearmodel.params[1],linearmodel.bse[1]]
 velocityvsconcentration.plot(x="Concentration",y="Velocity")
+popt,pcov = curve_fit(MichaelisMenten,velocityvsconcentration["Concentration"],velocityvsconcentration["Velocity"],p0=[Kmguess,Vmaxguess])
+print(popt)
+plt.plot(velocityvsconcentration["Concentration"],MichaelisMenten(velocityvsconcentration["Concentration"],*popt))
+
 plt.show()
 
 
