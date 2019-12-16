@@ -1,0 +1,318 @@
+Cell 1 - 4.5e-3,,Cell 2 - 1.8e-3,,Cell 3 - 7.2e-4,,Cell 4 - 2.9e-4,,Cell 5 - 1.2e-4,,Cell 6 - 4.6e-5,,
+Time (min),Abs,Time (min),Abs,Time (min),Abs,Time (min),Abs,Time (min),Abs,Time (min),Abs,
+5.569901077E-006,-0.1176130995,0.04263462126,0.01732965,0.08527228236,0.01858017966,0.1279101074,0.01388358977,0.1705475003,0.02955481037,0.2131861001,0.01076838002,
+0.356439203,-0.1168928966,0.3990755081,0.102136299,0.4417136908,0.06651821733,0.4843510091,0.04103641957,0.5269886851,0.07406987995,0.5696266294,0.0243676994,
+0.7128819823,-0.05787694082,0.7555173039,0.1922857016,0.7981560826,0.1158526987,0.8407934904,0.06721050292,0.8834310174,0.1209395006,0.9260684848,0.03925184906,
+1.06932199,0.01633376069,1.111958027,0.2771520913,1.154595971,0.1679677069,1.197235942,0.0955048427,1.239871979,0.1655391008,1.282508969,0.05964932963,
+1.425763965,0.09671831131,1.468400002,0.3732666075,1.511037946,0.2227987051,1.553675056,0.1297297031,1.596313,0.2073604017,1.638950944,0.07337812334,
+1.782204986,0.1729850024,1.824841022,0.4598416984,1.867478013,0.2718203962,1.910115957,0.1561572999,1.952754021,0.2520835102,1.995391965,0.08688805252,
+2.138647079,0.2502908111,2.181282997,0.5425720811,2.223921061,0.3197067082,2.266558886,0.1821551025,2.309195995,0.2954419851,2.351834059,0.1000547037,
+2.495867968,0.3264203966,2.538505077,0.6251037121,2.581141949,0.366795212,2.623779058,0.2070526928,2.666416883,0.3385029137,2.709054947,0.1122780964,
+2.852308989,0.4012804925,2.894944906,0.7064778805,2.93758297,0.4129990041,2.980220079,0.2312054932,3.022857904,0.3812062144,3.065495968,0.1248378977,
+3.208750963,0.4786250889,3.251386881,0.7863122225,3.294024944,0.4586386979,3.336663008,0.2550874054,3.379300117,0.423497498,3.421938896,0.1361089945,
+3.565711975,0.5511487722,3.608347893,0.8564354777,3.650985003,0.498061806,3.693623066,0.2710641921,3.736260891,0.4685480893,3.778898001,0.1419405043,
+3.922152996,0.6269246936,3.964790106,0.9332947731,4.007427216,0.5404518247,4.050065994,0.2934058905,4.092702866,0.5080761909,4.135341167,0.1521629989,
+4.278594017,0.7034003735,4.321229935,1.009351969,4.363871098,0.5812957287,4.406505108,0.3159137964,4.449142933,0.5507434011,4.491781235,0.1638327986,
+4.635035038,0.77928859,4.677670956,1.084437013,4.720308781,0.6219114065,4.762947083,0.3379833996,4.805584908,0.594465673,4.848221779,0.174523294,
+4.991477013,0.8547325134,5.034111977,1.159293056,5.076749802,0.6613373756,5.119388103,0.3591583073,5.162025928,0.6315603852,5.20466423,0.1847441941,
+
+Cell 1 - 4.5e-3,
+Cell 1 - 4.5e-3
+Collection Time: 12/16/2019 1:05:06 PM
+Operator Name  :
+ADL Shell Version 5.0.0.1002
+Method Log     :
+Method Name    : C:\ADLs_QNW\Version_050\191216-PNPB.Met
+Date/Time stamp: 12/16/2019 10:52:20 AM
+Method Modifications:
+COM Port Number Changed: 12/16/2019 10:49:46 AM, Old:Off, New:-1
+COM Port Number Changed: 12/16/2019 10:49:48 AM, Old:-1, New:
+Connected to Controller Changed: 12/16/2019 10:49:54 AM, Old:0, New:1
+Number Samples Changed: 12/16/2019 10:49:57 AM, Old:0, New:-6
+Cary Online Changed: 12/16/2019 10:50:02 AM, Old:-1, New:1
+Sample ID 1 Changed: 12/16/2019 10:50:02 AM, Old:, New:1111
+Sample ID 2 Changed: 12/16/2019 10:50:02 AM, Old:, New:2222
+Sample ID 3 Changed: 12/16/2019 10:50:02 AM, Old:, New:3333
+Sample ID 4 Changed: 12/16/2019 10:50:02 AM, Old:, New:4444
+Sample ID 5 Changed: 12/16/2019 10:50:02 AM, Old:, New:5555
+Sample ID 6 Changed: 12/16/2019 10:50:02 AM, Old:, New:6666
+Data Simulation Changed: 12/16/2019 10:50:02 AM, Old:None, New:Abs Only
+Data Simulation Changed: 12/16/2019 10:50:02 AM, Old:Abs Only, New:None
+Parameter Setup First Time Changed: 12/16/2019 10:50:02 AM, Old:1, New:0
+Y max Changed: 12/16/2019 10:50:14 AM, Old:     1.00, New:     3.00
+Method Changed: 12/16/2019 10:50:14 AM, Old:Ramp T, New:2
+Method Changed: 12/16/2019 10:50:14 AM, Old:2, New:Hold T
+Hold Temperature Changed: 12/16/2019 10:50:21 AM, Old:37, New:25.00
+Time Interval Changed: 12/16/2019 10:50:24 AM, Old:0.2, New:0.3
+Maximum Time Changed: 12/16/2019 10:50:27 AM, Old:60, New:5
+Equilibration Time Changed: 12/16/2019 10:50:28 AM, Old:    10.00, New:     5.00
+Stirrer Speed Changed: 12/16/2019 10:50:39 AM, Old:0, New:1200
+Sample ID 1 Changed: 12/16/2019 10:50:44 AM, Old:1111, New:4.5e-3
+Sample ID 2 Changed: 12/16/2019 10:50:51 AM, Old:2222, New:1.8e-3
+Sample ID 3 Changed: 12/16/2019 10:51:06 AM, Old:3333, New:7.2e-4
+Sample ID 4 Changed: 12/16/2019 10:51:13 AM, Old:4444, New:2.9e-4
+Sample ID 5 Changed: 12/16/2019 10:51:30 AM, Old:5555, New:1.2e-4
+Sample ID 6 Changed: 12/16/2019 10:51:44 AM, Old:6666, New:4.6e-5
+Saved as C:\ADLs_QNW\Version_050\191216-PNPB.M??Saved as C:\ADLs_QNW\Version_050\191216-PNPB.Met
+Opened C:\ADLs_QNW\Version_050\191216-PNPB.Met
+Hold Temperature Changed: 12/16/2019 1:04:39 PM, Old:25.00, New:5.00
+Blank Rd 1 Changed: 12/16/2019 1:04:42 PM, Old:     0.00, New:     0.61
+Blank Rd 2 Changed: 12/16/2019 1:04:45 PM, Old:     0.00, New:     0.19
+Blank Rd 3 Changed: 12/16/2019 1:04:48 PM, Old:     0.00, New:     0.10
+Blank Rd 4 Changed: 12/16/2019 1:04:50 PM, Old:     0.00, New:     0.07
+Blank Rd 5 Changed: 12/16/2019 1:04:53 PM, Old:     0.00, New:     0.07
+Blank Rd 6 Changed: 12/16/2019 1:04:55 PM, Old:     0.00, New:     0.05
+Backgrounds Collected Changed: 12/16/2019 1:04:55 PM, Old:0, New:1
+Backgrounds Collected Changed: 12/16/2019 1:05:02 PM, Old:1, New:0
+End Method Modifications
+
+Cell 2 - 1.8e-3,
+Cell 2 - 1.8e-3
+Collection Time: 12/16/2019 1:05:06 PM
+Operator Name  :
+ADL Shell Version 5.0.0.1002
+Method Log     :
+Method Name    : C:\ADLs_QNW\Version_050\191216-PNPB.Met
+Date/Time stamp: 12/16/2019 10:52:20 AM
+Method Modifications:
+COM Port Number Changed: 12/16/2019 10:49:46 AM, Old:Off, New:-1
+COM Port Number Changed: 12/16/2019 10:49:48 AM, Old:-1, New:
+Connected to Controller Changed: 12/16/2019 10:49:54 AM, Old:0, New:1
+Number Samples Changed: 12/16/2019 10:49:57 AM, Old:0, New:-6
+Cary Online Changed: 12/16/2019 10:50:02 AM, Old:-1, New:1
+Sample ID 1 Changed: 12/16/2019 10:50:02 AM, Old:, New:1111
+Sample ID 2 Changed: 12/16/2019 10:50:02 AM, Old:, New:2222
+Sample ID 3 Changed: 12/16/2019 10:50:02 AM, Old:, New:3333
+Sample ID 4 Changed: 12/16/2019 10:50:02 AM, Old:, New:4444
+Sample ID 5 Changed: 12/16/2019 10:50:02 AM, Old:, New:5555
+Sample ID 6 Changed: 12/16/2019 10:50:02 AM, Old:, New:6666
+Data Simulation Changed: 12/16/2019 10:50:02 AM, Old:None, New:Abs Only
+Data Simulation Changed: 12/16/2019 10:50:02 AM, Old:Abs Only, New:None
+Parameter Setup First Time Changed: 12/16/2019 10:50:02 AM, Old:1, New:0
+Y max Changed: 12/16/2019 10:50:14 AM, Old:     1.00, New:     3.00
+Method Changed: 12/16/2019 10:50:14 AM, Old:Ramp T, New:2
+Method Changed: 12/16/2019 10:50:14 AM, Old:2, New:Hold T
+Hold Temperature Changed: 12/16/2019 10:50:21 AM, Old:37, New:25.00
+Time Interval Changed: 12/16/2019 10:50:24 AM, Old:0.2, New:0.3
+Maximum Time Changed: 12/16/2019 10:50:27 AM, Old:60, New:5
+Equilibration Time Changed: 12/16/2019 10:50:28 AM, Old:    10.00, New:     5.00
+Stirrer Speed Changed: 12/16/2019 10:50:39 AM, Old:0, New:1200
+Sample ID 1 Changed: 12/16/2019 10:50:44 AM, Old:1111, New:4.5e-3
+Sample ID 2 Changed: 12/16/2019 10:50:51 AM, Old:2222, New:1.8e-3
+Sample ID 3 Changed: 12/16/2019 10:51:06 AM, Old:3333, New:7.2e-4
+Sample ID 4 Changed: 12/16/2019 10:51:13 AM, Old:4444, New:2.9e-4
+Sample ID 5 Changed: 12/16/2019 10:51:30 AM, Old:5555, New:1.2e-4
+Sample ID 6 Changed: 12/16/2019 10:51:44 AM, Old:6666, New:4.6e-5
+Saved as C:\ADLs_QNW\Version_050\191216-PNPB.M??Saved as C:\ADLs_QNW\Version_050\191216-PNPB.Met
+Opened C:\ADLs_QNW\Version_050\191216-PNPB.Met
+Hold Temperature Changed: 12/16/2019 1:04:39 PM, Old:25.00, New:5.00
+Blank Rd 1 Changed: 12/16/2019 1:04:42 PM, Old:     0.00, New:     0.61
+Blank Rd 2 Changed: 12/16/2019 1:04:45 PM, Old:     0.00, New:     0.19
+Blank Rd 3 Changed: 12/16/2019 1:04:48 PM, Old:     0.00, New:     0.10
+Blank Rd 4 Changed: 12/16/2019 1:04:50 PM, Old:     0.00, New:     0.07
+Blank Rd 5 Changed: 12/16/2019 1:04:53 PM, Old:     0.00, New:     0.07
+Blank Rd 6 Changed: 12/16/2019 1:04:55 PM, Old:     0.00, New:     0.05
+Backgrounds Collected Changed: 12/16/2019 1:04:55 PM, Old:0, New:1
+Backgrounds Collected Changed: 12/16/2019 1:05:02 PM, Old:1, New:0
+End Method Modifications
+
+Cell 3 - 7.2e-4,
+Cell 3 - 7.2e-4
+Collection Time: 12/16/2019 1:05:06 PM
+Operator Name  :
+ADL Shell Version 5.0.0.1002
+Method Log     :
+Method Name    : C:\ADLs_QNW\Version_050\191216-PNPB.Met
+Date/Time stamp: 12/16/2019 10:52:20 AM
+Method Modifications:
+COM Port Number Changed: 12/16/2019 10:49:46 AM, Old:Off, New:-1
+COM Port Number Changed: 12/16/2019 10:49:48 AM, Old:-1, New:
+Connected to Controller Changed: 12/16/2019 10:49:54 AM, Old:0, New:1
+Number Samples Changed: 12/16/2019 10:49:57 AM, Old:0, New:-6
+Cary Online Changed: 12/16/2019 10:50:02 AM, Old:-1, New:1
+Sample ID 1 Changed: 12/16/2019 10:50:02 AM, Old:, New:1111
+Sample ID 2 Changed: 12/16/2019 10:50:02 AM, Old:, New:2222
+Sample ID 3 Changed: 12/16/2019 10:50:02 AM, Old:, New:3333
+Sample ID 4 Changed: 12/16/2019 10:50:02 AM, Old:, New:4444
+Sample ID 5 Changed: 12/16/2019 10:50:02 AM, Old:, New:5555
+Sample ID 6 Changed: 12/16/2019 10:50:02 AM, Old:, New:6666
+Data Simulation Changed: 12/16/2019 10:50:02 AM, Old:None, New:Abs Only
+Data Simulation Changed: 12/16/2019 10:50:02 AM, Old:Abs Only, New:None
+Parameter Setup First Time Changed: 12/16/2019 10:50:02 AM, Old:1, New:0
+Y max Changed: 12/16/2019 10:50:14 AM, Old:     1.00, New:     3.00
+Method Changed: 12/16/2019 10:50:14 AM, Old:Ramp T, New:2
+Method Changed: 12/16/2019 10:50:14 AM, Old:2, New:Hold T
+Hold Temperature Changed: 12/16/2019 10:50:21 AM, Old:37, New:25.00
+Time Interval Changed: 12/16/2019 10:50:24 AM, Old:0.2, New:0.3
+Maximum Time Changed: 12/16/2019 10:50:27 AM, Old:60, New:5
+Equilibration Time Changed: 12/16/2019 10:50:28 AM, Old:    10.00, New:     5.00
+Stirrer Speed Changed: 12/16/2019 10:50:39 AM, Old:0, New:1200
+Sample ID 1 Changed: 12/16/2019 10:50:44 AM, Old:1111, New:4.5e-3
+Sample ID 2 Changed: 12/16/2019 10:50:51 AM, Old:2222, New:1.8e-3
+Sample ID 3 Changed: 12/16/2019 10:51:06 AM, Old:3333, New:7.2e-4
+Sample ID 4 Changed: 12/16/2019 10:51:13 AM, Old:4444, New:2.9e-4
+Sample ID 5 Changed: 12/16/2019 10:51:30 AM, Old:5555, New:1.2e-4
+Sample ID 6 Changed: 12/16/2019 10:51:44 AM, Old:6666, New:4.6e-5
+Saved as C:\ADLs_QNW\Version_050\191216-PNPB.M??Saved as C:\ADLs_QNW\Version_050\191216-PNPB.Met
+Opened C:\ADLs_QNW\Version_050\191216-PNPB.Met
+Hold Temperature Changed: 12/16/2019 1:04:39 PM, Old:25.00, New:5.00
+Blank Rd 1 Changed: 12/16/2019 1:04:42 PM, Old:     0.00, New:     0.61
+Blank Rd 2 Changed: 12/16/2019 1:04:45 PM, Old:     0.00, New:     0.19
+Blank Rd 3 Changed: 12/16/2019 1:04:48 PM, Old:     0.00, New:     0.10
+Blank Rd 4 Changed: 12/16/2019 1:04:50 PM, Old:     0.00, New:     0.07
+Blank Rd 5 Changed: 12/16/2019 1:04:53 PM, Old:     0.00, New:     0.07
+Blank Rd 6 Changed: 12/16/2019 1:04:55 PM, Old:     0.00, New:     0.05
+Backgrounds Collected Changed: 12/16/2019 1:04:55 PM, Old:0, New:1
+Backgrounds Collected Changed: 12/16/2019 1:05:02 PM, Old:1, New:0
+End Method Modifications
+
+Cell 4 - 2.9e-4,
+Cell 4 - 2.9e-4
+Collection Time: 12/16/2019 1:05:06 PM
+Operator Name  :
+ADL Shell Version 5.0.0.1002
+Method Log     :
+Method Name    : C:\ADLs_QNW\Version_050\191216-PNPB.Met
+Date/Time stamp: 12/16/2019 10:52:20 AM
+Method Modifications:
+COM Port Number Changed: 12/16/2019 10:49:46 AM, Old:Off, New:-1
+COM Port Number Changed: 12/16/2019 10:49:48 AM, Old:-1, New:
+Connected to Controller Changed: 12/16/2019 10:49:54 AM, Old:0, New:1
+Number Samples Changed: 12/16/2019 10:49:57 AM, Old:0, New:-6
+Cary Online Changed: 12/16/2019 10:50:02 AM, Old:-1, New:1
+Sample ID 1 Changed: 12/16/2019 10:50:02 AM, Old:, New:1111
+Sample ID 2 Changed: 12/16/2019 10:50:02 AM, Old:, New:2222
+Sample ID 3 Changed: 12/16/2019 10:50:02 AM, Old:, New:3333
+Sample ID 4 Changed: 12/16/2019 10:50:02 AM, Old:, New:4444
+Sample ID 5 Changed: 12/16/2019 10:50:02 AM, Old:, New:5555
+Sample ID 6 Changed: 12/16/2019 10:50:02 AM, Old:, New:6666
+Data Simulation Changed: 12/16/2019 10:50:02 AM, Old:None, New:Abs Only
+Data Simulation Changed: 12/16/2019 10:50:02 AM, Old:Abs Only, New:None
+Parameter Setup First Time Changed: 12/16/2019 10:50:02 AM, Old:1, New:0
+Y max Changed: 12/16/2019 10:50:14 AM, Old:     1.00, New:     3.00
+Method Changed: 12/16/2019 10:50:14 AM, Old:Ramp T, New:2
+Method Changed: 12/16/2019 10:50:14 AM, Old:2, New:Hold T
+Hold Temperature Changed: 12/16/2019 10:50:21 AM, Old:37, New:25.00
+Time Interval Changed: 12/16/2019 10:50:24 AM, Old:0.2, New:0.3
+Maximum Time Changed: 12/16/2019 10:50:27 AM, Old:60, New:5
+Equilibration Time Changed: 12/16/2019 10:50:28 AM, Old:    10.00, New:     5.00
+Stirrer Speed Changed: 12/16/2019 10:50:39 AM, Old:0, New:1200
+Sample ID 1 Changed: 12/16/2019 10:50:44 AM, Old:1111, New:4.5e-3
+Sample ID 2 Changed: 12/16/2019 10:50:51 AM, Old:2222, New:1.8e-3
+Sample ID 3 Changed: 12/16/2019 10:51:06 AM, Old:3333, New:7.2e-4
+Sample ID 4 Changed: 12/16/2019 10:51:13 AM, Old:4444, New:2.9e-4
+Sample ID 5 Changed: 12/16/2019 10:51:30 AM, Old:5555, New:1.2e-4
+Sample ID 6 Changed: 12/16/2019 10:51:44 AM, Old:6666, New:4.6e-5
+Saved as C:\ADLs_QNW\Version_050\191216-PNPB.M??Saved as C:\ADLs_QNW\Version_050\191216-PNPB.Met
+Opened C:\ADLs_QNW\Version_050\191216-PNPB.Met
+Hold Temperature Changed: 12/16/2019 1:04:39 PM, Old:25.00, New:5.00
+Blank Rd 1 Changed: 12/16/2019 1:04:42 PM, Old:     0.00, New:     0.61
+Blank Rd 2 Changed: 12/16/2019 1:04:45 PM, Old:     0.00, New:     0.19
+Blank Rd 3 Changed: 12/16/2019 1:04:48 PM, Old:     0.00, New:     0.10
+Blank Rd 4 Changed: 12/16/2019 1:04:50 PM, Old:     0.00, New:     0.07
+Blank Rd 5 Changed: 12/16/2019 1:04:53 PM, Old:     0.00, New:     0.07
+Blank Rd 6 Changed: 12/16/2019 1:04:55 PM, Old:     0.00, New:     0.05
+Backgrounds Collected Changed: 12/16/2019 1:04:55 PM, Old:0, New:1
+Backgrounds Collected Changed: 12/16/2019 1:05:02 PM, Old:1, New:0
+End Method Modifications
+
+Cell 5 - 1.2e-4,
+Cell 5 - 1.2e-4
+Collection Time: 12/16/2019 1:05:06 PM
+Operator Name  :
+ADL Shell Version 5.0.0.1002
+Method Log     :
+Method Name    : C:\ADLs_QNW\Version_050\191216-PNPB.Met
+Date/Time stamp: 12/16/2019 10:52:20 AM
+Method Modifications:
+COM Port Number Changed: 12/16/2019 10:49:46 AM, Old:Off, New:-1
+COM Port Number Changed: 12/16/2019 10:49:48 AM, Old:-1, New:
+Connected to Controller Changed: 12/16/2019 10:49:54 AM, Old:0, New:1
+Number Samples Changed: 12/16/2019 10:49:57 AM, Old:0, New:-6
+Cary Online Changed: 12/16/2019 10:50:02 AM, Old:-1, New:1
+Sample ID 1 Changed: 12/16/2019 10:50:02 AM, Old:, New:1111
+Sample ID 2 Changed: 12/16/2019 10:50:02 AM, Old:, New:2222
+Sample ID 3 Changed: 12/16/2019 10:50:02 AM, Old:, New:3333
+Sample ID 4 Changed: 12/16/2019 10:50:02 AM, Old:, New:4444
+Sample ID 5 Changed: 12/16/2019 10:50:02 AM, Old:, New:5555
+Sample ID 6 Changed: 12/16/2019 10:50:02 AM, Old:, New:6666
+Data Simulation Changed: 12/16/2019 10:50:02 AM, Old:None, New:Abs Only
+Data Simulation Changed: 12/16/2019 10:50:02 AM, Old:Abs Only, New:None
+Parameter Setup First Time Changed: 12/16/2019 10:50:02 AM, Old:1, New:0
+Y max Changed: 12/16/2019 10:50:14 AM, Old:     1.00, New:     3.00
+Method Changed: 12/16/2019 10:50:14 AM, Old:Ramp T, New:2
+Method Changed: 12/16/2019 10:50:14 AM, Old:2, New:Hold T
+Hold Temperature Changed: 12/16/2019 10:50:21 AM, Old:37, New:25.00
+Time Interval Changed: 12/16/2019 10:50:24 AM, Old:0.2, New:0.3
+Maximum Time Changed: 12/16/2019 10:50:27 AM, Old:60, New:5
+Equilibration Time Changed: 12/16/2019 10:50:28 AM, Old:    10.00, New:     5.00
+Stirrer Speed Changed: 12/16/2019 10:50:39 AM, Old:0, New:1200
+Sample ID 1 Changed: 12/16/2019 10:50:44 AM, Old:1111, New:4.5e-3
+Sample ID 2 Changed: 12/16/2019 10:50:51 AM, Old:2222, New:1.8e-3
+Sample ID 3 Changed: 12/16/2019 10:51:06 AM, Old:3333, New:7.2e-4
+Sample ID 4 Changed: 12/16/2019 10:51:13 AM, Old:4444, New:2.9e-4
+Sample ID 5 Changed: 12/16/2019 10:51:30 AM, Old:5555, New:1.2e-4
+Sample ID 6 Changed: 12/16/2019 10:51:44 AM, Old:6666, New:4.6e-5
+Saved as C:\ADLs_QNW\Version_050\191216-PNPB.M??Saved as C:\ADLs_QNW\Version_050\191216-PNPB.Met
+Opened C:\ADLs_QNW\Version_050\191216-PNPB.Met
+Hold Temperature Changed: 12/16/2019 1:04:39 PM, Old:25.00, New:5.00
+Blank Rd 1 Changed: 12/16/2019 1:04:42 PM, Old:     0.00, New:     0.61
+Blank Rd 2 Changed: 12/16/2019 1:04:45 PM, Old:     0.00, New:     0.19
+Blank Rd 3 Changed: 12/16/2019 1:04:48 PM, Old:     0.00, New:     0.10
+Blank Rd 4 Changed: 12/16/2019 1:04:50 PM, Old:     0.00, New:     0.07
+Blank Rd 5 Changed: 12/16/2019 1:04:53 PM, Old:     0.00, New:     0.07
+Blank Rd 6 Changed: 12/16/2019 1:04:55 PM, Old:     0.00, New:     0.05
+Backgrounds Collected Changed: 12/16/2019 1:04:55 PM, Old:0, New:1
+Backgrounds Collected Changed: 12/16/2019 1:05:02 PM, Old:1, New:0
+End Method Modifications
+
+Cell 6 - 4.6e-5,
+Cell 6 - 4.6e-5
+Collection Time: 12/16/2019 1:05:06 PM
+Operator Name  :
+ADL Shell Version 5.0.0.1002
+Method Log     :
+Method Name    : C:\ADLs_QNW\Version_050\191216-PNPB.Met
+Date/Time stamp: 12/16/2019 10:52:20 AM
+Method Modifications:
+COM Port Number Changed: 12/16/2019 10:49:46 AM, Old:Off, New:-1
+COM Port Number Changed: 12/16/2019 10:49:48 AM, Old:-1, New:
+Connected to Controller Changed: 12/16/2019 10:49:54 AM, Old:0, New:1
+Number Samples Changed: 12/16/2019 10:49:57 AM, Old:0, New:-6
+Cary Online Changed: 12/16/2019 10:50:02 AM, Old:-1, New:1
+Sample ID 1 Changed: 12/16/2019 10:50:02 AM, Old:, New:1111
+Sample ID 2 Changed: 12/16/2019 10:50:02 AM, Old:, New:2222
+Sample ID 3 Changed: 12/16/2019 10:50:02 AM, Old:, New:3333
+Sample ID 4 Changed: 12/16/2019 10:50:02 AM, Old:, New:4444
+Sample ID 5 Changed: 12/16/2019 10:50:02 AM, Old:, New:5555
+Sample ID 6 Changed: 12/16/2019 10:50:02 AM, Old:, New:6666
+Data Simulation Changed: 12/16/2019 10:50:02 AM, Old:None, New:Abs Only
+Data Simulation Changed: 12/16/2019 10:50:02 AM, Old:Abs Only, New:None
+Parameter Setup First Time Changed: 12/16/2019 10:50:02 AM, Old:1, New:0
+Y max Changed: 12/16/2019 10:50:14 AM, Old:     1.00, New:     3.00
+Method Changed: 12/16/2019 10:50:14 AM, Old:Ramp T, New:2
+Method Changed: 12/16/2019 10:50:14 AM, Old:2, New:Hold T
+Hold Temperature Changed: 12/16/2019 10:50:21 AM, Old:37, New:25.00
+Time Interval Changed: 12/16/2019 10:50:24 AM, Old:0.2, New:0.3
+Maximum Time Changed: 12/16/2019 10:50:27 AM, Old:60, New:5
+Equilibration Time Changed: 12/16/2019 10:50:28 AM, Old:    10.00, New:     5.00
+Stirrer Speed Changed: 12/16/2019 10:50:39 AM, Old:0, New:1200
+Sample ID 1 Changed: 12/16/2019 10:50:44 AM, Old:1111, New:4.5e-3
+Sample ID 2 Changed: 12/16/2019 10:50:51 AM, Old:2222, New:1.8e-3
+Sample ID 3 Changed: 12/16/2019 10:51:06 AM, Old:3333, New:7.2e-4
+Sample ID 4 Changed: 12/16/2019 10:51:13 AM, Old:4444, New:2.9e-4
+Sample ID 5 Changed: 12/16/2019 10:51:30 AM, Old:5555, New:1.2e-4
+Sample ID 6 Changed: 12/16/2019 10:51:44 AM, Old:6666, New:4.6e-5
+Saved as C:\ADLs_QNW\Version_050\191216-PNPB.M??Saved as C:\ADLs_QNW\Version_050\191216-PNPB.Met
+Opened C:\ADLs_QNW\Version_050\191216-PNPB.Met
+Hold Temperature Changed: 12/16/2019 1:04:39 PM, Old:25.00, New:5.00
+Blank Rd 1 Changed: 12/16/2019 1:04:42 PM, Old:     0.00, New:     0.61
+Blank Rd 2 Changed: 12/16/2019 1:04:45 PM, Old:     0.00, New:     0.19
+Blank Rd 3 Changed: 12/16/2019 1:04:48 PM, Old:     0.00, New:     0.10
+Blank Rd 4 Changed: 12/16/2019 1:04:50 PM, Old:     0.00, New:     0.07
+Blank Rd 5 Changed: 12/16/2019 1:04:53 PM, Old:     0.00, New:     0.07
+Blank Rd 6 Changed: 12/16/2019 1:04:55 PM, Old:     0.00, New:     0.05
+Backgrounds Collected Changed: 12/16/2019 1:04:55 PM, Old:0, New:1
+Backgrounds Collected Changed: 12/16/2019 1:05:02 PM, Old:1, New:0
+End Method Modifications
+
