@@ -13,26 +13,27 @@ def MichaelisMenten(x,Km,Vmax):
 Kmguess=1e-3 #initial guess
 Vmaxguess=1 #initial guess
 E0=5e-9 #Molar enzyme concentration
-ExtCoeff=1000
+ExtCoeff=5942
 positions=6
 readings=14
 skipstart=1
 
 kcatvstemperature=pd.DataFrame(columns=["Temperature","Kcat"])
+ExcelWriter = pd.ExcelWriter("thermofit.xlsx")
 
 for datafile in sys.argv[1:]:
+    print(datafile)
     df=pd.read_csv(datafile,sep=",")
     columns=df.columns
     velocityvsconcentration= pd.DataFrame(columns=["Concentration","Velocity","StdErr"])
     for position in range(0,positions*2,2):
         absorbancevstime=df[[columns[position],columns[position+1]]][skipstart:readings]
-        avt=absorbancevstime.astype(float)
-        Y=avt[columns[position+1]]
-        X=avt[columns[position]]
+        avt=absorbancevstime
+        Y=pd.to_numeric(avt[columns[position+1]],errors="coerce")[pd.notnull]
+        X=pd.to_numeric(avt[columns[position]],errors="coerce")[pd.notnull]
         X=sm.add_constant(X)
         linearmodel=sm.OLS(Y,X).fit()
         velocityvsconcentration.loc[position]= [float(columns[position][columns[position].find("-")+2:]),linearmodel.params[1],linearmodel.bse[1]]
-    velocityvsconcentration.plot(x="Concentration",y="Velocity")
     popt,pcov = curve_fit(MichaelisMenten,velocityvsconcentration["Concentration"],velocityvsconcentration["Velocity"],p0=[Kmguess,Vmaxguess])
     kcat=(popt[1]/(60*ExtCoeff))/E0 #60 seconds in a minute, readings given per minute. seconds is SI
     plt.plot(velocityvsconcentration["Concentration"],MichaelisMenten(velocityvsconcentration["Concentration"],*popt))
@@ -54,6 +55,8 @@ Y=kcatvstemperature["Kcat"]
 kcatvstemperature["Kcat"]=kcatvstemperature["Kcat"].apply(logKcat)
 kcatvstemperature.plot.scatter(x="Temperature",y="Kcat")
 print(kcatvstemperature)
+kcatvstemperature.to_csv(path_or_buf="kcatvstemperature.csv",index=False)
+kcatvstemperature.to_excel(excel_writer="kcatvstemperature.xlsx",index=False)
 X=sm.add_constant(X)
 Arrheniusmodel=sm.OLS(Y,X).fit()
 print(Arrheniusmodel.params[1])
