@@ -11,7 +11,7 @@ from matplotlib import cm
 
 plt.interactive(False)
 
-
+EnzymeConcentration=1e-8
 ExtCoeff=2630
 topconcentration=5e-4
 dilution=2
@@ -28,6 +28,13 @@ def tempdependentMichaelisMenten(x,A,Ea,mkm):
 
 def MichaelisMenten(x,Km,Vmax):
     return (Vmax*x)/(Km+x)
+def fitMichaelisMenten(dataframesection):
+    popt,pcov = curve_fit(MichaelisMenten,dataframesection[1]["Concentration"],dataframesection[1]["Time_regression"],p0=[Kmguess,Vmaxguess])
+    return popt
+def inversetemp(temperature):
+    return 1.0/temperature
+def logKcat(Kcat):
+    return np.log(Kcat)
 
 #def tempdependentMichaelisMenten(x
 
@@ -51,6 +58,7 @@ def processcsv(datafile):
 
     dfwregression=df.join(regression,rsuffix="_regression")
     dfwregression.dropna(inplace=True)
+    dfwregression["Time_regression"]=np.abs(dfwregression["Time_regression"])
 #    plt.plot(dfwregression.Temperature,dfwregression.Time_regression)
  #   plt.show()
     #plt.scatter(dfwregression["Temperature"],tempdependentMichaelisMenten((dfwregression["Concentration"],dfwregression["Temperature"]),*popt))
@@ -60,17 +68,13 @@ dataframes=[processcsv(datafile) for datafile in sys.argv[1:]]
 mergeddataframes=pd.concat(dataframes)
 temperatures=pd.cut(mergeddataframes.Temperature,12)
 temperaturesets=mergeddataframes.groupby(temperatures)
-for temperature in temperaturesets:
+
+kcatsvstemp=pd.DataFrame(([(temperature[1]["Temperature"].mean(),fitMichaelisMenten(temperature)[1]/EnzymeConcentration) for temperature in temperaturesets]),columns=("Temperature","Kcat"))
+kcatsvstemp["1/T"]=inversetemp(kcatsvstemp["Temperature"])
+kcatsvstemp["ln(Kcat)"]=logKcat(kcatsvstemp["Kcat"])
+kcatsvstemp.plot("ln(Kcat)","Temperature")
+plt.show()
+print(kcatsvstemp)
+Arrheniusmodel=sm.OLS(kcatsvstemp["ln(Kcat)"],sm.add_constant(kcatsvstemp["Temperature"])).fit()
+print(Arrheniusmodel.params[1])
     #temperature[1].plot("Concentration","Time_regression",linestyle="None",markersize=10,color="r",marker=11)
-    popt,pcov = curve_fit(MichaelisMenten,temperature[1]["Concentration"],temperature[1]["Time_regression"],p0=[Kmguess,Vmaxguess])
-    print("%d,%e" % (temperature[1]["Temperature"].mean(),popt[1]))
-#popt,pcov = curve_fit(tempdependentMichaelisMenten,
-#           (mergeddataframes["Concentration"],mergeddataframes["Temperature"]),
-#            mergeddataframes["Time_regression"],
-#            p0=[guessA,guessEa,guessmkm])
-#print(popt)
-#print(tempdependentMichaelisMenten((500e-6,298),*popt))
-#fig=plt.figure()
-#ag=Axes3D(fig)
-#ag.plot_trisurf(mergeddataframes.Concentration,mergeddataframes.Temperature,mergeddataframes.Time_regression,cmap=cm.jet)
-#plt.show()
