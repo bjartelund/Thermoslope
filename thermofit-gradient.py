@@ -18,6 +18,8 @@ dilution=2
 guessA=1
 R=8.314
 T=298.15
+h=6.626e-34
+kb=1.38e-23
 guessmkm=1e-4
 guessEa=30000
 
@@ -72,9 +74,17 @@ temperaturesets=mergeddataframes.groupby(temperatures)
 kcatsvstemp=pd.DataFrame(([(temperature[1]["Temperature"].mean(),fitMichaelisMenten(temperature)[1]/EnzymeConcentration) for temperature in temperaturesets]),columns=("Temperature","Kcat"))
 kcatsvstemp["1/T"]=inversetemp(kcatsvstemp["Temperature"])
 kcatsvstemp["ln(Kcat)"]=logKcat(kcatsvstemp["Kcat"])
-kcatsvstemp.plot("ln(Kcat)","Temperature")
-plt.show()
+kcatsvstemp.plot("1/T","ln(Kcat)")
 print(kcatsvstemp)
-Arrheniusmodel=sm.OLS(kcatsvstemp["ln(Kcat)"],sm.add_constant(kcatsvstemp["Temperature"])).fit()
-print(Arrheniusmodel.params[1])
-    #temperature[1].plot("Concentration","Time_regression",linestyle="None",markersize=10,color="r",marker=11)
+Arrheniusmodel=sm.OLS(kcatsvstemp["ln(Kcat)"],sm.add_constant(kcatsvstemp["1/T"].tail())).fit()
+print(Arrheniusmodel.params)
+Ea=-Arrheniusmodel.params[1]*R
+lnkcat=(-Ea/R)*(1/T)+Arrheniusmodel.params[0]
+print(lnkcat)
+dH=Ea-R*T
+dG=R*T*(np.log(kb/h) +np.log(T)-lnkcat)
+dS=(dH-dG)/T
+print(dH/4181)
+print(dG/4181)
+print(dS/4.181)
+#temperature[1].plot("Concentration","Time_regression",linestyle="None",markersize=10,color="r",marker=11)
