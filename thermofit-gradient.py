@@ -6,6 +6,9 @@ import statsmodels.api as sm
 from scipy.optimize import curve_fit
 from statsmodels.regression.rolling import RollingOLS
 import sys
+from mpl_toolkits.mplot3d import Axes3D
+from matplotlib import cm
+
 plt.interactive(False)
 
 
@@ -34,7 +37,7 @@ for datafile in sys.argv[1:]:
         cuvettedf=cuvette[1]
         Velocity=sm.add_constant(cuvettedf["Time"])
         Concentration=cuvettedf["Concentration"]
-        movingregression=RollingOLS(Concentration,Velocity,window=3).fit(params_only=True)
+        movingregression=RollingOLS(Concentration,Velocity,window=7).fit(params_only=True)
 #        fig = movingregression.plot_recursive_coefficient()
         regression=pd.concat([regression,movingregression.params])
     #fig.show()
@@ -49,5 +52,8 @@ for datafile in sys.argv[1:]:
             dfwregression["Time_regression"],
             p0=[guessA,guessEa,guessckm,guessmkm])
     print(popt)
-    plt.scatter(dfwregression["Temperature"],tempdependentMichaelisMenten((dfwregression["Concentration"],dfwregression["Temperature"]),*popt))
+    fig=plt.figure()
+    ag=Axes3D(fig)
+    ag.plot_trisurf(dfwregression.Concentration,dfwregression.Temperature,dfwregression.Time_regression,cmap=cm.jet)
+    #plt.scatter(dfwregression["Temperature"],tempdependentMichaelisMenten((dfwregression["Concentration"],dfwregression["Temperature"]),*popt))
     plt.show()
