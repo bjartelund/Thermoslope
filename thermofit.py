@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 import statsmodels.api as sm
 from scipy.optimize import curve_fit
 import sys
+import matplotlib.backends.backend_pdf
 
 def MichaelisMenten(x,Km,Vmax):
     return (Vmax*x)/(Km+x)
@@ -20,6 +21,7 @@ skipstart=1
 
 kcatvstemperature=pd.DataFrame(columns=["Temperature","Kcat"])
 ExcelWriter = pd.ExcelWriter("thermofit.xlsx")
+pdf = matplotlib.backends.backend_pdf.PdfPages("thermofit-output.pdf")
 
 for datafile in sys.argv[1:]:
     print(datafile)
@@ -36,7 +38,9 @@ for datafile in sys.argv[1:]:
         velocityvsconcentration.loc[position]= [float(columns[position][columns[position].find("-")+2:]),linearmodel.params[1],linearmodel.bse[1]]
     popt,pcov = curve_fit(MichaelisMenten,velocityvsconcentration["Concentration"],velocityvsconcentration["Velocity"],p0=[Kmguess,Vmaxguess])
     kcat=(popt[1]/(60*ExtCoeff))/E0 #60 seconds in a minute, readings given per minute. seconds is SI
+    fig=plt.figure()
     plt.plot(velocityvsconcentration["Concentration"],MichaelisMenten(velocityvsconcentration["Concentration"],*popt))
+    pdf.savefig(fig)
 
     temperatures=df[df[columns[0]].str.startswith("Hold Temperature Changed")]
     newtemp=temperatures[columns[2]].iloc[-1]
@@ -53,7 +57,10 @@ X=kcatvstemperature["Temperature"]
 kcatvstemperature["Temperature"]= kcatvstemperature["Temperature"].apply(inversetemp)
 Y=kcatvstemperature["Kcat"]
 kcatvstemperature["Kcat"]=kcatvstemperature["Kcat"].apply(logKcat)
+fig=plt.figure()
 kcatvstemperature.plot.scatter(x="Temperature",y="Kcat")
+pdf.savefig(fig)
+
 print(kcatvstemperature)
 kcatvstemperature.to_csv(path_or_buf="kcatvstemperature.csv",index=False)
 kcatvstemperature.to_excel(excel_writer="kcatvstemperature.xlsx",index=False)
@@ -61,3 +68,4 @@ X=sm.add_constant(X)
 Arrheniusmodel=sm.OLS(Y,X).fit()
 print(Arrheniusmodel.params[1])
 plt.show()
+pdf.close()
