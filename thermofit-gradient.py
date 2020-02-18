@@ -24,12 +24,24 @@ temperaturebins=12
 topconcentration=5e-4
 dilution=2
 
+lowtempcutoff=295
+hightempcutoff=373
 
 #Should probably not be changed
 R=8.314
 T=298.15
 h=6.626e-34
 kb=1.38e-23
+
+Parameters=pd.Series(("EnzConc","ExtCoeff","Kmguess","Vmaxguess","temperaturebins","topsubstrateconc","dilutionfactor","lowtempcutoff","hightempcutoff","R","T","h","kb"))
+Values=pd.Series((EnzymeConcentration,ExtCoeff,Kmguess,Vmaxguess,temperaturebins,topconcentration,dilution,lowtempcutoff,hightempcutoff,R,T,h,kb))
+frame={"Parameters":Parameters,"Values":Values}
+thermofitparameters=pd.DataFrame(frame)
+fig, ax =plt.subplots(figsize=(12,4))
+ax.axis('tight')
+ax.axis('off')
+the_table = ax.table(cellText=thermofitparameters.values,colLabels=thermofitparameters.columns,loc='center')
+pdf.savefig(fig, bbox_inches='tight')
 
 
 def MichaelisMenten(x,Km,Vmax):
@@ -85,7 +97,7 @@ temperatures=pd.cut(mergeddataframes.Temperature,temperaturebins) #Bin observati
 temperaturesets=mergeddataframes.groupby(temperatures)
 
 #Fit individual bins by classical Michaelis Menten by non-linear regression
-kcatsvstemp=pd.DataFrame(([(temperature[1]["Temperature"].mean(),fitMichaelisMenten(temperature)[1]/EnzymeConcentration) for temperature in temperaturesets]),columns=("Temperature","Kcat"))
+kcatsvstemp=pd.DataFrame(([(temperature[1]["Temperature"].mean(),fitMichaelisMenten(temperature)[1]/EnzymeConcentration) for temperature in temperaturesets if lowtempcutoff<temperature[1]["Temperature"].mean()<hightempcutoff]),columns=("Temperature","Kcat"))
 for temperature in temperaturesets:
     fig=plt.figure()
     plt.title(temperature[1]["Temperature"].mean())
@@ -119,10 +131,19 @@ Parameters=pd.Series(("dG","dH","dS","Ea","ln(kcat) 298K"))
 Values=pd.Series((dG,dH,dS,Ea,lnkcat))
 frame={"Parameters":Parameters,"Values":Values}
 arrheniusparameters=pd.DataFrame(frame)
+arrheniusparameters["ValuesKcat"]=arrheniusparameters.Values/4181
 
 fig, ax =plt.subplots(figsize=(12,4))
 ax.axis('tight')
 ax.axis('off')
 the_table = ax.table(cellText=arrheniusparameters.values,colLabels=arrheniusparameters.columns,loc='center')
 pdf.savefig(fig, bbox_inches='tight')
+
+commandline=pd.DataFrame(sys.argv,columns=("argument",))
+fig, ax =plt.subplots(figsize=(12,4))
+ax.axis('tight')
+ax.axis('off')
+the_table = ax.table(cellText=commandline.values,colLabels=commandline.columns,loc='center')
+pdf.savefig(fig, bbox_inches='tight')
+
 pdf.close()
