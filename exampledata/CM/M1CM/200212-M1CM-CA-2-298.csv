@@ -1,0 +1,294 @@
+Cell 1 - 5e-4,,Cell 2 - 2.5e-4,,Cell 3 - 1.25e-4,,Cell 4 - 6.25e-5,,Cell 5 - 3.125e-5,,Cell 6 - 1.56e-5,,
+Time (min),Abs,Time (min),Abs,Time (min),Abs,Time (min),Abs,Time (min),Abs,Time (min),Abs,
+6.462844794E-006,1.315423012,0.04263596982,0.6544479728,0.08527618647,0.4001396894,0.1279156953,0.2411925048,0.1705552936,0.1580080986,0.213194102,0.1135398969,
+0.356453687,1.311957955,0.3990912139,0.6489502192,0.4417318106,0.3971711099,0.4843721986,0.2395998985,0.5270107985,0.1570260972,0.5696492791,0.1123284027,
+0.7129104137,1.308001995,0.7555478215,0.64519912,0.7981873751,0.3964079022,0.8408272266,0.2379731983,0.8834664226,0.1557137072,0.9261056185,0.1112629995,
+1.069365978,1.302155018,1.112002969,0.6438708901,1.154643059,0.3935911953,1.19728303,0.2366327941,1.239922047,0.1542876959,1.282562017,0.1100305989,
+1.425820947,1.302095056,1.46845901,0.6428059936,1.511098981,0.3913885057,1.553738952,0.2348328978,1.596377969,0.1528601944,1.639018059,0.1087561026,
+1.782276988,1.299005985,1.824915051,0.637796104,1.867553949,0.3904544115,1.910194039,0.2330902964,1.952833056,0.1510048956,1.995473027,0.1074486002,
+2.13873291,1.295609951,2.181370974,0.6371654272,2.224009991,0.3886008859,2.266649961,0.2314075977,2.309289932,0.1493480951,2.351928949,0.1061908975,
+2.495189905,1.290675998,2.537827015,0.634961307,2.580466032,0.3864961863,2.623105049,0.2296500951,2.665746927,0.1481145024,2.708384037,0.1051232964,
+2.851644993,1.288395047,2.894283056,0.6341292858,2.936923027,0.3842209876,2.979562044,0.2290026993,3.022201061,0.1463536024,3.064841032,0.1038433984,
+3.20810008,1.281008005,3.250737906,0.6321632266,3.293378115,0.3817920983,3.336016893,0.2261850983,3.378657103,0.1445925981,3.421297073,0.1023565978,
+3.56507802,1.272413969,3.607714891,0.6295751929,3.650353909,0.3796750903,3.692992926,0.2246284932,3.735632896,0.1428357065,3.778273106,0.1016111001,
+3.921533108,1.265949965,3.964169979,0.6281583905,4.006810188,0.3775072098,4.049448967,0.2231158018,4.092088223,0.1416597068,4.134727955,0.1006899998,
+4.277987957,1.261281967,4.320625782,0.6268292069,4.363265991,0.3754965961,4.40590477,0.2212706953,4.448544979,0.1399382055,4.491185188,0.0997031033,
+4.634444237,1.258589029,4.677081108,0.6230800748,4.719721794,0.3735398948,4.762362003,0.219777897,4.80500412,0.1380818039,4.847640038,0.09898261726,
+4.99090004,1.254618049,5.033537865,0.6228463054,5.076178074,0.3716912866,5.118816853,0.2179172933,5.161456108,0.1366409957,5.20409584,0.09802699834,
+
+Cell 1 - 5e-4,
+Cell 1 - 5e-4
+Collection Time: 2/12/2020 12:34:42 PM
+Operator Name  :
+ADL Shell Version 5.0.0.1002
+Method Log     :
+Method Name    : C:\ADLs_QNW\Version_050\HOLDCM.Met
+Date/Time stamp: 2/12/2020 12:11:41 PM
+Method Modifications:
+COM Port Number Changed: 2/12/2020 12:07:29 PM, Old:Off, New:-1
+COM Port Number Changed: 2/12/2020 12:07:30 PM, Old:-1, New:
+Connected to Controller Changed: 2/12/2020 12:07:37 PM, Old:0, New:1
+Number Samples Changed: 2/12/2020 12:07:39 PM, Old:0, New:-6
+Cary Online Changed: 2/12/2020 12:07:56 PM, Old:-1, New:1
+Sample ID 1 Changed: 2/12/2020 12:07:56 PM, Old:, New:1111
+Sample ID 2 Changed: 2/12/2020 12:07:56 PM, Old:, New:2222
+Sample ID 3 Changed: 2/12/2020 12:07:56 PM, Old:, New:3333
+Sample ID 4 Changed: 2/12/2020 12:07:56 PM, Old:, New:4444
+Sample ID 5 Changed: 2/12/2020 12:07:56 PM, Old:, New:5555
+Sample ID 6 Changed: 2/12/2020 12:07:56 PM, Old:, New:6666
+Data Simulation Changed: 2/12/2020 12:07:56 PM, Old:None, New:Abs Only
+Data Simulation Changed: 2/12/2020 12:07:56 PM, Old:Abs Only, New:None
+Parameter Setup First Time Changed: 2/12/2020 12:07:56 PM, Old:1, New:0
+Method Changed: 2/12/2020 12:07:59 PM, Old:Ramp T, New:2
+Method Changed: 2/12/2020 12:07:59 PM, Old:2, New:Hold T
+Hold Temperature Changed: 2/12/2020 12:08:08 PM, Old:37, New:25
+Time Interval Changed: 2/12/2020 12:08:09 PM, Old:0.2, New:0.3
+Maximum Time Changed: 2/12/2020 12:08:13 PM, Old:60, New:10
+Equilibration Time Changed: 2/12/2020 12:08:15 PM, Old:    10.00, New:     1.00
+Stirrer Speed Changed: 2/12/2020 12:08:20 PM, Old:0, New:1200
+Sample ID 1 Changed: 2/12/2020 12:08:34 PM, Old:1111, New:5e-4
+Sample ID 2 Changed: 2/12/2020 12:08:37 PM, Old:2222, New:2.5e-4
+Sample ID 3 Changed: 2/12/2020 12:08:40 PM, Old:3333, New:1.25e-4
+Sample ID 4 Changed: 2/12/2020 12:08:43 PM, Old:4444, New:6.125e-5
+Sample ID 5 Changed: 2/12/2020 12:09:12 PM, Old:5555, New:3.
+Sample ID 4 Changed: 2/12/2020 12:09:14 PM, Old:6.125e-5, New:6.25e-5
+Sample ID 5 Changed: 2/12/2020 12:09:20 PM, Old:3., New:3.125e-5
+Sample ID 6 Changed: 2/12/2020 12:09:42 PM, Old:6666, New:1.56e-5
+Saved as C:\ADLs_QNW\Version_050\HOLDCM.MetMaximum Time Changed: 2/12/2020 12:11:35 PM, Old:10, New:5
+Saved as C:\ADLs_QNW\Version_050\HOLDCM.Met
+Unsaved Data Changed: 2/12/2020 12:13:15 PM, Old:0, New:1
+Unsaved Data Changed: 2/12/2020 12:14:42 PM, Old:1, New:0
+Unsaved Data Changed: 2/12/2020 12:16:08 PM, Old:0, New:1
+Unsaved Data Changed: 2/12/2020 12:22:09 PM, Old:1, New:0
+End Method Modifications
+
+Cell 2 - 2.5e-4,
+Cell 2 - 2.5e-4
+Collection Time: 2/12/2020 12:34:42 PM
+Operator Name  :
+ADL Shell Version 5.0.0.1002
+Method Log     :
+Method Name    : C:\ADLs_QNW\Version_050\HOLDCM.Met
+Date/Time stamp: 2/12/2020 12:11:41 PM
+Method Modifications:
+COM Port Number Changed: 2/12/2020 12:07:29 PM, Old:Off, New:-1
+COM Port Number Changed: 2/12/2020 12:07:30 PM, Old:-1, New:
+Connected to Controller Changed: 2/12/2020 12:07:37 PM, Old:0, New:1
+Number Samples Changed: 2/12/2020 12:07:39 PM, Old:0, New:-6
+Cary Online Changed: 2/12/2020 12:07:56 PM, Old:-1, New:1
+Sample ID 1 Changed: 2/12/2020 12:07:56 PM, Old:, New:1111
+Sample ID 2 Changed: 2/12/2020 12:07:56 PM, Old:, New:2222
+Sample ID 3 Changed: 2/12/2020 12:07:56 PM, Old:, New:3333
+Sample ID 4 Changed: 2/12/2020 12:07:56 PM, Old:, New:4444
+Sample ID 5 Changed: 2/12/2020 12:07:56 PM, Old:, New:5555
+Sample ID 6 Changed: 2/12/2020 12:07:56 PM, Old:, New:6666
+Data Simulation Changed: 2/12/2020 12:07:56 PM, Old:None, New:Abs Only
+Data Simulation Changed: 2/12/2020 12:07:56 PM, Old:Abs Only, New:None
+Parameter Setup First Time Changed: 2/12/2020 12:07:56 PM, Old:1, New:0
+Method Changed: 2/12/2020 12:07:59 PM, Old:Ramp T, New:2
+Method Changed: 2/12/2020 12:07:59 PM, Old:2, New:Hold T
+Hold Temperature Changed: 2/12/2020 12:08:08 PM, Old:37, New:25
+Time Interval Changed: 2/12/2020 12:08:09 PM, Old:0.2, New:0.3
+Maximum Time Changed: 2/12/2020 12:08:13 PM, Old:60, New:10
+Equilibration Time Changed: 2/12/2020 12:08:15 PM, Old:    10.00, New:     1.00
+Stirrer Speed Changed: 2/12/2020 12:08:20 PM, Old:0, New:1200
+Sample ID 1 Changed: 2/12/2020 12:08:34 PM, Old:1111, New:5e-4
+Sample ID 2 Changed: 2/12/2020 12:08:37 PM, Old:2222, New:2.5e-4
+Sample ID 3 Changed: 2/12/2020 12:08:40 PM, Old:3333, New:1.25e-4
+Sample ID 4 Changed: 2/12/2020 12:08:43 PM, Old:4444, New:6.125e-5
+Sample ID 5 Changed: 2/12/2020 12:09:12 PM, Old:5555, New:3.
+Sample ID 4 Changed: 2/12/2020 12:09:14 PM, Old:6.125e-5, New:6.25e-5
+Sample ID 5 Changed: 2/12/2020 12:09:20 PM, Old:3., New:3.125e-5
+Sample ID 6 Changed: 2/12/2020 12:09:42 PM, Old:6666, New:1.56e-5
+Saved as C:\ADLs_QNW\Version_050\HOLDCM.MetMaximum Time Changed: 2/12/2020 12:11:35 PM, Old:10, New:5
+Saved as C:\ADLs_QNW\Version_050\HOLDCM.Met
+Unsaved Data Changed: 2/12/2020 12:13:15 PM, Old:0, New:1
+Unsaved Data Changed: 2/12/2020 12:14:42 PM, Old:1, New:0
+Unsaved Data Changed: 2/12/2020 12:16:08 PM, Old:0, New:1
+Unsaved Data Changed: 2/12/2020 12:22:09 PM, Old:1, New:0
+End Method Modifications
+
+Cell 3 - 1.25e-4,
+Cell 3 - 1.25e-4
+Collection Time: 2/12/2020 12:34:42 PM
+Operator Name  :
+ADL Shell Version 5.0.0.1002
+Method Log     :
+Method Name    : C:\ADLs_QNW\Version_050\HOLDCM.Met
+Date/Time stamp: 2/12/2020 12:11:41 PM
+Method Modifications:
+COM Port Number Changed: 2/12/2020 12:07:29 PM, Old:Off, New:-1
+COM Port Number Changed: 2/12/2020 12:07:30 PM, Old:-1, New:
+Connected to Controller Changed: 2/12/2020 12:07:37 PM, Old:0, New:1
+Number Samples Changed: 2/12/2020 12:07:39 PM, Old:0, New:-6
+Cary Online Changed: 2/12/2020 12:07:56 PM, Old:-1, New:1
+Sample ID 1 Changed: 2/12/2020 12:07:56 PM, Old:, New:1111
+Sample ID 2 Changed: 2/12/2020 12:07:56 PM, Old:, New:2222
+Sample ID 3 Changed: 2/12/2020 12:07:56 PM, Old:, New:3333
+Sample ID 4 Changed: 2/12/2020 12:07:56 PM, Old:, New:4444
+Sample ID 5 Changed: 2/12/2020 12:07:56 PM, Old:, New:5555
+Sample ID 6 Changed: 2/12/2020 12:07:56 PM, Old:, New:6666
+Data Simulation Changed: 2/12/2020 12:07:56 PM, Old:None, New:Abs Only
+Data Simulation Changed: 2/12/2020 12:07:56 PM, Old:Abs Only, New:None
+Parameter Setup First Time Changed: 2/12/2020 12:07:56 PM, Old:1, New:0
+Method Changed: 2/12/2020 12:07:59 PM, Old:Ramp T, New:2
+Method Changed: 2/12/2020 12:07:59 PM, Old:2, New:Hold T
+Hold Temperature Changed: 2/12/2020 12:08:08 PM, Old:37, New:25
+Time Interval Changed: 2/12/2020 12:08:09 PM, Old:0.2, New:0.3
+Maximum Time Changed: 2/12/2020 12:08:13 PM, Old:60, New:10
+Equilibration Time Changed: 2/12/2020 12:08:15 PM, Old:    10.00, New:     1.00
+Stirrer Speed Changed: 2/12/2020 12:08:20 PM, Old:0, New:1200
+Sample ID 1 Changed: 2/12/2020 12:08:34 PM, Old:1111, New:5e-4
+Sample ID 2 Changed: 2/12/2020 12:08:37 PM, Old:2222, New:2.5e-4
+Sample ID 3 Changed: 2/12/2020 12:08:40 PM, Old:3333, New:1.25e-4
+Sample ID 4 Changed: 2/12/2020 12:08:43 PM, Old:4444, New:6.125e-5
+Sample ID 5 Changed: 2/12/2020 12:09:12 PM, Old:5555, New:3.
+Sample ID 4 Changed: 2/12/2020 12:09:14 PM, Old:6.125e-5, New:6.25e-5
+Sample ID 5 Changed: 2/12/2020 12:09:20 PM, Old:3., New:3.125e-5
+Sample ID 6 Changed: 2/12/2020 12:09:42 PM, Old:6666, New:1.56e-5
+Saved as C:\ADLs_QNW\Version_050\HOLDCM.MetMaximum Time Changed: 2/12/2020 12:11:35 PM, Old:10, New:5
+Saved as C:\ADLs_QNW\Version_050\HOLDCM.Met
+Unsaved Data Changed: 2/12/2020 12:13:15 PM, Old:0, New:1
+Unsaved Data Changed: 2/12/2020 12:14:42 PM, Old:1, New:0
+Unsaved Data Changed: 2/12/2020 12:16:08 PM, Old:0, New:1
+Unsaved Data Changed: 2/12/2020 12:22:09 PM, Old:1, New:0
+End Method Modifications
+
+Cell 4 - 6.25e-5,
+Cell 4 - 6.25e-5
+Collection Time: 2/12/2020 12:34:42 PM
+Operator Name  :
+ADL Shell Version 5.0.0.1002
+Method Log     :
+Method Name    : C:\ADLs_QNW\Version_050\HOLDCM.Met
+Date/Time stamp: 2/12/2020 12:11:41 PM
+Method Modifications:
+COM Port Number Changed: 2/12/2020 12:07:29 PM, Old:Off, New:-1
+COM Port Number Changed: 2/12/2020 12:07:30 PM, Old:-1, New:
+Connected to Controller Changed: 2/12/2020 12:07:37 PM, Old:0, New:1
+Number Samples Changed: 2/12/2020 12:07:39 PM, Old:0, New:-6
+Cary Online Changed: 2/12/2020 12:07:56 PM, Old:-1, New:1
+Sample ID 1 Changed: 2/12/2020 12:07:56 PM, Old:, New:1111
+Sample ID 2 Changed: 2/12/2020 12:07:56 PM, Old:, New:2222
+Sample ID 3 Changed: 2/12/2020 12:07:56 PM, Old:, New:3333
+Sample ID 4 Changed: 2/12/2020 12:07:56 PM, Old:, New:4444
+Sample ID 5 Changed: 2/12/2020 12:07:56 PM, Old:, New:5555
+Sample ID 6 Changed: 2/12/2020 12:07:56 PM, Old:, New:6666
+Data Simulation Changed: 2/12/2020 12:07:56 PM, Old:None, New:Abs Only
+Data Simulation Changed: 2/12/2020 12:07:56 PM, Old:Abs Only, New:None
+Parameter Setup First Time Changed: 2/12/2020 12:07:56 PM, Old:1, New:0
+Method Changed: 2/12/2020 12:07:59 PM, Old:Ramp T, New:2
+Method Changed: 2/12/2020 12:07:59 PM, Old:2, New:Hold T
+Hold Temperature Changed: 2/12/2020 12:08:08 PM, Old:37, New:25
+Time Interval Changed: 2/12/2020 12:08:09 PM, Old:0.2, New:0.3
+Maximum Time Changed: 2/12/2020 12:08:13 PM, Old:60, New:10
+Equilibration Time Changed: 2/12/2020 12:08:15 PM, Old:    10.00, New:     1.00
+Stirrer Speed Changed: 2/12/2020 12:08:20 PM, Old:0, New:1200
+Sample ID 1 Changed: 2/12/2020 12:08:34 PM, Old:1111, New:5e-4
+Sample ID 2 Changed: 2/12/2020 12:08:37 PM, Old:2222, New:2.5e-4
+Sample ID 3 Changed: 2/12/2020 12:08:40 PM, Old:3333, New:1.25e-4
+Sample ID 4 Changed: 2/12/2020 12:08:43 PM, Old:4444, New:6.125e-5
+Sample ID 5 Changed: 2/12/2020 12:09:12 PM, Old:5555, New:3.
+Sample ID 4 Changed: 2/12/2020 12:09:14 PM, Old:6.125e-5, New:6.25e-5
+Sample ID 5 Changed: 2/12/2020 12:09:20 PM, Old:3., New:3.125e-5
+Sample ID 6 Changed: 2/12/2020 12:09:42 PM, Old:6666, New:1.56e-5
+Saved as C:\ADLs_QNW\Version_050\HOLDCM.MetMaximum Time Changed: 2/12/2020 12:11:35 PM, Old:10, New:5
+Saved as C:\ADLs_QNW\Version_050\HOLDCM.Met
+Unsaved Data Changed: 2/12/2020 12:13:15 PM, Old:0, New:1
+Unsaved Data Changed: 2/12/2020 12:14:42 PM, Old:1, New:0
+Unsaved Data Changed: 2/12/2020 12:16:08 PM, Old:0, New:1
+Unsaved Data Changed: 2/12/2020 12:22:09 PM, Old:1, New:0
+End Method Modifications
+
+Cell 5 - 3.125e-5,
+Cell 5 - 3.125e-5
+Collection Time: 2/12/2020 12:34:42 PM
+Operator Name  :
+ADL Shell Version 5.0.0.1002
+Method Log     :
+Method Name    : C:\ADLs_QNW\Version_050\HOLDCM.Met
+Date/Time stamp: 2/12/2020 12:11:41 PM
+Method Modifications:
+COM Port Number Changed: 2/12/2020 12:07:29 PM, Old:Off, New:-1
+COM Port Number Changed: 2/12/2020 12:07:30 PM, Old:-1, New:
+Connected to Controller Changed: 2/12/2020 12:07:37 PM, Old:0, New:1
+Number Samples Changed: 2/12/2020 12:07:39 PM, Old:0, New:-6
+Cary Online Changed: 2/12/2020 12:07:56 PM, Old:-1, New:1
+Sample ID 1 Changed: 2/12/2020 12:07:56 PM, Old:, New:1111
+Sample ID 2 Changed: 2/12/2020 12:07:56 PM, Old:, New:2222
+Sample ID 3 Changed: 2/12/2020 12:07:56 PM, Old:, New:3333
+Sample ID 4 Changed: 2/12/2020 12:07:56 PM, Old:, New:4444
+Sample ID 5 Changed: 2/12/2020 12:07:56 PM, Old:, New:5555
+Sample ID 6 Changed: 2/12/2020 12:07:56 PM, Old:, New:6666
+Data Simulation Changed: 2/12/2020 12:07:56 PM, Old:None, New:Abs Only
+Data Simulation Changed: 2/12/2020 12:07:56 PM, Old:Abs Only, New:None
+Parameter Setup First Time Changed: 2/12/2020 12:07:56 PM, Old:1, New:0
+Method Changed: 2/12/2020 12:07:59 PM, Old:Ramp T, New:2
+Method Changed: 2/12/2020 12:07:59 PM, Old:2, New:Hold T
+Hold Temperature Changed: 2/12/2020 12:08:08 PM, Old:37, New:25
+Time Interval Changed: 2/12/2020 12:08:09 PM, Old:0.2, New:0.3
+Maximum Time Changed: 2/12/2020 12:08:13 PM, Old:60, New:10
+Equilibration Time Changed: 2/12/2020 12:08:15 PM, Old:    10.00, New:     1.00
+Stirrer Speed Changed: 2/12/2020 12:08:20 PM, Old:0, New:1200
+Sample ID 1 Changed: 2/12/2020 12:08:34 PM, Old:1111, New:5e-4
+Sample ID 2 Changed: 2/12/2020 12:08:37 PM, Old:2222, New:2.5e-4
+Sample ID 3 Changed: 2/12/2020 12:08:40 PM, Old:3333, New:1.25e-4
+Sample ID 4 Changed: 2/12/2020 12:08:43 PM, Old:4444, New:6.125e-5
+Sample ID 5 Changed: 2/12/2020 12:09:12 PM, Old:5555, New:3.
+Sample ID 4 Changed: 2/12/2020 12:09:14 PM, Old:6.125e-5, New:6.25e-5
+Sample ID 5 Changed: 2/12/2020 12:09:20 PM, Old:3., New:3.125e-5
+Sample ID 6 Changed: 2/12/2020 12:09:42 PM, Old:6666, New:1.56e-5
+Saved as C:\ADLs_QNW\Version_050\HOLDCM.MetMaximum Time Changed: 2/12/2020 12:11:35 PM, Old:10, New:5
+Saved as C:\ADLs_QNW\Version_050\HOLDCM.Met
+Unsaved Data Changed: 2/12/2020 12:13:15 PM, Old:0, New:1
+Unsaved Data Changed: 2/12/2020 12:14:42 PM, Old:1, New:0
+Unsaved Data Changed: 2/12/2020 12:16:08 PM, Old:0, New:1
+Unsaved Data Changed: 2/12/2020 12:22:09 PM, Old:1, New:0
+End Method Modifications
+
+Cell 6 - 1.56e-5,
+Cell 6 - 1.56e-5
+Collection Time: 2/12/2020 12:34:42 PM
+Operator Name  :
+ADL Shell Version 5.0.0.1002
+Method Log     :
+Method Name    : C:\ADLs_QNW\Version_050\HOLDCM.Met
+Date/Time stamp: 2/12/2020 12:11:41 PM
+Method Modifications:
+COM Port Number Changed: 2/12/2020 12:07:29 PM, Old:Off, New:-1
+COM Port Number Changed: 2/12/2020 12:07:30 PM, Old:-1, New:
+Connected to Controller Changed: 2/12/2020 12:07:37 PM, Old:0, New:1
+Number Samples Changed: 2/12/2020 12:07:39 PM, Old:0, New:-6
+Cary Online Changed: 2/12/2020 12:07:56 PM, Old:-1, New:1
+Sample ID 1 Changed: 2/12/2020 12:07:56 PM, Old:, New:1111
+Sample ID 2 Changed: 2/12/2020 12:07:56 PM, Old:, New:2222
+Sample ID 3 Changed: 2/12/2020 12:07:56 PM, Old:, New:3333
+Sample ID 4 Changed: 2/12/2020 12:07:56 PM, Old:, New:4444
+Sample ID 5 Changed: 2/12/2020 12:07:56 PM, Old:, New:5555
+Sample ID 6 Changed: 2/12/2020 12:07:56 PM, Old:, New:6666
+Data Simulation Changed: 2/12/2020 12:07:56 PM, Old:None, New:Abs Only
+Data Simulation Changed: 2/12/2020 12:07:56 PM, Old:Abs Only, New:None
+Parameter Setup First Time Changed: 2/12/2020 12:07:56 PM, Old:1, New:0
+Method Changed: 2/12/2020 12:07:59 PM, Old:Ramp T, New:2
+Method Changed: 2/12/2020 12:07:59 PM, Old:2, New:Hold T
+Hold Temperature Changed: 2/12/2020 12:08:08 PM, Old:37, New:25
+Time Interval Changed: 2/12/2020 12:08:09 PM, Old:0.2, New:0.3
+Maximum Time Changed: 2/12/2020 12:08:13 PM, Old:60, New:10
+Equilibration Time Changed: 2/12/2020 12:08:15 PM, Old:    10.00, New:     1.00
+Stirrer Speed Changed: 2/12/2020 12:08:20 PM, Old:0, New:1200
+Sample ID 1 Changed: 2/12/2020 12:08:34 PM, Old:1111, New:5e-4
+Sample ID 2 Changed: 2/12/2020 12:08:37 PM, Old:2222, New:2.5e-4
+Sample ID 3 Changed: 2/12/2020 12:08:40 PM, Old:3333, New:1.25e-4
+Sample ID 4 Changed: 2/12/2020 12:08:43 PM, Old:4444, New:6.125e-5
+Sample ID 5 Changed: 2/12/2020 12:09:12 PM, Old:5555, New:3.
+Sample ID 4 Changed: 2/12/2020 12:09:14 PM, Old:6.125e-5, New:6.25e-5
+Sample ID 5 Changed: 2/12/2020 12:09:20 PM, Old:3., New:3.125e-5
+Sample ID 6 Changed: 2/12/2020 12:09:42 PM, Old:6666, New:1.56e-5
+Saved as C:\ADLs_QNW\Version_050\HOLDCM.MetMaximum Time Changed: 2/12/2020 12:11:35 PM, Old:10, New:5
+Saved as C:\ADLs_QNW\Version_050\HOLDCM.Met
+Unsaved Data Changed: 2/12/2020 12:13:15 PM, Old:0, New:1
+Unsaved Data Changed: 2/12/2020 12:14:42 PM, Old:1, New:0
+Unsaved Data Changed: 2/12/2020 12:16:08 PM, Old:0, New:1
+Unsaved Data Changed: 2/12/2020 12:22:09 PM, Old:1, New:0
+End Method Modifications
+
