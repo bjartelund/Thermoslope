@@ -15,7 +15,7 @@ pdf = matplotlib.backends.backend_pdf.PdfPages("thermofit-gradient-output.pdf")
 plt.interactive(False) #Show plots until closed
 
 #Fill in your values
-EnzymeConcentration=1e-8 
+EnzymeConcentration=5e-8 
 ExtCoeff=2630
 Kmguess=1e-4 #initial guess
 Vmaxguess=50 #initial guess
@@ -24,7 +24,7 @@ temperaturebins=12
 topconcentration=5e-4
 dilution=2
 
-lowtempcutoff=295
+lowtempcutoff=290
 hightempcutoff=373
 
 #Should probably not be changed
@@ -124,7 +124,6 @@ Ea=-Arrheniusmodel.params[1]*R
 lnkcat=(-Ea/R)*(1/T)+Arrheniusmodel.params[0]
 #Calculate thermodynamic properties
 dH=Ea-R*T
-dG=R*T*(np.log(kb/h) +np.log(T)-lnkcat)
 dG=R*T*(np.log(kb/h) +np.log(T)-lnkcat)
 dS=(dH-dG)/T
 Parameters=pd.Series(("dG","dH","dS","Ea","ln(kcat) 298K"))
