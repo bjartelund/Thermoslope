@@ -8,23 +8,23 @@ from statsmodels.regression.rolling import RollingOLS
 import sys
 from mpl_toolkits.mplot3d import Axes3D
 from matplotlib import cm
-import matplotlib.backends.backend_pdf
 
-pdf = matplotlib.backends.backend_pdf.PdfPages("thermofit-gradient-output.pdf")
-
+ExcelWriter=pd.ExcelWriter("thermofit-gradient.xlsx")
 plt.interactive(False) #Show plots until closed
 
 #Fill in your values
-EnzymeConcentration=5e-8 
-ExtCoeff=2630
-Kmguess=1e-4 #initial guess
+ProductAbsorbing=True
+EnzymeConcentration=2.5e-9 
+ExtCoeff=1.78e4
+Kmguess=1e-3 #initial guess
 Vmaxguess=50 #initial guess
 temperaturebins=12
 #To be used for when the product is the chromogenic unit
-topconcentration=5e-4
+topconcentration=2e-3
 dilution=2
+positions=6
 
-lowtempcutoff=290
+lowtempcutoff=270
 hightempcutoff=373
 
 #Should probably not be changed
@@ -37,12 +37,10 @@ Parameters=pd.Series(("EnzConc","ExtCoeff","Kmguess","Vmaxguess","temperaturebin
 Values=pd.Series((EnzymeConcentration,ExtCoeff,Kmguess,Vmaxguess,temperaturebins,topconcentration,dilution,lowtempcutoff,hightempcutoff,R,T,h,kb))
 frame={"Parameters":Parameters,"Values":Values}
 thermofitparameters=pd.DataFrame(frame)
-fig, ax =plt.subplots(figsize=(12,4))
-ax.axis('tight')
-ax.axis('off')
-the_table = ax.table(cellText=thermofitparameters.values,colLabels=thermofitparameters.columns,loc='center')
-pdf.savefig(fig, bbox_inches='tight')
+thermofitparameters.to_excel(ExcelWriter,sheet_name="Parameters")
 
+
+startingconcentrations= [topconcentration/dilution**x for x in range(0,positions)]
 
 def MichaelisMenten(x,Km,Vmax):
     return (Vmax*x)/(Km+x)
@@ -56,9 +54,14 @@ def logKcat(Kcat):
 
 def processcsv(datafile): 
     df=pd.read_csv(datafile,sep=",",header=None,names=("Cuvette","Time","Temperature","Absorbance")) #Assumes a csv-file following the named columns
+    df.to_excel(ExcelWriter,sheet_name="Raw data %s" % datafile.rpartition("/")[2])
     df["Time"]=df["Time"]*60 #calculate time in seconds instead of minutes (as the software supplies)
     df["Temperature"]=df["Temperature"]+273.15 #calculate temperature in Kelvin instead of degrees Celsius
-    df["Concentration"]=df["Absorbance"]/ExtCoeff #calculate time in seconds instead of minutes
+    if ProductAbsorbing:
+        df["StartingConcentration"]=[startingconcentrations[x-1 ] for x in df["Cuvette"]]
+        df["Concentration"] = df["StartingConcentration"] - df["Absorbance"]/ExtCoeff #calculate concentration depending on start concentration and depletion of substrate
+    else:
+        df["Concentration"]= df["Absorbance"]/ExtCoeff #calculate concentration directly from absorbance
     df.sort_index(ascending=False,inplace=True) #The rolling regression leaves NaN for the first window, I would prefer to have the low temperature points available and reverse the dataframe for this reason
     cuvettes=df.groupby("Cuvette")
     regression=pd.DataFrame() #Build up a dataframe cuvette by cuvette
@@ -69,7 +72,17 @@ def processcsv(datafile):
         movingregression=RollingOLS(Concentration,Velocity,window=4).fit(params_only=True)
 #        fig = movingregression.plot_recursive_coefficient()
         regression=pd.concat([regression,movingregression.params])
+    dfwregression=df.join(regression,rsuffix="_regression")
     #fig.show()
+    df.sort_index(ascending=True,inplace=True) #Repeat rolling regression other direction, double the number of points
+    cuvettes=df.groupby("Cuvette")
+    regression=pd.DataFrame() #Build up a dataframe cuvette by cuvette
+    for cuvette in cuvettes:
+        cuvettedf=cuvette[1]
+        Velocity=sm.add_constant(cuvettedf["Time"])
+        Concentration=cuvettedf["Concentration"]
+        movingregression=RollingOLS(Concentration,Velocity,window=4).fit(params_only=True)
+        regression=pd.concat([regression,movingregression.params])
 
     dfwregression=df.join(regression,rsuffix="_regression")
     dfwregression.dropna(inplace=True) #Remove the NaN rows
@@ -80,31 +93,29 @@ def processcsv(datafile):
     return dfwregression
 
 mergeddataframes=pd.concat([processcsv(datafile) for datafile in sys.argv[1:]]) #Collect all processed datasets in a single dataframe
-#3D plot of raw data
-fig=plt.figure()
-ag=Axes3D(fig)
-ag.plot_trisurf(mergeddataframes.Concentration,mergeddataframes.Temperature,mergeddataframes.Time_regression,cmap=cm.jet)
-pdf.savefig(fig)
-
 #Show excerpt of data with velocities
-fig, ax =plt.subplots(figsize=(12,4))
-ax.axis('tight')
-ax.axis('off')
-the_table = ax.table(cellText=mergeddataframes.values[:10],colLabels=mergeddataframes.columns,loc='center')
-pdf.savefig(fig, bbox_inches='tight')
+mergeddataframes.to_excel(ExcelWriter,sheet_name="Processed data")
+#TODO Integrate surfacechart3d for excel output
+#3D plot of raw data
+#fig=plt.figure()
+#ag=Axes3D(fig)
+#ag.plot_trisurf(mergeddataframes.Concentration,mergeddataframes.Temperature,mergeddataframes.Time_regression,cmap=cm.jet)
+#pdf.savefig(fig)
+
 
 temperatures=pd.cut(mergeddataframes.Temperature,temperaturebins) #Bin observations by temperature
 temperaturesets=mergeddataframes.groupby(temperatures)
 
 #Fit individual bins by classical Michaelis Menten by non-linear regression
-kcatsvstemp=pd.DataFrame(([(temperature[1]["Temperature"].mean(),fitMichaelisMenten(temperature)[1]/EnzymeConcentration) for temperature in temperaturesets if lowtempcutoff<temperature[1]["Temperature"].mean()<hightempcutoff]),columns=("Temperature","Kcat"))
+kcatsvstemp=pd.DataFrame(([(temperature[1]["Temperature"].mean(),
+    fitMichaelisMenten(temperature)[1],fitMichaelisMenten(temperature)[1]/EnzymeConcentration) for temperature in temperaturesets if lowtempcutoff<temperature[1]["Temperature"].mean()<hightempcutoff]),columns=("Temperature","Vmax","Kcat"))
 for temperature in temperaturesets:
     fig=plt.figure()
     plt.title(temperature[1]["Temperature"].mean())
     plt.plot(temperature[1].Concentration,temperature[1].Time_regression,linestyle="None",markersize=10,color="r",marker=11)
     regression=fitMichaelisMenten(temperature)
     plt.plot(temperature[1].Concentration,MichaelisMenten(temperature[1].Concentration,regression[0],regression[1]),linestyle="None",marker=9)
-    pdf.savefig(fig)
+    #TODO add fig to excel
 #Construct Arrhenius-plot
 kcatsvstemp["1/T"]=inversetemp(kcatsvstemp["Temperature"])
 kcatsvstemp["ln(Kcat)"]=logKcat(kcatsvstemp["Kcat"])
@@ -113,12 +124,9 @@ fig=plt.figure()
 plt.title("Arrhenius")
 plt.plot(kcatsvstemp["1/T"],kcatsvstemp["ln(Kcat)"],linestyle="None",marker=11)
 plt.plot(kcatsvstemp["1/T"],Arrheniusmodel.params[0]+Arrheniusmodel.params[1]*np.array(kcatsvstemp["1/T"]))
-pdf.savefig(fig)
+    #TODO add fig to excel
 fig, ax =plt.subplots(figsize=(12,4))
-ax.axis('tight')
-ax.axis('off')
-the_table = ax.table(cellText=kcatsvstemp.values[:10],colLabels=kcatsvstemp.columns,loc='center')
-pdf.savefig(fig, bbox_inches='tight')
+kcatsvstemp.to_excel(ExcelWriter,sheet_name="Kcat vs temp")
 #Fit Arrhenius-equation
 Ea=-Arrheniusmodel.params[1]*R
 lnkcat=(-Ea/R)*(1/T)+Arrheniusmodel.params[0]
@@ -131,18 +139,11 @@ Values=pd.Series((dG,dH,dS,Ea,lnkcat))
 frame={"Parameters":Parameters,"Values":Values}
 arrheniusparameters=pd.DataFrame(frame)
 arrheniusparameters["ValuesKcat"]=arrheniusparameters.Values/4181
-
-fig, ax =plt.subplots(figsize=(12,4))
-ax.axis('tight')
-ax.axis('off')
-the_table = ax.table(cellText=arrheniusparameters.values,colLabels=arrheniusparameters.columns,loc='center')
-pdf.savefig(fig, bbox_inches='tight')
+arrheniusparameters.to_excel(ExcelWriter,sheet_name="Fitted parameters")
 
 commandline=pd.DataFrame(sys.argv,columns=("argument",))
-fig, ax =plt.subplots(figsize=(12,4))
-ax.axis('tight')
-ax.axis('off')
-the_table = ax.table(cellText=commandline.values,colLabels=commandline.columns,loc='center')
-pdf.savefig(fig, bbox_inches='tight')
+commandline.to_excel(ExcelWriter,sheet_name="Arguments")
 
-pdf.close()
+
+
+ExcelWriter.close()
