@@ -8,8 +8,10 @@ from statsmodels.regression.rolling import RollingOLS
 import sys
 from mpl_toolkits.mplot3d import Axes3D
 from matplotlib import cm
+from io import BytesIO
+imgdata = BytesIO()
 
-ExcelWriter=pd.ExcelWriter("thermofit-gradient.xlsx")
+ExcelWriter=pd.ExcelWriter("thermofit-gradient.xlsx",engine='xlsxwriter')
 plt.interactive(False) #Show plots until closed
 
 #Fill in your values
@@ -46,7 +48,7 @@ def MichaelisMenten(x,Km,Vmax):
     return (Vmax*x)/(Km+x)
 def fitMichaelisMenten(dataframesection):
     popt,pcov = curve_fit(MichaelisMenten,dataframesection[1]["Concentration"],dataframesection[1]["Time_regression"],p0=[Kmguess,Vmaxguess]) #standard linear regression
-    return popt #ignore covariances for now
+    return (popt,pcov) #ignore covariances for now
 def inversetemp(temperature):
     return 1.0/temperature
 def logKcat(Kcat):
@@ -70,10 +72,8 @@ def processcsv(datafile):
         Velocity=sm.add_constant(cuvettedf["Time"])
         Concentration=cuvettedf["Concentration"]
         movingregression=RollingOLS(Concentration,Velocity,window=4).fit(params_only=True)
-#        fig = movingregression.plot_recursive_coefficient()
         regression=pd.concat([regression,movingregression.params])
     dfwregression=df.join(regression,rsuffix="_regression")
-    #fig.show()
     df.sort_index(ascending=True,inplace=True) #Repeat rolling regression other direction, double the number of points
     cuvettes=df.groupby("Cuvette")
     regression=pd.DataFrame() #Build up a dataframe cuvette by cuvette
@@ -87,46 +87,69 @@ def processcsv(datafile):
     dfwregression=df.join(regression,rsuffix="_regression")
     dfwregression.dropna(inplace=True) #Remove the NaN rows
     dfwregression["Time_regression"]=np.abs(dfwregression["Time_regression"]) #Whether absorbance is increasing or decreasing, velocities should always be positive.
-#    plt.plot(dfwregression.Temperature,dfwregression.Time_regression)
- #   plt.show()
-    #plt.scatter(dfwregression["Temperature"],tempdependentMichaelisMenten((dfwregression["Concentration"],dfwregression["Temperature"]),*popt))
     return dfwregression
 
 mergeddataframes=pd.concat([processcsv(datafile) for datafile in sys.argv[1:]]) #Collect all processed datasets in a single dataframe
 #Show excerpt of data with velocities
 mergeddataframes.to_excel(ExcelWriter,sheet_name="Processed data")
-#TODO Integrate surfacechart3d for excel output
 #3D plot of raw data
-#fig=plt.figure()
-#ag=Axes3D(fig)
-#ag.plot_trisurf(mergeddataframes.Concentration,mergeddataframes.Temperature,mergeddataframes.Time_regression,cmap=cm.jet)
-#pdf.savefig(fig)
+fig=plt.figure()
+fig, ax = plt.subplots()
+ag=Axes3D(fig)
+ag.plot_trisurf(mergeddataframes.Concentration,mergeddataframes.Temperature,mergeddataframes.Time_regression,cmap=cm.jet)
+fig.savefig(imgdata, format="png")
+imgdata.seek(0)
+workbook=ExcelWriter.book
+worksheet = workbook.add_worksheet()
+worksheet.insert_image("F20","3D.png",{'image_data': imgdata})
 
 
 temperatures=pd.cut(mergeddataframes.Temperature,temperaturebins) #Bin observations by temperature
 temperaturesets=mergeddataframes.groupby(temperatures)
 
 #Fit individual bins by classical Michaelis Menten by non-linear regression
-kcatsvstemp=pd.DataFrame(([(temperature[1]["Temperature"].mean(),
-    fitMichaelisMenten(temperature)[1],fitMichaelisMenten(temperature)[1]/EnzymeConcentration) for temperature in temperaturesets if lowtempcutoff<temperature[1]["Temperature"].mean()<hightempcutoff]),columns=("Temperature","Vmax","Kcat"))
+temperaturesetslist=[]
+
+worksheet = workbook.add_worksheet()
+i=1
 for temperature in temperaturesets:
-    fig=plt.figure()
-    plt.title(temperature[1]["Temperature"].mean())
-    plt.plot(temperature[1].Concentration,temperature[1].Time_regression,linestyle="None",markersize=10,color="r",marker=11)
-    regression=fitMichaelisMenten(temperature)
-    plt.plot(temperature[1].Concentration,MichaelisMenten(temperature[1].Concentration,regression[0],regression[1]),linestyle="None",marker=9)
-    #TODO add fig to excel
+    temperaturemean=temperature[1]["Temperature"].mean()
+    imgdata = BytesIO()
+    if lowtempcutoff<temperaturemean<hightempcutoff:
+        fig=plt.figure()
+        plt.title(temperature[1]["Temperature"].mean())
+        plt.plot(temperature[1].Concentration,temperature[1].Time_regression,linestyle="None",markersize=10,color="r",marker=11)
+        regression,covariance=fitMichaelisMenten(temperature)
+        Vmax=regression[1]
+        kcat=Vmax/EnzymeConcentration
+        perr = np.sqrt(np.diag(covariance))
+        kcaterror=perr[1]/EnzymeConcentration
+        plt.plot(temperature[1].Concentration,MichaelisMenten(temperature[1].Concentration,regression[0],regression[1]),linestyle="None",marker=9)
+        temperaturesetslist.append([temperaturemean,Vmax,kcat,kcaterror])
+        fig.savefig(imgdata, format="png")
+        imgdata.seek(0)
+        worksheet.insert_image("A"+str(i),str(temperaturemean)+"MM.png",{'image_data': imgdata})
+        i=i+25
 #Construct Arrhenius-plot
+kcatsvstemp=pd.DataFrame(temperaturesetslist,columns=["Temperature","Vmax","Kcat","Kcaterror"])
+
 kcatsvstemp["1/T"]=inversetemp(kcatsvstemp["Temperature"])
-kcatsvstemp["ln(Kcat)"]=logKcat(kcatsvstemp["Kcat"])
-Arrheniusmodel=sm.OLS(kcatsvstemp["ln(Kcat)"],sm.add_constant(kcatsvstemp["1/T"])).fit()
+kcatsvstemp["ln(Kcat)"]=np.log(kcatsvstemp["Kcat"])
+kcatsvstemp["ln(Kcaterror)"]=np.log(kcatsvstemp["Kcaterror"])
+#Fit ln(kcat) against inverse Temp, weighing the parameters by the stddev of the estimated Kd
+Arrheniusmodel=sm.WLS(kcatsvstemp["ln(Kcat)"].values,sm.add_constant(kcatsvstemp["1/T"].values),weights=kcatsvstemp["ln(Kcaterror)"].values).fit()
+print(Arrheniusmodel.summary())
+imgdata = BytesIO()
 fig=plt.figure()
 plt.title("Arrhenius")
 plt.plot(kcatsvstemp["1/T"],kcatsvstemp["ln(Kcat)"],linestyle="None",marker=11)
 plt.plot(kcatsvstemp["1/T"],Arrheniusmodel.params[0]+Arrheniusmodel.params[1]*np.array(kcatsvstemp["1/T"]))
-    #TODO add fig to excel
-fig, ax =plt.subplots(figsize=(12,4))
+fig, ax =plt.subplots(figsize=(12,4))        
+fig.savefig(imgdata, format="png")
+imgdata.seek(0)
 kcatsvstemp.to_excel(ExcelWriter,sheet_name="Kcat vs temp")
+worksheet = workbook.add_worksheet()
+worksheet.insert_image("A1","Arrhenius.png",{'image_data': imgdata})
 #Fit Arrhenius-equation
 Ea=-Arrheniusmodel.params[1]*R
 lnkcat=(-Ea/R)*(1/T)+Arrheniusmodel.params[0]
