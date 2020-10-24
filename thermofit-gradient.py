@@ -6,7 +6,6 @@ import statsmodels.api as sm
 from scipy.optimize import curve_fit
 from statsmodels.regression.rolling import RollingOLS
 import sys
-from mpl_toolkits.mplot3d import Axes3D
 from matplotlib import cm
 from io import BytesIO
 imgdata = BytesIO()
