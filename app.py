@@ -5,7 +5,7 @@ from werkzeug.utils import secure_filename
 ALLOWED_EXTENSIONS = {'txt', 'csv', 'tsv', 'dat'}
 
 app = Flask(__name__,template_folder="static")
-
+app.secret_key = uuid.uuid4().bytes
 try:
     os.mkdir("user-contrib")
 except FileExistsError:
