@@ -28,7 +28,7 @@ def upload_file():
             return redirect(request.url)
         returnvalue=""
         fileuploaduuid=uuid.uuid1().hex #random directory name for each seassion, should not collide
-        os.mkdir(os.path.join("user-contrib/",fileuploaduuid)
+        os.mkdir(os.path.join("user-contrib/",fileuploaduuid))
         for file in request.files.getlist('file'):
         # if user does not select file, browser also
         # submit an empty part without filename
