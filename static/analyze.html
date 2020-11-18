@@ -1,0 +1,12 @@
+<!doctype html>
+{% extends 'base.html' %}
+{% block header %}
+<h1>{% block title %}Analysis results for {{ uuid }} {% endblock %}</h1>
+{% endblock %}
+{% block content %}
+<h2>Kcat vs Temperature</h2>
+{{ results.kcatsvstemp.to_html()|safe}}
+<h2>Arrhenius and thermodynamic parameters of activation barrier </h2>
+{{ results.arrheniusparameters.to_html()|safe}}
+
+{% endblock %}
