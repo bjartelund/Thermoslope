@@ -1,18 +1,34 @@
 <!doctype html>
-    <head><!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-5XKL66NMPQ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-5XKL66NMPQ');
-</script></head>
-<body>
-    <title>Upload new File</title>
-    <h1>Upload new File</h1>
-    <form method=post enctype=multipart/form-data>
-      <input type=file name=file multiple>
-      <input type=submit value=Upload>
+{% extends 'base.html' %}
+{% block header %}
+  <h1>{% block title %}Upload data to analyze{% endblock %}</h1>
+{% endblock %}
+{% block content %}    
+<label for="upload"> Select only CSV-type datafiles</label>    
+<form method=post name="upload" enctype=multipart/form-data>
+	<input type=file name=file multiple><br>
+      <input type="checkbox" name="ProductAbsorbing" name="ProductAbsorbing" value="ProductAbsorbing">
+      <label for="ProductAbsorbing"> The product is absorbing (leave unchecked if the substrate is absorbing</label><br>
+	<label for="EnzymeConcentration"> EnzymeConcentration</label><input type="number" name="EnzymeConcentration" value="2.5e-9">
+	<br>
+	<label for="ExtCoeff"> ExtCoeff</label><input type="number" name="ExtCoeff" value="1.78e-4">
+	<br>
+	<label for="Kmguess"> Kmguess</label><input type="number" name="Kmguess" value="1e-5">
+	<br>
+	<label for="Vmaxguess"> Vmaxguess</label><input type="number" name="Vmaxguess" value="50">
+	<br>
+	<label for="temperaturebins"> temperaturebins</label><input type="number" name="temperaturebins" value="12">
+	<br>
+	<label for="topconcentration"> topconcentration</label><input type="number" name="topconcentration" value="2.0e-3">
+	<br>
+	<label for="dilution"> dilution factor</label><input type="number" name="dilution" value="2">
+	<br>
+	<label for="positions">sample changer positions</label><input type="number" name="positions" value="6">
+	<br>
+	<label for="lowtempcutoff"> lowtempcutoff</label><input type="number" name="lowtempcutoff" value="270">
+	<br>
+	<label for="hightempcutoff"> hightempcutoff</label><input type="number" name="hightempcutoff" value="370">
+	<br>
+      <input type=submit value="Analyze">
     </form>
-    </body>
+{% endblock %}

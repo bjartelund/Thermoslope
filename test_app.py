@@ -1,5 +1,7 @@
 import pytest
+import os
 from app import app as flask_app
+
 
 @pytest.fixture
 def app():
@@ -17,3 +19,18 @@ def test_upload_page(client):
     rv = client.get('/upload')
     assert b"Upload data" in rv.data
 
+def test_upload_single(client):
+    datafile='exampledata/CM/BpCM/2020 2 12 10 21.csv'
+    datahandle=open(datafile,"rb")
+            
+    data= {"file": (datahandle,"test.csv")}
+    rv = client.post("/upload",data=data,follow_redirects=False)
+    datahandle.close()
+    global arg
+    arg=rv.location.split("/") #for next test
+    assert "/analyze" in rv.location
+
+def test_analysis(client):
+    rv=client.get(arg[3])
+    assert b"Arrhenius and thermodynamic parameters of activation barrier" in rv.data
+    assert b"NaN" not in rv.data
