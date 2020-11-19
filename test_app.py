@@ -1,6 +1,7 @@
 import pytest
 import os
 from app import app as flask_app
+thermoslope = __import__("thermofit-gradient")
 
 
 @pytest.fixture
@@ -34,3 +35,12 @@ def test_analysis(client):
     rv=client.get(arg[3])
     assert b"Arrhenius and thermodynamic parameters of activation barrier" in rv.data
     assert b"NaN" not in rv.data
+
+def test_offline():
+    exampledir="exampledata/CM/BpCM/"
+            
+    datafiles = [x for x in os.listdir(
+                exampledir) if not "png" in x and not "json" in x]
+    analysis = thermoslope.ThermoSlope([os.path.join(exampledir,datafile) for datafile in datafiles] )
+    analysis.process()
+    assert not analysis.arrheniusparameters.empty

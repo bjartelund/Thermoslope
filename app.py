@@ -62,11 +62,14 @@ def analyze():
     else:
         uploaddir=os.path.join("user-contrib/",analysisuuid)
         if os.path.exists(uploaddir):
-                datafiles=[x for x in os.listdir(uploaddir) if not "png" in x and not "json" in x]
-                fullpathdatafiles=[os.path.join("user-contrib",analysisuuid,datafile) for datafile in datafiles]
-                analysis=thermoslope.ThermoSlope(fullpathdatafiles)
-                analysis.process()
-                return render_template("analyze.html",uuid=analysisuuid,results=analysis)
+            datafiles = [x for x in os.listdir(
+                uploaddir) if not "png" in x and not "json" in x]
+            fullpathdatafiles = [os.path.join(
+                "user-contrib", analysisuuid, datafile) for datafile in datafiles]
+            settings=json.load(open(os.path.join(uploaddir,"settings.json")))
+            analysis = thermoslope.ThermoSlope(fullpathdatafiles,**settings)
+            analysis.process()
+            return render_template("analyze.html", uuid=analysisuuid, results=analysis)
         return analysisuuid
 
 @app.route('/favicon.ico')
