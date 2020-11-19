@@ -25,7 +25,7 @@ def logKcat(Kcat):
 class ThermoSlope:
     def __init__(self,datafiles,**kwargs):
         self.datafiles=datafiles
-        self.path=os.path.commonpath(datafiles)
+        self.path=os.path.dirname(datafiles[0]) #assumes that all files are from the same directory
         self.ProductAbsorbing= kwargs["ProductAbsorbing"] if "ProductAbsorbing" in kwargs else True
         self.EnzymeConcentration= float(kwargs["EnzymeConcentration"]) if "EnzymeConcentration" in kwargs else 2.5e-9
         self.ExtCoeff= float(kwargs["ExtCoeff"]) if "ExtCoeff" in kwargs else 1.78e4
