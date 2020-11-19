@@ -4,9 +4,16 @@
 <h1>{% block title %}Analysis results for {{ uuid }} {% endblock %}</h1>
 {% endblock %}
 {% block content %}
+<h2>3D view of data </h2>
+<img src={{results.path}}/thermoslope-3D.png>
+<h2>Michaelis-Menten plots</h2>
+{% for figurefilename in results.figurefilenames %}
+<img src={{ figurefilename }}>
+{% endfor %}
 <h2>Kcat vs Temperature</h2>
 {{ results.kcatsvstemp.to_html()|safe}}
 <h2>Arrhenius and thermodynamic parameters of activation barrier </h2>
+<img src={{results.path}}/arrhenius.png>
 {{ results.arrheniusparameters.to_html()|safe}}
 
 {% endblock %}

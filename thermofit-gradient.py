@@ -11,7 +11,7 @@ import sys
 from matplotlib import cm
 from io import BytesIO
 from mpl_toolkits.mplot3d import Axes3D
-
+import os
 np.seterr(all='raise')
 
 def MichaelisMenten(x,Km,Vmax):
@@ -25,6 +25,7 @@ def logKcat(Kcat):
 class ThermoSlope:
     def __init__(self,datafiles,**kwargs):
         self.datafiles=datafiles
+        self.path=os.path.commonpath(datafiles)
         self.ProductAbsorbing= kwargs["ProductAbsorbing"] if "ProductAbsorbing" in kwargs else True
         self.EnzymeConcentration= float(kwargs["EnzymeConcentration"]) if "EnzymeConcentration" in kwargs else 2.5e-9
         self.ExtCoeff= float(kwargs["ExtCoeff"]) if "ExtCoeff" in kwargs else 1.78e4
@@ -74,7 +75,6 @@ class ThermoSlope:
         return dfwregression
 
     def process(self):
-        imgdata = BytesIO()
         plt.interactive(False) #Show plots until closed
         #Should probably not be changed
         R=8.314
@@ -96,9 +96,8 @@ class ThermoSlope:
         fig, ax = plt.subplots()
         ag=Axes3D(fig)
         ag.plot_trisurf(mergeddataframes.Concentration,mergeddataframes.Temperature,mergeddataframes.Time_regression,cmap=cm.jet)
-        fig.savefig(imgdata, format="png")
-        imgdata.seek(0)
-
+        fig.savefig(os.path.join(self.path,"thermoslope-3D.png"), format="png")
+        plt.close()
 
         temperatures=pd.cut(mergeddataframes.Temperature,self.temperaturebins) #Bin observations by temperature
         temperaturesets=mergeddataframes.groupby(temperatures)
@@ -107,9 +106,9 @@ class ThermoSlope:
         temperaturesetslist=[]
 
         i=1
+        self.figurefilenames=[]
         for temperature in temperaturesets:
             temperaturemean=temperature[1]["Temperature"].mean()
-            imgdata = BytesIO()
             if self.lowtempcutoff<temperaturemean<self.hightempcutoff:
                 fig=plt.figure()
                 plt.title(temperature[1]["Temperature"].mean())
@@ -121,8 +120,10 @@ class ThermoSlope:
                 kcaterror=perr[1]/self.EnzymeConcentration
                 plt.plot(temperature[1].Concentration,MichaelisMenten(temperature[1].Concentration,regression[0],regression[1]),linestyle="None",marker=9)
                 temperaturesetslist.append([temperaturemean,Vmax,kcat,kcaterror])
-                fig.savefig(imgdata, format="png")
-                imgdata.seek(0)
+                figurefilename=os.path.join(self.path,str(temperaturemean)+"-MM.png")
+                fig.savefig(figurefilename, format="png")
+                plt.close()
+                self.figurefilenames.append(figurefilename)
                 i=i+25
         #Construct Arrhenius-plot
         kcatsvstemp=pd.DataFrame(temperaturesetslist,columns=["Temperature","Vmax","Kcat","Kcaterror"])
@@ -136,14 +137,13 @@ class ThermoSlope:
         Arrheniusmodel=sm.WLS(kcatsvstemp["ln(Kcat)"].values,sm.add_constant(kcatsvstemp["1/T"].values),weights=kcatsvstemp["ln(Kcaterror)"].values**2).fit()
         #except:
         #Arrheniusmodel=sm.OLS(kcatsvstemp["ln(Kcat)"],sm.add_constant(kcatsvstemp["1/T"])).fit()
-        imgdata = BytesIO()
         fig=plt.figure()
         plt.title("Arrhenius")
         plt.plot(kcatsvstemp["1/T"],kcatsvstemp["ln(Kcat)"],linestyle="None",marker=11)
+        fig.savefig(os.path.join(self.path,"arrhenius.png"), format="png")
         plt.plot(kcatsvstemp["1/T"],Arrheniusmodel.params[0]+Arrheniusmodel.params[1]*np.array(kcatsvstemp["1/T"]))
         fig, ax =plt.subplots(figsize=(12,4))        
-        fig.savefig(imgdata, format="png")
-        imgdata.seek(0)
+        plt.close()
         #Fit Arrhenius-equation
         Ea=-Arrheniusmodel.params[1]*R
         lnkcat=(-Ea/R)*(1/T)+Arrheniusmodel.params[0]

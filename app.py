@@ -62,7 +62,7 @@ def analyze():
     else:
         uploaddir=os.path.join("user-contrib/",analysisuuid)
         if os.path.exists(uploaddir):
-                datafiles=[x for x in os.listdir(uploaddir) if x!= "settings.json"]
+                datafiles=[x for x in os.listdir(uploaddir) if not "png" in x and not "json" in x]
                 fullpathdatafiles=[os.path.join("user-contrib",analysisuuid,datafile) for datafile in datafiles]
                 analysis=thermoslope.ThermoSlope(fullpathdatafiles)
                 analysis.process()
@@ -73,4 +73,6 @@ def analyze():
 def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'),
                                'favicon.ico', mimetype='image/vnd.microsoft.icon')
-
+@app.route('/user-contrib/<path:filepath>')
+def data(filepath):
+    return send_from_directory('user-contrib', filepath)
