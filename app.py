@@ -72,7 +72,8 @@ def analyze():
                 uploaddir) if not "png" in x and not "json" in x]
             fullpathdatafiles = [os.path.join(
                 "user-contrib", analysisuuid, datafile) for datafile in datafiles]
-            analysis = thermoslope.ThermoSlope(fullpathdatafiles)
+            settings=json.load(open(os.path.join(uploaddir,"settings.json")))
+            analysis = thermoslope.ThermoSlope(fullpathdatafiles,**settings)
             analysis.process()
             return render_template("analyze.html", uuid=analysisuuid, results=analysis)
         return analysisuuid
