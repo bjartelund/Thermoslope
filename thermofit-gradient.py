@@ -11,10 +11,12 @@ import numpy as np
 import pandas as pd
 import matplotlib as mpl
 import matplotlib.style as mplstyle
-mpl.use('Agg')
+mpl.use('agg')
 plt.ioff()
 mpl.rcParams['path.simplify'] = True
 mpl.rcParams['path.simplify_threshold'] = 1.0
+mpl.rcParams['savefig.dpi'] = 50
+
 mplstyle.use('fast')
 
 np.seterr(all='raise')
@@ -133,7 +135,6 @@ class ThermoSlope:
             [self.processcsv(datafile) for datafile in self.datafiles])
         # Show excerpt of data with velocities
         # 3D plot of raw data
-        fig = plt.figure()
         fig, ax = plt.subplots()
         ag = Axes3D(fig)
         ag.plot_trisurf(mergeddataframes.Concentration, mergeddataframes.Temperature,
@@ -192,9 +193,6 @@ class ThermoSlope:
         plt.plot(kcatsvstemp["1/T"], kcatsvstemp["ln(Kcat)"],
                  linestyle="None", marker=11)
         fig.savefig(os.path.join(self.path, "arrhenius.png"), format="png")
-        plt.plot(kcatsvstemp["1/T"], Arrheniusmodel.params[0] +
-                 Arrheniusmodel.params[1]*np.array(kcatsvstemp["1/T"]))
-        fig, ax = plt.subplots(figsize=(12, 4))
         plt.close()
         # Fit Arrhenius-equation
         Ea = -Arrheniusmodel.params[1]*R
