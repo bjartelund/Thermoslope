@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 import os
 from mpl_toolkits.mplot3d import Axes3D
-from io import BytesIO
 from matplotlib import cm
 import sys
 from statsmodels.regression.rolling import RollingOLS
@@ -11,7 +10,13 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import matplotlib as mpl
+import matplotlib.style as mplstyle
 mpl.use('Agg')
+plt.ioff()
+mpl.rcParams['path.simplify'] = True
+mpl.rcParams['path.simplify_threshold'] = 1.0
+mplstyle.use('fast')
+
 np.seterr(all='raise')
 
 
@@ -135,7 +140,7 @@ class ThermoSlope:
                         mergeddataframes.Time_regression, cmap=cm.jet)
         fig.savefig(os.path.join(
             self.path, "thermoslope-3D.png"), format="png")
-        plt.close()
+        plt.clf()
 
         # Bin observations by temperature
         temperatures = pd.cut(
@@ -145,12 +150,12 @@ class ThermoSlope:
         # Fit individual bins by classical Michaelis Menten by non-linear regression
         temperaturesetslist = []
 
-        i = 1
         self.figurefilenames = []
+                
+        fig = plt.figure()
         for temperature in temperaturesets:
             temperaturemean = temperature[1]["Temperature"].mean()
             if self.lowtempcutoff < temperaturemean < self.hightempcutoff:
-                fig = plt.figure()
                 plt.title(temperature[1]["Temperature"].mean())
                 plt.plot(temperature[1].Concentration, temperature[1].Time_regression,
                          linestyle="None", markersize=10, color="r", marker=11)
@@ -166,9 +171,9 @@ class ThermoSlope:
                 figurefilename = os.path.join(
                     self.path, str(temperaturemean)+"-MM.png")
                 fig.savefig(figurefilename, format="png")
-                plt.close()
                 self.figurefilenames.append(figurefilename)
-                i = i+25
+                plt.clf()
+                
         # Construct Arrhenius-plot
         kcatsvstemp = pd.DataFrame(temperaturesetslist, columns=[
                                    "Temperature", "Vmax", "Kcat", "Kcaterror"])
@@ -183,7 +188,6 @@ class ThermoSlope:
             kcatsvstemp["1/T"].values), weights=kcatsvstemp["ln(Kcaterror)"].values**2).fit()
         # except:
         # Arrheniusmodel=sm.OLS(kcatsvstemp["ln(Kcat)"],sm.add_constant(kcatsvstemp["1/T"])).fit()
-        fig = plt.figure()
         plt.title("Arrhenius")
         plt.plot(kcatsvstemp["1/T"], kcatsvstemp["ln(Kcat)"],
                  linestyle="None", marker=11)
@@ -214,4 +218,4 @@ class ThermoSlope:
 if __name__ == '__main__':
     analysis = ThermoSlope(sys.argv[1:])
     analysis.process()
-    print(analysis.arrheniusparameters)
+    #print(analysis.arrheniusparameters)
