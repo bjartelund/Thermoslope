@@ -2,8 +2,7 @@ import os
 import json
 import uuid
 from flask import Flask, flash, request, redirect, url_for, render_template, send_from_directory
-from werkzeug.utils import secure_filename
-thermoslope = __import__("thermofit-gradient")
+import thermoslope
 ALLOWED_EXTENSIONS = {'txt', 'csv', 'tsv', 'dat'}
 
 app = Flask(__name__, template_folder="static")
@@ -69,11 +68,11 @@ def analyze():
         uploaddir = os.path.join("user-contrib/", analysisuuid)
         if os.path.exists(uploaddir):
             datafiles = [x for x in os.listdir(
-                uploaddir) if not "png" in x and not "json" in x]
+                uploaddir) if "png" not in x and "json" not in x]
             fullpathdatafiles = [os.path.join(
                 "user-contrib", analysisuuid, datafile) for datafile in datafiles]
-            settings=json.load(open(os.path.join(uploaddir,"settings.json")))
-            analysis = thermoslope.ThermoSlope(fullpathdatafiles,**settings)
+            settings = json.load(open(os.path.join(uploaddir,"settings.json")))
+            analysis = thermoslope.ThermoSlope(fullpathdatafiles, **settings)
             analysis = thermoslope.ThermoSlope(fullpathdatafiles)
             analysis.process()
             return render_template("analyze.html", uuid=analysisuuid, results=analysis)

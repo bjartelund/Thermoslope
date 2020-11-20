@@ -1,8 +1,7 @@
 import pytest
 import os
 from app import app as flask_app
-thermoslope = __import__("thermofit-gradient")
-
+import thermoslope
 
 @pytest.fixture
 def app():

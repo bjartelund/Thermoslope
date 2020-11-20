@@ -61,7 +61,8 @@ class ThermoSlope:
             kwargs["hightempcutoff"]) if "hightempcutoff" in kwargs else 373
 
     def fitMichaelisMenten(self, dataframesection):
-        popt, pcov = curve_fit(MichaelisMenten, dataframesection[1]["Concentration"], dataframesection[1]["Time_regression"], p0=[
+        Concvstime=dataframesection[1]
+        popt, pcov = curve_fit(MichaelisMenten, Concvstime["Concentration"], Concvstime["Time_regression"], p0=[
                                self.Kmguess, self.Vmaxguess])  # standard linear regression
         return (popt, pcov)  # ignore covariances for now
 
@@ -81,7 +82,9 @@ class ThermoSlope:
         else:
             # calculate concentration directly from absorbance
             df["Concentration"] = df["Absorbance"]/self.ExtCoeff
-        # The rolling regression leaves NaN for the first window, I would prefer to have the low temperature points available and reverse the dataframe for this reason
+        # The rolling regression leaves NaN for the first window, 
+        #I would prefer to have the low temperature points available 
+        #and reverse the dataframe for this reason
         df.sort_index(ascending=False, inplace=True)
         cuvettes = df.groupby("Cuvette")
         regression = pd.DataFrame()  # Build up a dataframe cuvette by cuvette
@@ -120,13 +123,6 @@ class ThermoSlope:
         h = 6.626e-34
         kb = 1.38e-23
 
-        Parameters = pd.Series(("EnzConc", "ExtCoeff", "Kmguess", "Vmaxguess", "temperaturebins",
-                                "topsubstrateconc", "dilutionfactor", "lowtempcutoff", "hightempcutoff", "R", "T", "h", "kb"))
-        Values = pd.Series((self.EnzymeConcentration, self.ExtCoeff, self.Kmguess, self.Vmaxguess, self.temperaturebins,
-                            self.topconcentration, self.dilution, self.lowtempcutoff, self.hightempcutoff, R, T, h, kb))
-        frame = {"Parameters": Parameters, "Values": Values}
-        thermofitparameters = pd.DataFrame(frame)
-
         self.startingconcentrations = [
             self.topconcentration/self.dilution**x for x in range(0, self.positions)]
 
@@ -152,7 +148,8 @@ class ThermoSlope:
         temperaturesetslist = []
 
         self.figurefilenames = []
-                
+      
+
         fig = plt.figure()
         for temperature in temperaturesets:
             temperaturemean = temperature[1]["Temperature"].mean()
@@ -174,7 +171,7 @@ class ThermoSlope:
                 fig.savefig(figurefilename, format="png")
                 self.figurefilenames.append(figurefilename)
                 plt.clf()
-                
+
         # Construct Arrhenius-plot
         kcatsvstemp = pd.DataFrame(temperaturesetslist, columns=[
                                    "Temperature", "Vmax", "Kcat", "Kcaterror"])
@@ -208,8 +205,6 @@ class ThermoSlope:
         frame = {"Parameters": Parameters, "Values": Values}
         arrheniusparameters = pd.DataFrame(frame)
         arrheniusparameters["Values(kcal/mol)"] = arrheniusparameters.Values/4181
-
-        commandline = pd.DataFrame(sys.argv, columns=("argument",))
         self.arrheniusparameters = arrheniusparameters
 
 
