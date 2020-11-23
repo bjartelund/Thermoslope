@@ -196,19 +196,22 @@ class ThermoSlope:
         fig.savefig(os.path.join(self.path, "arrhenius.png"), format="png")
         plt.close()
         # Fit Arrhenius-equation
-        Ea = -Arrheniusmodel.params[1]*R
-        lnkcat = (-Ea/R)*(1/T)+Arrheniusmodel.params[0]
+        slope=Arrheniusmodel.params[1]
+        A=Arrheniusmodel.params[0]
+        Ea = -slope*R
+        lnkcat = (-Ea/R)*(1/T)+A
         # Calculate thermodynamic properties
         dH = Ea-R*T
         dG = R*T*(np.log(kb/h) + np.log(T)-lnkcat)
         TdS = (dH-dG)
         dS = TdS/T
         Parameters = pd.Series(
-            ("dG", "dH", "dS", "TdS", "Ea", "ln(kcat) 298K"))
-        Values = pd.Series((dG, dH, dS, TdS, Ea, lnkcat))
+            ("dG", "dH", "dS", "TdS","slope","A", "Ea", "ln(kcat) 298K"))
+        Values = pd.Series((dG, dH, dS, TdS,slope,A, Ea, lnkcat))
         frame = {"Parameters": Parameters, "Values": Values}
         arrheniusparameters = pd.DataFrame(frame)
-        arrheniusparameters["Values(kcal/mol)"] = arrheniusparameters.Values/4181
+        #arrheniusparameters["Values(kcal/mol)"] = arrheniusparameters.Values/4181
+        arrheniusparameters.loc[arrheniusparameters["Parameters"].isin(("dG","dH","dS","TdS","Ea")),"Values"] = arrheniusparameters.Values/4181
         self.arrheniusparameters = arrheniusparameters
 
 
