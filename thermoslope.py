@@ -41,7 +41,7 @@ class ThermoSlope:
         self.path = os.path.dirname(datafiles[0])
         self.ProductAbsorbing = kwargs["ProductAbsorbing"] if "ProductAbsorbing" in kwargs else True
         self.EnzymeConcentration = float(
-            kwargs["EnzymeConcentration"]) if "EnzymeConcentration" in kwargs else 2.5e-9
+            kwargs["EnzymeConcentration"]) if "EnzymeConcentration" in kwargs else 1.0e-9
         self.ExtCoeff = float(
             kwargs["ExtCoeff"]) if "ExtCoeff" in kwargs else 1.78e4
         self.Kmguess = float(
@@ -51,7 +51,7 @@ class ThermoSlope:
         self.temperaturebins = int(
             kwargs["temperaturebins"]) if "temperaturebins" in kwargs else 12
         self.topconcentration = float(
-            kwargs["topconcentration"]) if "topconcentration" in kwargs else 2e-3
+            kwargs["topconcentration"]) if "topconcentration" in kwargs else 5e-3
         self.dilution = int(kwargs["dilution"]) if "dilution" in kwargs else 2
         self.positions = int(kwargs["positions"]
                              ) if "positions" in kwargs else 6
@@ -220,4 +220,5 @@ class ThermoSlope:
 if __name__ == '__main__':
     analysis = ThermoSlope(sys.argv[1:])
     analysis.process()
+    analysis.kcatsvstemp.to_csv("kcatsvstemp.csv",index=False,columns=("1/T","ln(Kcat)")) 
     #print(analysis.arrheniusparameters)

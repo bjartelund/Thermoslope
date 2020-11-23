@@ -73,7 +73,6 @@ def analyze():
                 "user-contrib", analysisuuid, datafile) for datafile in datafiles]
             settings = json.load(open(os.path.join(uploaddir,"settings.json")))
             analysis = thermoslope.ThermoSlope(fullpathdatafiles, **settings)
-            analysis = thermoslope.ThermoSlope(fullpathdatafiles)
             analysis.process()
             return render_template("analyze.html", uuid=analysisuuid, results=analysis)
         return analysisuuid

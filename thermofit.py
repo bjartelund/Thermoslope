@@ -7,6 +7,8 @@ import statsmodels.api as sm
 from scipy.optimize import curve_fit
 import sys
 import matplotlib.backends.backend_pdf
+import matplotlib as mpl
+mpl.use('agg')
 
 
 def MichaelisMenten(x, Km, Vmax):
@@ -15,10 +17,10 @@ def MichaelisMenten(x, Km, Vmax):
 
 Kmguess = 1e-3  # initial guess
 Vmaxguess = 1  # initial guess
-E0 = 5e-9  # Molar enzyme concentration
-ExtCoeff = 5942
+E0 = 1e-9  # Molar enzyme concentration
+ExtCoeff = 1.78e4
 positions = 6
-readings = 14
+readings = 5
 skipstart = 1
 
 kcatvstemperature = pd.DataFrame(columns=["Temperature", "Kcat"])
@@ -85,5 +87,5 @@ kcatvstemperature.to_excel(excel_writer="kcatvstemperature.xlsx", index=False)
 X = sm.add_constant(X)
 Arrheniusmodel = sm.OLS(Y, X).fit()
 print(Arrheniusmodel.params[1])
-plt.show()
+print(Arrheniusmodel.params[0])
 pdf.close()
