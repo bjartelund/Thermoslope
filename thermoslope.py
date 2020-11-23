@@ -151,12 +151,16 @@ class ThermoSlope:
       
 
         fig = plt.figure()
-        for temperature in temperaturesets:
+        firstrun=True
+        for temperature in temperaturesets: #want to start with the highest one as it presumably has the highest velocity for the graph
             temperaturemean = temperature[1]["Temperature"].mean()
             if self.lowtempcutoff < temperaturemean < self.hightempcutoff:
-                plt.title(temperature[1]["Temperature"].mean())
-                plt.plot(temperature[1].Concentration, temperature[1].Time_regression,
+                if firstrun:
+                    plt.plot(temperature[1].Concentration, temperature[1].Time_regression,
                          linestyle="None", markersize=10, color="r", marker=11)
+                else:
+                    plt.set_data(temperature[1].Concentration,temperature[1].Time_regression)
+                plt.title(temperature[1]["Temperature"].mean())
                 regression, covariance = self.fitMichaelisMenten(temperature)
                 Vmax = regression[1]
                 kcat = Vmax/self.EnzymeConcentration
@@ -169,8 +173,8 @@ class ThermoSlope:
                 figurefilename = os.path.join(
                     self.path, str(temperaturemean)+"-MM.png")
                 fig.savefig(figurefilename, format="png")
+                plt.cla()
                 self.figurefilenames.append(figurefilename)
-                plt.clf()
 
         # Construct Arrhenius-plot
         kcatsvstemp = pd.DataFrame(temperaturesetslist, columns=[
