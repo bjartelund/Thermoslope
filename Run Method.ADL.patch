@@ -1,0 +1,135 @@
+--- "Version_050/Run Method.ADL"	2020-02-06 11:50:56.000000000 +0000
++++ "Version_050-bak/Run Method.ADL"	2017-03-21 10:26:12.000000000 +0000
+@@ -324,8 +324,6 @@
+ 	Dim OK_count As Integer
+ 	Dim GraphID As String
+ 	Dim eqTime As Single
+-	Dim tyme As Single
+-	Dim tyme0 As Single
+ 	eqTime = getval("Equilibration Time")
+ 
+ 	sim_slope = 0.6 / (endtemp - starttemp)
+@@ -362,8 +360,7 @@
+ 			End If
+ 			PrintComment("      " + sam_name_id(i))
+ 			a = newCtm(sam_name_id(i))
+-			SetCtmXLabel(sam_name_id(i), "Time (min)")
+-
++			SetCtmXLabel(sam_name_id(i), "Temperature(°C)")
+ 			If starttemp < endtemp Then
+ 				graphscales(GraphID, starttemp, ymin, endtemp, ymax)
+ 			Else
+@@ -396,10 +393,7 @@
+ 		PrintComment("Go to Start T (" + Str(starttemp) + "°C)")
+ 	End If
+ 	SendCommand("[F1 TT S" + Str(starttemp) + "]", 1, 0)
+-	'ShowSampleNameDlg ' prompt the user
+-	Sample$=Str(Year(Now))+Str(Month(Now))+Str(Day(Now))+Str(Hour(Now))+Str(Minute(Now))+".csv"'GetVal("ADL Next Sample Name")+".csv" ' get the response
+-
+-
++	
+ 	If eqTime > 0.0 Then
+ 		EquilTime(starttemp)
+ 	End If
+@@ -423,8 +417,6 @@
+ 
+ 	loop_number = 0
+ 	make_read = 1
+-	open Sample$ For Output as #2
+-	tyme0 = Timer1Query
+ 
+ 	'   ----------------------------------------------------------------------------
+ 	If starttemp < endtemp Then
+@@ -454,8 +446,7 @@
+ 				End If
+ 			End If
+ 	
+-			DL_Wait = 2   'time to wait for position change (minimum of 1 second)
+-			
++			DL_Wait = 1   'time to wait for position change (minimum of 1 second)
+ 			For j = 1 To NumCells
+ 				SkipIt = 0
+ 				make_read = 0
+@@ -466,7 +457,7 @@
+ 					If NCells > 1 And j > 1 Then
+ 						f = "[F2 DL" + Str$(j) + "]"
+ 						SendCommand(f, DL_Wait, 2)
+-						DL_Wait = 2
++						DL_Wait = 1
+ 					End If
+ 					a = c
+ 					If NumCells > 1 Then
+@@ -545,9 +536,7 @@
+ 						SkipIt = SkipIt + 2
+ 					End If
+ 					Y = Format(Str(rd), "#0.0000")
+-					tyme = (Timer1Query - tyme0)/60.
+-					Z= Format(Str(tyme), "###.000") 
+-					b = a + X + Y + Z
++					b = a + X + Y
+ 					If deltCT  > 1.2 Then b = b + "        ****  CT" + Format(Str$(deltCT), "###.00")
+ 					If deltABS > 0.6 Then b = b + "        **** ABS" + Format(Str$(deltABS), "###.00")
+ 					If Report_Data = 1 Then lprint b
+@@ -563,10 +552,9 @@
+ 						SkipIt = 0
+ 					Else
+ 						AddCtmData(sam_name_id(j), probe_temp, rd)
+-						Write #2,j,tyme*1,probe_temp,rd
+ 						GraphID = "Cell" + Str$(j)
+ 						SelectGraph(GraphID)
+-	                           plot(sam_name_id(j))
++						plot(sam_name_id(j))
+ 					End If
+ 				End If
+ 			Next
+@@ -606,7 +594,7 @@
+ 				End If
+ 			End If
+ 			
+-			DL_Wait = 2   'time to wait for position change (minimum of 1 second)
++			DL_Wait = 1   'time to wait for position change (minimum of 1 second)
+ 			For j = 1 To NumCells
+ 				SkipIt = 0
+ 				make_read = 0
+@@ -617,7 +605,7 @@
+ 					If NCells > 1 And j > 1 Then
+ 						f = "[F2 DL" + Str$(j) + "]"
+ 						SendCommand(f, DL_Wait, 2)
+-						DL_Wait = 2
++						DL_Wait = 1
+ 					End If
+ 					a = c
+ 					If NumCells > 1 Then
+@@ -712,7 +700,6 @@
+ 						SkipIt = 0
+ 					Else
+ 						AddCtmData(sam_name_id(j), probe_temp, rd)
+-						Write #2,j,Z*1,probe_temp,rd
+ 						GraphID = "Cell" + Str$(j)
+ 						SelectGraph(GraphID)
+ 						plot(sam_name_id(j))
+@@ -725,7 +712,6 @@
+ 		If Report_Commands = 1 Or Report_Commands = 2 Then lprint a
+ 		If sim_data <2 Then RS232Send(a)
+ 		PrintComment("")
+-		Close #2
+ 	End If
+ 
+ End Sub
+@@ -780,7 +766,6 @@
+ 			End If
+ 			PrintComment("      " + sam_name_id(i))
+ 			a = newCtm(sam_name_id(i))
+-			b = newCtm("time_"+sam_name_id(i))
+ 			SetCtmXLabel(sam_name_id(i), "Time (min)")
+ 			graphscales(GraphID, 0.0, ymin, maximum_time, ymax)
+ 		End If
+@@ -862,7 +847,7 @@
+ '			Wait TimeInterval - extra_seconds
+ '		End If
+ 		extra_seconds = 0
+-		DL_Wait = 2
++		DL_Wait = 1
+ 		For j = 1 To NumCells
+ 			SkipIt = 0
+ 			make_read = 0
