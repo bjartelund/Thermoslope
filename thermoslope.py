@@ -187,14 +187,9 @@ class ThermoSlope:
         # Fit ln(kcat) against inverse Temp, weighing the parameters by the stddev of the estimated Kd
         # try:
         Arrheniusmodel = sm.WLS(kcatsvstemp["ln(Kcat)"].values, sm.add_constant(
-            kcatsvstemp["1/T"].values), weights=kcatsvstemp["ln(Kcaterror)"].values**2).fit()
+            kcatsvstemp["1/T"].values), weights=1/kcatsvstemp["ln(Kcaterror)"].values**2).fit()
         # except:
         # Arrheniusmodel=sm.OLS(kcatsvstemp["ln(Kcat)"],sm.add_constant(kcatsvstemp["1/T"])).fit()
-        plt.title("Arrhenius")
-        plt.plot(kcatsvstemp["1/T"], kcatsvstemp["ln(Kcat)"],
-                 linestyle="None", marker=11)
-        fig.savefig(os.path.join(self.path, "arrhenius.png"), format="png")
-        plt.close()
         # Fit Arrhenius-equation
         slope=Arrheniusmodel.params[1]
         A=Arrheniusmodel.params[0]
@@ -213,6 +208,13 @@ class ThermoSlope:
         #arrheniusparameters["Values(kcal/mol)"] = arrheniusparameters.Values/4181
         arrheniusparameters.loc[arrheniusparameters["Parameters"].isin(("dG","dH","dS","TdS","Ea")),"Values"] = arrheniusparameters.Values/4181
         self.arrheniusparameters = arrheniusparameters
+        plt.title("Arrhenius")
+        plt.plot(kcatsvstemp["1/T"], kcatsvstemp["ln(Kcat)"],
+                 linestyle="None", marker=11)
+        plt.plot(kcatsvstemp["1/T"],slope*kcatsvstemp["1/T"]+A,linestyle="dotted")
+        fig.savefig(os.path.join(self.path, "arrhenius.png"), format="png")
+        plt.close()
+
 
 
 if __name__ == '__main__':
