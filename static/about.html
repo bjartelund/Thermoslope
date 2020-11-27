@@ -1,0 +1,24 @@
+<!doctype html>
+{% extends 'base.html' %}
+{% block header %}
+  <h1>{% block title %}Welcome to ThermoSlope{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}    
+<p>
+A webapp to take UV-VIS absorbance reading done over a time/temperature gradient to estimate temperature-dependent velocities, giving a single experiment estimate of the Arrhenius parameters and thus the thermodynamic parameters of the activation barrier.
+</p>
+
+<p>
+Go to the <a href="upload">submission-page</a> to upload your data files and experimental parameters. A random ID will be generated for your session and data files. The analysis can for some time be retrieved with this ID, but it is not persistant and no backups are performed.
+</p>
+
+<p>
+For now only data-files for the Agilent Cary 60 with the QNW qChanger6 with modified software is supported. But it should be possible to support other units where the temperature can be ramped.  
+</p>
+<p>
+Follow the development at <a href="https://github.com/bjartelund/Thermoslope">GitHub</a></p>
+<p>
+Publication/preprint will come soon(ish).
+</p>
+{% endblock %}
