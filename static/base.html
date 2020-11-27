@@ -1,4 +1,5 @@
 <!doctype html>
+<html>
     <head><!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-5XKL66NMPQ"></script>
 <script>
@@ -8,6 +9,7 @@
 
   gtag('config', 'G-5XKL66NMPQ');
 </script></head>
+<body>
 <title>{% block title %}{% endblock %} - ThermoSlope</title>
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 <nav>
@@ -23,3 +25,10 @@
   {% block content %}{% endblock %}
 </section>
 
+<section class="footer">
+	<img src="https://site.uit.no/cube/files/2018/04/CUBE3_banner_blue.png" alt="A part of the CUBE3 project"/>
+	<img src="https://site.uit.no/cube/files/2018/05/UiT_samarbeidslogo_engelsk_300ppi-copy-150x150.png" alt="UiT The Arctic University of Norway" />
+</section>
+
+</body>
+</html>

@@ -15,8 +15,8 @@ except FileExistsError:
 
 
 @app.route('/')
-def hello():
-    return 'Hello, World!'
+def about():
+    return render_template("about.html")
 
 
 def allowed_file(filename):
