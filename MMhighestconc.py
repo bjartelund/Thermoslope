@@ -1,4 +1,5 @@
-
+#!/usr/bin/env python3
+__author__ = "Bjarte Aarmo Lund"
 def MichaelisMenten(x,Km,Vmax):
     return (Vmax*x)/(Km+x)
 

@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+__author__ = "Bjarte Aarmo Lund"
 import pandas as pd
 import sys
 datafile1 = sys.argv[1]

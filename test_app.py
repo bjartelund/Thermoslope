@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+__author__ = "Bjarte Aarmo Lund"
 import pytest
 import os
 from app import app as flask_app
@@ -15,7 +17,7 @@ def client(app):
 
 def test_start_page(client):
     rv = client.get('/')
-    assert b"Hello" in rv.data
+    assert b"Arrhenius" in rv.data
 
 
 def test_upload_page(client):

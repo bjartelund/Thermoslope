@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+__author__ = "Bjarte Aarmo Lund"
 import numpy as np
 import sys
 R = 8.314

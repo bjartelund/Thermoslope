@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-__author__ = "Bjarte Aarmo Lund,Jørgen Aarmo Lund"
+__author__ = "Bjarte Aarmo Lund"
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt

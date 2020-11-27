@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+__author__ = "Bjarte Aarmo Lund"
 import os
 from mpl_toolkits.mplot3d import Axes3D
 from matplotlib import cm
