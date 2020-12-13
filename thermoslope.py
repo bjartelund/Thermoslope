@@ -7,7 +7,7 @@ import sys
 from statsmodels.regression.rolling import RollingOLS
 from scipy.optimize import curve_fit
 import statsmodels.api as sm
-import matplotlib.pyplot as plt
+from matplotlib.figure import Figure
 import numpy as np
 import pandas as pd
 import matplotlib as mpl
@@ -15,7 +15,6 @@ import matplotlib.style as mplstyle
 import base64
 from io import BytesIO
 mpl.use('agg')
-plt.ioff()
 mpl.rcParams['path.simplify'] = True
 mpl.rcParams['path.simplify_threshold'] = 1.0
 mpl.rcParams['savefig.dpi'] = 50
@@ -117,9 +116,8 @@ class ThermoSlope:
         dfwregression["Time_regression"] = np.abs(
             dfwregression["Time_regression"])
         return dfwregression
-
+    #@profile
     def process(self):
-        plt.interactive(False)  # Show plots until closed
         # Should probably not be changed
         R = 8.314
         T = 298.15
@@ -134,7 +132,7 @@ class ThermoSlope:
             [self.processcsv(datafile) for datafile in self.datafiles])
         # Show excerpt of data with velocities
         # 3D plot of raw data
-        fig, ax = plt.subplots()
+        fig= Figure()
         ag = Axes3D(fig)
         ag.plot_trisurf(mergeddataframes.Concentration, mergeddataframes.Temperature,
                         mergeddataframes.Time_regression, cmap=cm.jet)
@@ -142,7 +140,6 @@ class ThermoSlope:
         fig.savefig(figdatabuf, format="png")
         figdata=base64.b64encode(figdatabuf.getbuffer()).decode("ascii")
         self.SurfacePlotImg = f"<img src='data:image/png;base64,{figdata}'/>"
-        plt.clf()
 
         # Bin observations by temperature
         temperatures = pd.cut(
@@ -155,23 +152,23 @@ class ThermoSlope:
         self.MMplots = []
       
 
-        fig = plt.figure()
         firstrun=True
         for temperature in temperaturesets: #want to start with the highest one as it presumably has the highest velocity for the graph
             temperaturemean = temperature[1]["Temperature"].mean()
             if self.lowtempcutoff < temperaturemean < self.hightempcutoff:
+                fig = Figure()
+                ax = fig.subplots()
                 if firstrun:
-                    plt.plot(temperature[1].Concentration, temperature[1].Time_regression,
+                    ax.plot(temperature[1].Concentration, temperature[1].Time_regression,
                          linestyle="None", markersize=10, color="r", marker=11)
                 else:
-                    plt.set_data(temperature[1].Concentration,temperature[1].Time_regression)
-                plt.title(temperature[1]["Temperature"].mean())
+                    ax.set_data(temperature[1].Concentration,temperature[1].Time_regression)
                 regression, covariance = self.fitMichaelisMenten(temperature)
                 Vmax = regression[1]
                 kcat = Vmax/self.EnzymeConcentration
                 perr = np.sqrt(np.diag(covariance))
                 kcaterror = perr[1]/self.EnzymeConcentration
-                plt.plot(temperature[1].Concentration, MichaelisMenten(
+                ax.plot(temperature[1].Concentration, MichaelisMenten(
                     temperature[1].Concentration, regression[0], regression[1]), linestyle="None", marker=9)
                 temperaturesetslist.append(
                     [temperaturemean, Vmax, kcat, kcaterror])
@@ -179,7 +176,6 @@ class ThermoSlope:
                 fig.savefig(figdatabuf, format="png")
                 figdata=base64.b64encode(figdatabuf.getbuffer()).decode("ascii")
                 self.MMplots.append(f"<img src='data:image/png;base64,{figdata}'/>")
-                plt.cla()
 
         # Construct Arrhenius-plot
         kcatsvstemp = pd.DataFrame(temperaturesetslist, columns=[
@@ -213,15 +209,15 @@ class ThermoSlope:
         #arrheniusparameters["Values(kcal/mol)"] = arrheniusparameters.Values/4181
         arrheniusparameters.loc[arrheniusparameters["Parameters"].isin(("dG","dH","dS","TdS","Ea")),"Values"] = arrheniusparameters.Values/4181
         self.arrheniusparameters = arrheniusparameters
-        plt.title("Arrhenius")
-        plt.plot(kcatsvstemp["1/T"], kcatsvstemp["ln(Kcat)"],
+        fig = Figure()
+        ax = fig.subplots()
+        ax.plot(kcatsvstemp["1/T"], kcatsvstemp["ln(Kcat)"],
                  linestyle="None", marker=11)
-        plt.plot(kcatsvstemp["1/T"],slope*kcatsvstemp["1/T"]+A,linestyle="dotted")
+        ax.plot(kcatsvstemp["1/T"],slope*kcatsvstemp["1/T"]+A,linestyle="dotted")
         figdatabuf=BytesIO()
         fig.savefig(figdatabuf, format="png")
         figdata=base64.b64encode(figdatabuf.getbuffer()).decode("ascii")
         self.ArrheniusPlot= f"<img src='data:image/png;base64,{figdata}'/>"
-        plt.close()
 
 
 
