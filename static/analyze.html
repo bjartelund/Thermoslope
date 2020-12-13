@@ -5,15 +5,15 @@
 {% endblock %}
 {% block content %}
 <h2>3D view of data </h2>
-<img src={{results.path}}/thermoslope-3D.png>
+{{results.SurfacePlotImg|safe}}
 <h2>Michaelis-Menten plots</h2>
-{% for figurefilename in results.figurefilenames %}
-<img src={{ figurefilename }}>
+{% for figure in results.MMplots %}
+{{figure|safe}}
 {% endfor %}
 <h2>Kcat vs Temperature</h2>
 {{ results.kcatsvstemp.to_html()|safe}}
 <h2>Arrhenius and thermodynamic parameters of activation barrier </h2>
-<img src={{results.path}}/arrhenius.png>
+{{ results.ArrheniusPlot|safe}}
 {{ results.arrheniusparameters.to_html()|safe}}
 
 {% endblock %}

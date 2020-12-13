@@ -12,6 +12,8 @@ import numpy as np
 import pandas as pd
 import matplotlib as mpl
 import matplotlib.style as mplstyle
+import base64
+from io import BytesIO
 mpl.use('agg')
 plt.ioff()
 mpl.rcParams['path.simplify'] = True
@@ -136,8 +138,10 @@ class ThermoSlope:
         ag = Axes3D(fig)
         ag.plot_trisurf(mergeddataframes.Concentration, mergeddataframes.Temperature,
                         mergeddataframes.Time_regression, cmap=cm.jet)
-        fig.savefig(os.path.join(
-            self.path, "thermoslope-3D.png"), format="png")
+        figdatabuf=BytesIO()
+        fig.savefig(figdatabuf, format="png")
+        figdata=base64.b64encode(figdatabuf.getbuffer()).decode("ascii")
+        self.SurfacePlotImg = f"<img src='data:image/png;base64,{figdata}'/>"
         plt.clf()
 
         # Bin observations by temperature
@@ -148,7 +152,7 @@ class ThermoSlope:
         # Fit individual bins by classical Michaelis Menten by non-linear regression
         temperaturesetslist = []
 
-        self.figurefilenames = []
+        self.MMplots = []
       
 
         fig = plt.figure()
@@ -171,11 +175,11 @@ class ThermoSlope:
                     temperature[1].Concentration, regression[0], regression[1]), linestyle="None", marker=9)
                 temperaturesetslist.append(
                     [temperaturemean, Vmax, kcat, kcaterror])
-                figurefilename = os.path.join(
-                    self.path, str(temperaturemean)+"-MM.png")
-                fig.savefig(figurefilename, format="png")
+                figdatabuf=BytesIO()
+                fig.savefig(figdatabuf, format="png")
+                figdata=base64.b64encode(figdatabuf.getbuffer()).decode("ascii")
+                self.MMplots.append(f"<img src='data:image/png;base64,{figdata}'/>")
                 plt.cla()
-                self.figurefilenames.append(figurefilename)
 
         # Construct Arrhenius-plot
         kcatsvstemp = pd.DataFrame(temperaturesetslist, columns=[
@@ -213,7 +217,10 @@ class ThermoSlope:
         plt.plot(kcatsvstemp["1/T"], kcatsvstemp["ln(Kcat)"],
                  linestyle="None", marker=11)
         plt.plot(kcatsvstemp["1/T"],slope*kcatsvstemp["1/T"]+A,linestyle="dotted")
-        fig.savefig(os.path.join(self.path, "arrhenius.png"), format="png")
+        figdatabuf=BytesIO()
+        fig.savefig(figdatabuf, format="png")
+        figdata=base64.b64encode(figdatabuf.getbuffer()).decode("ascii")
+        self.ArrheniusPlot= f"<img src='data:image/png;base64,{figdata}'/>"
         plt.close()
 
 
