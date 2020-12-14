@@ -77,7 +77,9 @@ def analyze():
             analysis = thermoslope.ThermoSlope(fullpathdatafiles, **settings)
             analysis.process()
             return render_template("analyze.html", uuid=analysisuuid, results=analysis)
-        return analysisuuid
+        else:
+            flash("Not found")
+            return analysisuuid
 
 
 @app.route('/favicon.ico')
@@ -86,6 +88,3 @@ def favicon():
                                'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
 
-@app.route('/user-contrib/<path:filepath>')
-def data(filepath):
-    return send_from_directory('user-contrib', filepath)

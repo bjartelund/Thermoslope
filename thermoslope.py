@@ -153,11 +153,11 @@ class ThermoSlope:
       
 
         firstrun=True
+        fig = Figure()
+        ax = fig.subplots()
         for temperature in temperaturesets: #want to start with the highest one as it presumably has the highest velocity for the graph
             temperaturemean = temperature[1]["Temperature"].mean()
             if self.lowtempcutoff < temperaturemean < self.hightempcutoff:
-                fig = Figure()
-                ax = fig.subplots()
                 if firstrun:
                     ax.plot(temperature[1].Concentration, temperature[1].Time_regression,
                          linestyle="None", markersize=10, color="r", marker=11)
@@ -176,6 +176,7 @@ class ThermoSlope:
                 fig.savefig(figdatabuf, format="png")
                 figdata=base64.b64encode(figdatabuf.getbuffer()).decode("ascii")
                 self.MMplots.append(f"<img src='data:image/png;base64,{figdata}'/>")
+                ax.cla()
 
         # Construct Arrhenius-plot
         kcatsvstemp = pd.DataFrame(temperaturesetslist, columns=[
