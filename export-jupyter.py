@@ -17,8 +17,15 @@ def analyze(analysisuuid):
             fullpathdatafiles = [os.path.join(
                 "user-contrib", analysisuuid, datafile) for datafile in datafiles]
             settings = json.load(open(os.path.join(uploaddir,"settings.json")))
-            nbcells.append(nbf.new_code_cell("import thermoslope"))
+            nbcells.append(nbf.new_code_cell("import requests"))
+            nbcells.append(nbf.new_code_cell("import imp"))
             nbcells.append(nbf.new_code_cell("import os"))
+            nbcells.append(nbf.new_code_cell("modulesource=requests.get('https://raw.githubusercontent.com/bjartelund/Thermoslope/ab70e0747e80d3483263988b203f5056496ccb5e/thermoslope.py').content"))
+            nbcells.append(nbf.new_code_cell("value=compile(modulesource,'thermoslope','exec')"))
+            nbcells.append(nbf.new_code_cell("module = imp.new_module('thermoslope')"))
+            nbcells.append(nbf.new_code_cell("exec (value, module.__dict__)"))
+            nbcells.append(nbf.new_code_cell("thermoslope=module"))
+            
             nbcells.append(nbf.new_code_cell("import json"))
             nbcells.append(nbf.new_code_cell("analysisuuid='%s'" % analysisuuid))
             nbcells.append(nbf.new_code_cell("uploaddir = os.path.join('user-contrib/', analysisuuid)"))
