@@ -23,7 +23,7 @@ positions = 6
 readings = 5
 skipstart = 1
 
-kcatvstemperature = pd.DataFrame(columns=["Temperature", "Kcat"])
+kcatvstemperature = pd.DataFrame(columns=["Temperature", "Kcat","Kcaterror","Km","Kmerror"])
 ExcelWriter = pd.ExcelWriter("thermofit.xlsx")
 pdf = matplotlib.backends.backend_pdf.PdfPages("thermofit-output.pdf")
 
@@ -48,6 +48,10 @@ for datafile in sys.argv[1:]:
         MichaelisMenten, velocityvsconcentration["Concentration"], velocityvsconcentration["Velocity"], p0=[Kmguess, Vmaxguess])
     # 60 seconds in a minute, readings given per minute. seconds is SI
     kcat = (popt[1]/(60*ExtCoeff))/E0
+    perr = np.sqrt(np.diag(pcov))
+    kcaterror = (perr[1]/(60*ExtCoeff))/E0
+    km= popt[0]
+    kmerror= perr[0]
     fig = plt.figure()
     plt.plot(velocityvsconcentration["Concentration"], MichaelisMenten(
         velocityvsconcentration["Concentration"], *popt))
@@ -59,7 +63,7 @@ for datafile in sys.argv[1:]:
     # temperatures given in Celsius
     tempinkelvin = float(newtemp[newtemp.find("New:")+4:])+273.15
     datafileindex = sys.argv.index(datafile)
-    kcatvstemperature.loc[datafileindex] = [tempinkelvin, kcat]
+    kcatvstemperature.loc[datafileindex] = [tempinkelvin, kcat,kcaterror,km,kmerror]
 
 # Arrhenius
 
@@ -72,16 +76,16 @@ def logKcat(Kcat):
     return np.log(Kcat)
 
 
-X = kcatvstemperature["Temperature"]
-kcatvstemperature["Temperature"] = kcatvstemperature["Temperature"].apply(
+kcatvstemperature["Inverse Temperature"] = kcatvstemperature["Temperature"].apply(
     inversetemp)
-Y = kcatvstemperature["Kcat"]
-kcatvstemperature["Kcat"] = kcatvstemperature["Kcat"].apply(logKcat)
+X = kcatvstemperature["Inverse Temperature"]
+kcatvstemperature["ln(Kcat)"] = kcatvstemperature["Kcat"].apply(logKcat)
+Y = kcatvstemperature["ln(Kcat)"]
 fig = plt.figure()
-kcatvstemperature.plot.scatter(x="Temperature", y="Kcat")
+kcatvstemperature.plot.scatter(x="Inverse Temperature", y="ln(Kcat)")
 pdf.savefig(fig)
 
-print(kcatvstemperature)
+print(kcatvstemperature.groupby("Temperature").mean())
 kcatvstemperature.to_csv(path_or_buf="kcatvstemperature.csv", index=False)
 kcatvstemperature.to_excel(excel_writer="kcatvstemperature.xlsx", index=False)
 X = sm.add_constant(X)
