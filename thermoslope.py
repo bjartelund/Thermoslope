@@ -164,14 +164,16 @@ class ThermoSlope:
                 else:
                     ax.set_data(temperature[1].Concentration,temperature[1].Time_regression)
                 regression, covariance = self.fitMichaelisMenten(temperature)
+                Km = regression[0]
                 Vmax = regression[1]
                 kcat = Vmax/self.EnzymeConcentration
                 perr = np.sqrt(np.diag(covariance))
                 kcaterror = perr[1]/self.EnzymeConcentration
+                Kmerror = perr[0]
                 ax.plot(temperature[1].Concentration, MichaelisMenten(
                     temperature[1].Concentration, regression[0], regression[1]), linestyle="None", marker=9)
                 temperaturesetslist.append(
-                    [temperaturemean, Vmax, kcat, kcaterror])
+                    [temperaturemean, Vmax, kcat, kcaterror,Km,Kmerror])
                 figdatabuf=BytesIO()
                 fig.savefig(figdatabuf, format="png")
                 figdata=base64.b64encode(figdatabuf.getbuffer()).decode("ascii")
@@ -180,7 +182,7 @@ class ThermoSlope:
 
         # Construct Arrhenius-plot
         kcatsvstemp = pd.DataFrame(temperaturesetslist, columns=[
-                                   "Temperature", "Vmax", "Kcat", "Kcaterror"])
+                                   "Temperature", "Vmax", "Kcat", "Kcaterror","Km","Kmerror"])
 
         kcatsvstemp["1/T"] = inversetemp(kcatsvstemp["Temperature"])
         kcatsvstemp["ln(Kcat)"] = np.log(kcatsvstemp["Kcat"])

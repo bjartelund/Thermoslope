@@ -5,3 +5,4 @@ statsmodels
 scipy
 matplotlib
 flask
+nbformat

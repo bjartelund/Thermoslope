@@ -1,9 +1,13 @@
 #!/usr/bin/env python3
 __author__ = "Bjarte Aarmo Lund"
 import os
+from io import BytesIO,StringIO
+
 import json
 import uuid
-from flask import Flask, flash, request, redirect, url_for, render_template, send_from_directory
+from flask import Flask, flash, request, redirect, url_for, render_template, send_from_directory, send_file
+from nbformat import v4 as nbf
+import nbformat
 import thermoslope
 ALLOWED_EXTENSIONS = {'txt', 'csv', 'tsv', 'dat'}
 
@@ -81,6 +85,56 @@ def analyze():
             flash("Not found")
             return analysisuuid
 
+@app.route("/exportipynb", methods=["GET"])
+def exportipynb():
+    nb =nbf.new_notebook()
+    nbcells= []
+    analysisuuid = request.args.get('uuid', '')
+    if analysisuuid == '':
+        flash("No uuid")
+        return redirect(url_for("upload_file"))
+    else:
+        nb =nbf.new_notebook()
+        nbcells= []
+        nbcells.append(nbf.new_markdown_cell(analysisuuid))
+        uploaddir = os.path.join("user-contrib/", analysisuuid)
+        if os.path.exists(uploaddir):
+            datafiles = [x for x in os.listdir(
+                uploaddir) if "png" not in x and "json" not in x]
+            fullpathdatafiles = [os.path.join(
+                "user-contrib", analysisuuid, datafile) for datafile in datafiles]
+            settings = json.load(open(os.path.join(uploaddir,"settings.json")))
+            nbcells.append(nbf.new_code_cell("import requests"))
+            nbcells.append(nbf.new_code_cell("import imp"))
+            nbcells.append(nbf.new_code_cell("import os"))
+            nbcells.append(nbf.new_code_cell("modulesource=requests.get('https://raw.githubusercontent.com/bjartelund/Thermoslope/master/thermoslope.py').content"))
+            nbcells.append(nbf.new_code_cell("value=compile(modulesource,'thermoslope','exec')"))
+            nbcells.append(nbf.new_code_cell("module = imp.new_module('thermoslope')"))
+            nbcells.append(nbf.new_code_cell("exec (value, module.__dict__)"))
+            nbcells.append(nbf.new_code_cell("thermoslope=module"))
+            
+            nbcells.append(nbf.new_code_cell("from tempfile import NamedTemporaryFile"))
+            nbcells.append(nbf.new_code_cell("datafiles = []"))
+            for datafile in fullpathdatafiles:
+                with open(datafile) as reader:
+                    nbcells.append(nbf.new_code_cell("f = NamedTemporaryFile(mode='w+', delete=False)"))
+
+                    nbcells.append(nbf.new_code_cell('f.write("""%s""")' % reader.read()))
+                    nbcells.append(nbf.new_code_cell("f.close()"))
+                    nbcells.append(nbf.new_code_cell("datafiles.append(f.name)"))
+            nbcells.append(nbf.new_code_cell("analysisuuid='%s'" % analysisuuid))
+            nbcells.append(nbf.new_code_cell("settings = %s" % settings))
+
+            nbcells.append(nbf.new_code_cell("analysis = thermoslope.ThermoSlope(datafiles, **settings)"))
+            
+            nbcells.append(nbf.new_code_cell("analysis.process()"))
+            nbcells.append(nbf.new_code_cell("[os.unlink(tmpfile) for tmpfile in datafiles]"))
+            nb["cells"]=nbcells
+            virtualfile = StringIO()
+            nbformat.write(nb, virtualfile)
+            virtualfile.seek(0)
+            virtualfilebytes=BytesIO(virtualfile.read().encode("utf-8"))
+            return send_file(virtualfilebytes,as_attachment=True,attachment_filename='thermoslope-analysis.ipynb',mimetype='application/x-ipynb+json')
 
 @app.route('/favicon.ico')
 def favicon():
