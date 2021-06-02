@@ -16,5 +16,6 @@
 {{ results.ArrheniusPlot|safe}}
 {{ results.arrheniusparameters.to_html()|safe}}
 <h2>Export</h2>
-<a href="exportipynb?uuid={{ uuid }}">As Jupyter notebook</a>
+<a href="exportipynb?uuid={{ uuid }}">As Jupyter notebook (interactive)</a>
+<a href="exportexcel?uuid={{ uuid }}">As Excel spreadsheet (only values)</a>
 {% endblock %}

@@ -136,6 +136,34 @@ def exportipynb():
             virtualfilebytes=BytesIO(virtualfile.read().encode("utf-8"))
             return send_file(virtualfilebytes,as_attachment=True,attachment_filename='thermoslope-analysis.ipynb',mimetype='application/x-ipynb+json')
 
+@app.route("/exportexcel", methods=["GET"])
+def exportexcel():
+    virtualfilebytes=BytesIO()
+    writer=thermoslope.pd.ExcelWriter(virtualfilebytes,engine="xlsxwriter")
+    analysisuuid = request.args.get('uuid', '')
+    if analysisuuid == '':
+        flash("No uuid")
+        return redirect(url_for("upload_file"))
+    else:
+        uploaddir = os.path.join("user-contrib/", analysisuuid)
+        if os.path.exists(uploaddir):
+            datafiles = [x for x in os.listdir(
+                uploaddir) if "png" not in x and "json" not in x]
+            fullpathdatafiles = [os.path.join(
+                "user-contrib", analysisuuid, datafile) for datafile in datafiles]
+            settings = json.load(open(os.path.join(uploaddir,"settings.json")))
+            analysis = thermoslope.ThermoSlope(fullpathdatafiles, **settings)
+            analysis.process()
+            analysis.mergeddataframes.to_excel(writer,sheet_name="Raw data")
+            analysis.kcatsvstemp.to_excel(writer,sheet_name="Fitted data")
+            analysis.arrheniusparameters.to_excel(writer,sheet_name="Thermodynamic parameters")
+            writer.save()
+            virtualfilebytes.seek(0)
+            return send_file(virtualfilebytes,as_attachment=True,attachment_filename='thermoslope-analysis.xlsx',mimetype='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+
+        else:
+            flash("Not found")
+            return analysisuuid
 @app.route('/favicon.ico')
 def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'),

@@ -130,6 +130,7 @@ class ThermoSlope:
         # Collect all processed datasets in a single dataframe
         mergeddataframes = pd.concat(
             [self.processcsv(datafile) for datafile in self.datafiles])
+        self.mergeddataframes=mergeddataframes
         # Show excerpt of data with velocities
         # 3D plot of raw data
         fig= Figure()
