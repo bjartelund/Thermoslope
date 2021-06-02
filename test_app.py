@@ -44,7 +44,7 @@ def test_analysis(client):
 
 
 def test_offline():
-    exampledir = "exampledata/CM/BpCM/"
+    exampledir = "demonstration/thermoslope/"
 
     datafiles = [x for x in os.listdir(
         exampledir) if not "png" in x and not "json" in x]
