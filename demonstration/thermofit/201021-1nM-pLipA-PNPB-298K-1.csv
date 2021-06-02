@@ -1,0 +1,649 @@
+Cell 1 - 5e-3,,Cell 2 - 2.5e-3,,Cell 3 - 1.25e-3,,Cell 4 - 6.25e-4,,Cell 5 - 3.125e-4,,Cell 6 - 1.561e-4,,
+Time (min),Abs,Time (min),Abs,Time (min),Abs,Time (min),Abs,Time (min),Abs,Time (min),Abs,
+5.601922112E-006,0.6420900226,0.04263393953,0.5861247778,0.08527194709,0.4591188133,0.1279087961,0.3687860966,0.1705462039,0.2232502997,0.2131838948,0.1507754028,
+0.3564356863,0.7564219236,0.399071604,0.7075787187,0.4417096078,0.5650669932,0.4843463898,0.4576039016,0.5269839168,0.2752158046,0.5696213245,0.1777752042,
+0.7128742933,0.8678591847,0.755510211,0.7843853235,0.7981477976,0.6670684814,0.8407847881,0.5377283096,0.8834221959,0.3245880902,0.9260597229,0.2041866928,
+1.069313049,0.9758937955,1.111948013,0.9005616903,1.154585958,0.7649213076,1.197221994,0.6280375719,1.239860058,0.3705120087,1.282498002,0.2264917046,
+1.425752997,1.066841006,1.468386054,1.010962963,1.511023998,0.851734221,1.553660989,0.7014824748,1.596297979,0.4105714858,1.638936043,0.2466941029,
+1.782188058,1.173112988,1.824823976,1.111868024,1.867462039,0.9486628175,1.91009903,0.7840096951,1.95273602,0.4491600096,1.995373011,0.2699891925,
+2.138626099,1.260447025,2.18126297,1.220726013,2.223901987,1.030763984,2.266536951,0.8540397286,2.309174061,0.4828023016,2.351811886,0.2882274985,
+2.49506402,1.347077966,2.537699938,1.30866003,2.580338001,1.107992053,2.622975111,0.9203131199,2.665611982,0.5114337802,2.708250046,0.3057549,
+2.852024078,1.441818953,2.894658089,1.398663044,2.937297106,1.180749059,2.979933023,0.9870417714,3.022571087,0.5382456779,3.065207958,0.3233909905,
+3.208460093,1.525830984,3.25109601,1.491430998,3.293734074,1.241242051,3.336370945,1.042590976,3.379009008,0.559875071,3.421644926,0.3454856873,
+
+Cell 1 - 5e-3,
+Cell 1 - 5e-3
+Collection Time: 10/21/2020 1:39:22 PM
+Operator Name  :
+ADL Shell Version 5.0.0.1002
+Method Log     :
+Method Name    : C:\ADLs_QNW\Version_050\measurements\201021\297K-hold.MAD
+Date/Time stamp: 10/21/2020 9:07:55 AM
+Method Modifications:
+COM Port Number Changed: 10/21/2020 8:37:59 AM, Old:Off, New:-1
+COM Port Number Changed: 10/21/2020 8:38:00 AM, Old:-1, New:
+Connected to Controller Changed: 10/21/2020 8:38:07 AM, Old:0, New:1
+Number Samples Changed: 10/21/2020 8:38:09 AM, Old:0, New:-6
+Cary Online Changed: 10/21/2020 8:38:18 AM, Old:-1, New:1
+Sample ID 1 Changed: 10/21/2020 8:38:18 AM, Old:, New:1111
+Sample ID 2 Changed: 10/21/2020 8:38:18 AM, Old:, New:2222
+Sample ID 3 Changed: 10/21/2020 8:38:18 AM, Old:, New:3333
+Sample ID 4 Changed: 10/21/2020 8:38:18 AM, Old:, New:4444
+Sample ID 5 Changed: 10/21/2020 8:38:18 AM, Old:, New:5555
+Sample ID 6 Changed: 10/21/2020 8:38:18 AM, Old:, New:6666
+Data Simulation Changed: 10/21/2020 8:38:18 AM, Old:None, New:Abs Only
+Data Simulation Changed: 10/21/2020 8:38:18 AM, Old:Abs Only, New:None
+Parameter Setup First Time Changed: 10/21/2020 8:38:18 AM, Old:1, New:0
+Method Changed: 10/21/2020 8:38:24 AM, Old:Ramp T, New:2
+Method Changed: 10/21/2020 8:38:24 AM, Old:2, New:Hold T
+Hold Temperature Changed: 10/21/2020 8:38:31 AM, Old:37, New:4
+Time Interval Changed: 10/21/2020 8:38:32 AM, Old:0.2, New:0.3
+Maximum Time Changed: 10/21/2020 8:38:34 AM, Old:60, New:5
+Equilibration Time Changed: 10/21/2020 8:38:36 AM, Old:    10.00, New:     0.00
+Unsaved Data Changed: 10/21/2020 8:38:42 AM, Old:0, New:1
+Connected to Controller Changed: 10/21/2020 8:42:02 AM, Old:1, New:0
+Cary Online Changed: 10/21/2020 8:42:02 AM, Old:1, New:-1
+COM Port Number Changed: 10/21/2020 8:42:02 AM, Old:, New:-1
+COM Port Number Changed: 10/21/2020 8:42:03 AM, Old:-1, New:
+Number Samples Changed: 10/21/2020 8:42:03 AM, Old:-6, New:0
+Connected to Controller Changed: 10/21/2020 8:42:11 AM, Old:0, New:1
+Number Samples Changed: 10/21/2020 8:42:13 AM, Old:0, New:-6
+Unsaved Data Changed: 10/21/2020 8:42:23 AM, Old:1, New:0
+Unsaved Data Changed: 10/21/2020 8:42:27 AM, Old:0, New:1
+Unsaved Data Changed: 10/21/2020 8:47:38 AM, Old:1, New:0
+Unsaved Data Changed: 10/21/2020 8:47:43 AM, Old:0, New:1
+Cary Online Changed: 10/21/2020 8:50:56 AM, Old:-1, New:1
+Sample ID 1 Changed: 10/21/2020 8:51:00 AM, Old:1111, New:5e-3
+Sample ID 2 Changed: 10/21/2020 8:51:02 AM, Old:2222, New:2.5e-3
+Sample ID 3 Changed: 10/21/2020 8:51:05 AM, Old:3333, New:1.25e-3
+Sample ID 4 Changed: 10/21/2020 8:51:08 AM, Old:4444, New:6.25e-4
+Sample ID 5 Changed: 10/21/2020 8:51:11 AM, Old:5555, New:3.125e-4
+Sample ID 6 Changed: 10/21/2020 8:51:28 AM, Old:6666, New:1.561e-4
+Equilibration Time Changed: 10/21/2020 8:51:30 AM, Old:     0.00, New:     1.00
+Stirrer Speed Changed: 10/21/2020 8:51:35 AM, Old:0, New:1200
+Unsaved Data Changed: 10/21/2020 8:52:16 AM, Old:1, New:0
+Unsaved Data Changed: 10/21/2020 8:53:44 AM, Old:0, New:1
+Unsaved Data Changed: 10/21/2020 8:59:45 AM, Old:1, New:0
+Saved as C:\ADLs_QNW\Version_050\measurements\201021\297K-hold.MAD
+Opened C:\ADLs_QNW\Version_050\measurements\201021\297K-hold.MAD
+Hold Temperature Changed: 10/21/2020 10:26:11 AM, Old:4, New:10
+Connected to Controller Changed: 10/21/2020 10:26:25 AM, Old:1, New:0
+Cary Online Changed: 10/21/2020 10:26:25 AM, Old:1, New:-1
+COM Port Number Changed: 10/21/2020 10:26:25 AM, Old:, New:-1
+COM Port Number Changed: 10/21/2020 10:26:26 AM, Old:-1, New:
+Number Samples Changed: 10/21/2020 10:26:26 AM, Old:-6, New:0
+Connected to Controller Changed: 10/21/2020 10:26:33 AM, Old:0, New:1
+Number Samples Changed: 10/21/2020 10:26:35 AM, Old:0, New:-6
+Cary Online Changed: 10/21/2020 10:26:41 AM, Old:-1, New:1
+Unsaved Data Changed: 10/21/2020 10:33:43 AM, Old:0, New:1
+Unsaved Data Changed: 10/21/2020 10:39:35 AM, Old:1, New:0
+Unsaved Data Changed: 10/21/2020 12:02:45 PM, Old:0, New:1
+Unsaved Data Changed: 10/21/2020 12:08:20 PM, Old:1, New:0
+Hold Temperature Changed: 10/21/2020 12:15:11 PM, Old:10, New:15
+Unsaved Data Changed: 10/21/2020 12:17:33 PM, Old:0, New:1
+Unsaved Data Changed: 10/21/2020 12:23:26 PM, Old:1, New:0
+Unsaved Data Changed: 10/21/2020 12:36:04 PM, Old:0, New:1
+Unsaved Data Changed: 10/21/2020 12:40:04 PM, Old:1, New:0
+Connected to Controller Changed: 10/21/2020 12:41:41 PM, Old:1, New:0
+Cary Online Changed: 10/21/2020 12:41:41 PM, Old:1, New:-1
+COM Port Number Changed: 10/21/2020 12:41:41 PM, Old:, New:-1
+COM Port Number Changed: 10/21/2020 12:41:42 PM, Old:-1, New:
+Number Samples Changed: 10/21/2020 12:41:42 PM, Old:-6, New:0
+Connected to Controller Changed: 10/21/2020 12:41:48 PM, Old:0, New:1
+Number Samples Changed: 10/21/2020 12:41:51 PM, Old:0, New:-6
+Cary Online Changed: 10/21/2020 12:41:57 PM, Old:-1, New:1
+Hold Temperature Changed: 10/21/2020 12:42:01 PM, Old:15, New:20
+Unsaved Data Changed: 10/21/2020 12:59:32 PM, Old:0, New:1
+Unsaved Data Changed: 10/21/2020 1:07:35 PM, Old:1, New:0
+Unsaved Data Changed: 10/21/2020 1:13:43 PM, Old:0, New:1
+Unsaved Data Changed: 10/21/2020 1:18:00 PM, Old:1, New:0
+Connected to Controller Changed: 10/21/2020 1:20:10 PM, Old:1, New:0
+Cary Online Changed: 10/21/2020 1:20:10 PM, Old:1, New:-1
+COM Port Number Changed: 10/21/2020 1:20:10 PM, Old:, New:-1
+COM Port Number Changed: 10/21/2020 1:20:12 PM, Old:-1, New:
+Number Samples Changed: 10/21/2020 1:20:12 PM, Old:-6, New:0
+Connected to Controller Changed: 10/21/2020 1:20:21 PM, Old:0, New:1
+Number Samples Changed: 10/21/2020 1:20:23 PM, Old:0, New:-6
+Cary Online Changed: 10/21/2020 1:20:32 PM, Old:-1, New:1
+Hold Temperature Changed: 10/21/2020 1:20:36 PM, Old:20, New:25
+Unsaved Data Changed: 10/21/2020 1:27:56 PM, Old:0, New:1
+Connected to Controller Changed: 10/21/2020 1:36:30 PM, Old:1, New:0
+Cary Online Changed: 10/21/2020 1:36:30 PM, Old:1, New:-1
+COM Port Number Changed: 10/21/2020 1:36:30 PM, Old:, New:-1
+COM Port Number Changed: 10/21/2020 1:36:31 PM, Old:-1, New:
+Number Samples Changed: 10/21/2020 1:36:31 PM, Old:-6, New:0
+Connected to Controller Changed: 10/21/2020 1:36:38 PM, Old:0, New:1
+Number Samples Changed: 10/21/2020 1:36:40 PM, Old:0, New:-6
+Unsaved Data Changed: 10/21/2020 1:39:19 PM, Old:1, New:0
+End Method Modifications
+
+Cell 2 - 2.5e-3,
+Cell 2 - 2.5e-3
+Collection Time: 10/21/2020 1:39:22 PM
+Operator Name  :
+ADL Shell Version 5.0.0.1002
+Method Log     :
+Method Name    : C:\ADLs_QNW\Version_050\measurements\201021\297K-hold.MAD
+Date/Time stamp: 10/21/2020 9:07:55 AM
+Method Modifications:
+COM Port Number Changed: 10/21/2020 8:37:59 AM, Old:Off, New:-1
+COM Port Number Changed: 10/21/2020 8:38:00 AM, Old:-1, New:
+Connected to Controller Changed: 10/21/2020 8:38:07 AM, Old:0, New:1
+Number Samples Changed: 10/21/2020 8:38:09 AM, Old:0, New:-6
+Cary Online Changed: 10/21/2020 8:38:18 AM, Old:-1, New:1
+Sample ID 1 Changed: 10/21/2020 8:38:18 AM, Old:, New:1111
+Sample ID 2 Changed: 10/21/2020 8:38:18 AM, Old:, New:2222
+Sample ID 3 Changed: 10/21/2020 8:38:18 AM, Old:, New:3333
+Sample ID 4 Changed: 10/21/2020 8:38:18 AM, Old:, New:4444
+Sample ID 5 Changed: 10/21/2020 8:38:18 AM, Old:, New:5555
+Sample ID 6 Changed: 10/21/2020 8:38:18 AM, Old:, New:6666
+Data Simulation Changed: 10/21/2020 8:38:18 AM, Old:None, New:Abs Only
+Data Simulation Changed: 10/21/2020 8:38:18 AM, Old:Abs Only, New:None
+Parameter Setup First Time Changed: 10/21/2020 8:38:18 AM, Old:1, New:0
+Method Changed: 10/21/2020 8:38:24 AM, Old:Ramp T, New:2
+Method Changed: 10/21/2020 8:38:24 AM, Old:2, New:Hold T
+Hold Temperature Changed: 10/21/2020 8:38:31 AM, Old:37, New:4
+Time Interval Changed: 10/21/2020 8:38:32 AM, Old:0.2, New:0.3
+Maximum Time Changed: 10/21/2020 8:38:34 AM, Old:60, New:5
+Equilibration Time Changed: 10/21/2020 8:38:36 AM, Old:    10.00, New:     0.00
+Unsaved Data Changed: 10/21/2020 8:38:42 AM, Old:0, New:1
+Connected to Controller Changed: 10/21/2020 8:42:02 AM, Old:1, New:0
+Cary Online Changed: 10/21/2020 8:42:02 AM, Old:1, New:-1
+COM Port Number Changed: 10/21/2020 8:42:02 AM, Old:, New:-1
+COM Port Number Changed: 10/21/2020 8:42:03 AM, Old:-1, New:
+Number Samples Changed: 10/21/2020 8:42:03 AM, Old:-6, New:0
+Connected to Controller Changed: 10/21/2020 8:42:11 AM, Old:0, New:1
+Number Samples Changed: 10/21/2020 8:42:13 AM, Old:0, New:-6
+Unsaved Data Changed: 10/21/2020 8:42:23 AM, Old:1, New:0
+Unsaved Data Changed: 10/21/2020 8:42:27 AM, Old:0, New:1
+Unsaved Data Changed: 10/21/2020 8:47:38 AM, Old:1, New:0
+Unsaved Data Changed: 10/21/2020 8:47:43 AM, Old:0, New:1
+Cary Online Changed: 10/21/2020 8:50:56 AM, Old:-1, New:1
+Sample ID 1 Changed: 10/21/2020 8:51:00 AM, Old:1111, New:5e-3
+Sample ID 2 Changed: 10/21/2020 8:51:02 AM, Old:2222, New:2.5e-3
+Sample ID 3 Changed: 10/21/2020 8:51:05 AM, Old:3333, New:1.25e-3
+Sample ID 4 Changed: 10/21/2020 8:51:08 AM, Old:4444, New:6.25e-4
+Sample ID 5 Changed: 10/21/2020 8:51:11 AM, Old:5555, New:3.125e-4
+Sample ID 6 Changed: 10/21/2020 8:51:28 AM, Old:6666, New:1.561e-4
+Equilibration Time Changed: 10/21/2020 8:51:30 AM, Old:     0.00, New:     1.00
+Stirrer Speed Changed: 10/21/2020 8:51:35 AM, Old:0, New:1200
+Unsaved Data Changed: 10/21/2020 8:52:16 AM, Old:1, New:0
+Unsaved Data Changed: 10/21/2020 8:53:44 AM, Old:0, New:1
+Unsaved Data Changed: 10/21/2020 8:59:45 AM, Old:1, New:0
+Saved as C:\ADLs_QNW\Version_050\measurements\201021\297K-hold.MAD
+Opened C:\ADLs_QNW\Version_050\measurements\201021\297K-hold.MAD
+Hold Temperature Changed: 10/21/2020 10:26:11 AM, Old:4, New:10
+Connected to Controller Changed: 10/21/2020 10:26:25 AM, Old:1, New:0
+Cary Online Changed: 10/21/2020 10:26:25 AM, Old:1, New:-1
+COM Port Number Changed: 10/21/2020 10:26:25 AM, Old:, New:-1
+COM Port Number Changed: 10/21/2020 10:26:26 AM, Old:-1, New:
+Number Samples Changed: 10/21/2020 10:26:26 AM, Old:-6, New:0
+Connected to Controller Changed: 10/21/2020 10:26:33 AM, Old:0, New:1
+Number Samples Changed: 10/21/2020 10:26:35 AM, Old:0, New:-6
+Cary Online Changed: 10/21/2020 10:26:41 AM, Old:-1, New:1
+Unsaved Data Changed: 10/21/2020 10:33:43 AM, Old:0, New:1
+Unsaved Data Changed: 10/21/2020 10:39:35 AM, Old:1, New:0
+Unsaved Data Changed: 10/21/2020 12:02:45 PM, Old:0, New:1
+Unsaved Data Changed: 10/21/2020 12:08:20 PM, Old:1, New:0
+Hold Temperature Changed: 10/21/2020 12:15:11 PM, Old:10, New:15
+Unsaved Data Changed: 10/21/2020 12:17:33 PM, Old:0, New:1
+Unsaved Data Changed: 10/21/2020 12:23:26 PM, Old:1, New:0
+Unsaved Data Changed: 10/21/2020 12:36:04 PM, Old:0, New:1
+Unsaved Data Changed: 10/21/2020 12:40:04 PM, Old:1, New:0
+Connected to Controller Changed: 10/21/2020 12:41:41 PM, Old:1, New:0
+Cary Online Changed: 10/21/2020 12:41:41 PM, Old:1, New:-1
+COM Port Number Changed: 10/21/2020 12:41:41 PM, Old:, New:-1
+COM Port Number Changed: 10/21/2020 12:41:42 PM, Old:-1, New:
+Number Samples Changed: 10/21/2020 12:41:42 PM, Old:-6, New:0
+Connected to Controller Changed: 10/21/2020 12:41:48 PM, Old:0, New:1
+Number Samples Changed: 10/21/2020 12:41:51 PM, Old:0, New:-6
+Cary Online Changed: 10/21/2020 12:41:57 PM, Old:-1, New:1
+Hold Temperature Changed: 10/21/2020 12:42:01 PM, Old:15, New:20
+Unsaved Data Changed: 10/21/2020 12:59:32 PM, Old:0, New:1
+Unsaved Data Changed: 10/21/2020 1:07:35 PM, Old:1, New:0
+Unsaved Data Changed: 10/21/2020 1:13:43 PM, Old:0, New:1
+Unsaved Data Changed: 10/21/2020 1:18:00 PM, Old:1, New:0
+Connected to Controller Changed: 10/21/2020 1:20:10 PM, Old:1, New:0
+Cary Online Changed: 10/21/2020 1:20:10 PM, Old:1, New:-1
+COM Port Number Changed: 10/21/2020 1:20:10 PM, Old:, New:-1
+COM Port Number Changed: 10/21/2020 1:20:12 PM, Old:-1, New:
+Number Samples Changed: 10/21/2020 1:20:12 PM, Old:-6, New:0
+Connected to Controller Changed: 10/21/2020 1:20:21 PM, Old:0, New:1
+Number Samples Changed: 10/21/2020 1:20:23 PM, Old:0, New:-6
+Cary Online Changed: 10/21/2020 1:20:32 PM, Old:-1, New:1
+Hold Temperature Changed: 10/21/2020 1:20:36 PM, Old:20, New:25
+Unsaved Data Changed: 10/21/2020 1:27:56 PM, Old:0, New:1
+Connected to Controller Changed: 10/21/2020 1:36:30 PM, Old:1, New:0
+Cary Online Changed: 10/21/2020 1:36:30 PM, Old:1, New:-1
+COM Port Number Changed: 10/21/2020 1:36:30 PM, Old:, New:-1
+COM Port Number Changed: 10/21/2020 1:36:31 PM, Old:-1, New:
+Number Samples Changed: 10/21/2020 1:36:31 PM, Old:-6, New:0
+Connected to Controller Changed: 10/21/2020 1:36:38 PM, Old:0, New:1
+Number Samples Changed: 10/21/2020 1:36:40 PM, Old:0, New:-6
+Unsaved Data Changed: 10/21/2020 1:39:19 PM, Old:1, New:0
+End Method Modifications
+
+Cell 3 - 1.25e-3,
+Cell 3 - 1.25e-3
+Collection Time: 10/21/2020 1:39:22 PM
+Operator Name  :
+ADL Shell Version 5.0.0.1002
+Method Log     :
+Method Name    : C:\ADLs_QNW\Version_050\measurements\201021\297K-hold.MAD
+Date/Time stamp: 10/21/2020 9:07:55 AM
+Method Modifications:
+COM Port Number Changed: 10/21/2020 8:37:59 AM, Old:Off, New:-1
+COM Port Number Changed: 10/21/2020 8:38:00 AM, Old:-1, New:
+Connected to Controller Changed: 10/21/2020 8:38:07 AM, Old:0, New:1
+Number Samples Changed: 10/21/2020 8:38:09 AM, Old:0, New:-6
+Cary Online Changed: 10/21/2020 8:38:18 AM, Old:-1, New:1
+Sample ID 1 Changed: 10/21/2020 8:38:18 AM, Old:, New:1111
+Sample ID 2 Changed: 10/21/2020 8:38:18 AM, Old:, New:2222
+Sample ID 3 Changed: 10/21/2020 8:38:18 AM, Old:, New:3333
+Sample ID 4 Changed: 10/21/2020 8:38:18 AM, Old:, New:4444
+Sample ID 5 Changed: 10/21/2020 8:38:18 AM, Old:, New:5555
+Sample ID 6 Changed: 10/21/2020 8:38:18 AM, Old:, New:6666
+Data Simulation Changed: 10/21/2020 8:38:18 AM, Old:None, New:Abs Only
+Data Simulation Changed: 10/21/2020 8:38:18 AM, Old:Abs Only, New:None
+Parameter Setup First Time Changed: 10/21/2020 8:38:18 AM, Old:1, New:0
+Method Changed: 10/21/2020 8:38:24 AM, Old:Ramp T, New:2
+Method Changed: 10/21/2020 8:38:24 AM, Old:2, New:Hold T
+Hold Temperature Changed: 10/21/2020 8:38:31 AM, Old:37, New:4
+Time Interval Changed: 10/21/2020 8:38:32 AM, Old:0.2, New:0.3
+Maximum Time Changed: 10/21/2020 8:38:34 AM, Old:60, New:5
+Equilibration Time Changed: 10/21/2020 8:38:36 AM, Old:    10.00, New:     0.00
+Unsaved Data Changed: 10/21/2020 8:38:42 AM, Old:0, New:1
+Connected to Controller Changed: 10/21/2020 8:42:02 AM, Old:1, New:0
+Cary Online Changed: 10/21/2020 8:42:02 AM, Old:1, New:-1
+COM Port Number Changed: 10/21/2020 8:42:02 AM, Old:, New:-1
+COM Port Number Changed: 10/21/2020 8:42:03 AM, Old:-1, New:
+Number Samples Changed: 10/21/2020 8:42:03 AM, Old:-6, New:0
+Connected to Controller Changed: 10/21/2020 8:42:11 AM, Old:0, New:1
+Number Samples Changed: 10/21/2020 8:42:13 AM, Old:0, New:-6
+Unsaved Data Changed: 10/21/2020 8:42:23 AM, Old:1, New:0
+Unsaved Data Changed: 10/21/2020 8:42:27 AM, Old:0, New:1
+Unsaved Data Changed: 10/21/2020 8:47:38 AM, Old:1, New:0
+Unsaved Data Changed: 10/21/2020 8:47:43 AM, Old:0, New:1
+Cary Online Changed: 10/21/2020 8:50:56 AM, Old:-1, New:1
+Sample ID 1 Changed: 10/21/2020 8:51:00 AM, Old:1111, New:5e-3
+Sample ID 2 Changed: 10/21/2020 8:51:02 AM, Old:2222, New:2.5e-3
+Sample ID 3 Changed: 10/21/2020 8:51:05 AM, Old:3333, New:1.25e-3
+Sample ID 4 Changed: 10/21/2020 8:51:08 AM, Old:4444, New:6.25e-4
+Sample ID 5 Changed: 10/21/2020 8:51:11 AM, Old:5555, New:3.125e-4
+Sample ID 6 Changed: 10/21/2020 8:51:28 AM, Old:6666, New:1.561e-4
+Equilibration Time Changed: 10/21/2020 8:51:30 AM, Old:     0.00, New:     1.00
+Stirrer Speed Changed: 10/21/2020 8:51:35 AM, Old:0, New:1200
+Unsaved Data Changed: 10/21/2020 8:52:16 AM, Old:1, New:0
+Unsaved Data Changed: 10/21/2020 8:53:44 AM, Old:0, New:1
+Unsaved Data Changed: 10/21/2020 8:59:45 AM, Old:1, New:0
+Saved as C:\ADLs_QNW\Version_050\measurements\201021\297K-hold.MAD
+Opened C:\ADLs_QNW\Version_050\measurements\201021\297K-hold.MAD
+Hold Temperature Changed: 10/21/2020 10:26:11 AM, Old:4, New:10
+Connected to Controller Changed: 10/21/2020 10:26:25 AM, Old:1, New:0
+Cary Online Changed: 10/21/2020 10:26:25 AM, Old:1, New:-1
+COM Port Number Changed: 10/21/2020 10:26:25 AM, Old:, New:-1
+COM Port Number Changed: 10/21/2020 10:26:26 AM, Old:-1, New:
+Number Samples Changed: 10/21/2020 10:26:26 AM, Old:-6, New:0
+Connected to Controller Changed: 10/21/2020 10:26:33 AM, Old:0, New:1
+Number Samples Changed: 10/21/2020 10:26:35 AM, Old:0, New:-6
+Cary Online Changed: 10/21/2020 10:26:41 AM, Old:-1, New:1
+Unsaved Data Changed: 10/21/2020 10:33:43 AM, Old:0, New:1
+Unsaved Data Changed: 10/21/2020 10:39:35 AM, Old:1, New:0
+Unsaved Data Changed: 10/21/2020 12:02:45 PM, Old:0, New:1
+Unsaved Data Changed: 10/21/2020 12:08:20 PM, Old:1, New:0
+Hold Temperature Changed: 10/21/2020 12:15:11 PM, Old:10, New:15
+Unsaved Data Changed: 10/21/2020 12:17:33 PM, Old:0, New:1
+Unsaved Data Changed: 10/21/2020 12:23:26 PM, Old:1, New:0
+Unsaved Data Changed: 10/21/2020 12:36:04 PM, Old:0, New:1
+Unsaved Data Changed: 10/21/2020 12:40:04 PM, Old:1, New:0
+Connected to Controller Changed: 10/21/2020 12:41:41 PM, Old:1, New:0
+Cary Online Changed: 10/21/2020 12:41:41 PM, Old:1, New:-1
+COM Port Number Changed: 10/21/2020 12:41:41 PM, Old:, New:-1
+COM Port Number Changed: 10/21/2020 12:41:42 PM, Old:-1, New:
+Number Samples Changed: 10/21/2020 12:41:42 PM, Old:-6, New:0
+Connected to Controller Changed: 10/21/2020 12:41:48 PM, Old:0, New:1
+Number Samples Changed: 10/21/2020 12:41:51 PM, Old:0, New:-6
+Cary Online Changed: 10/21/2020 12:41:57 PM, Old:-1, New:1
+Hold Temperature Changed: 10/21/2020 12:42:01 PM, Old:15, New:20
+Unsaved Data Changed: 10/21/2020 12:59:32 PM, Old:0, New:1
+Unsaved Data Changed: 10/21/2020 1:07:35 PM, Old:1, New:0
+Unsaved Data Changed: 10/21/2020 1:13:43 PM, Old:0, New:1
+Unsaved Data Changed: 10/21/2020 1:18:00 PM, Old:1, New:0
+Connected to Controller Changed: 10/21/2020 1:20:10 PM, Old:1, New:0
+Cary Online Changed: 10/21/2020 1:20:10 PM, Old:1, New:-1
+COM Port Number Changed: 10/21/2020 1:20:10 PM, Old:, New:-1
+COM Port Number Changed: 10/21/2020 1:20:12 PM, Old:-1, New:
+Number Samples Changed: 10/21/2020 1:20:12 PM, Old:-6, New:0
+Connected to Controller Changed: 10/21/2020 1:20:21 PM, Old:0, New:1
+Number Samples Changed: 10/21/2020 1:20:23 PM, Old:0, New:-6
+Cary Online Changed: 10/21/2020 1:20:32 PM, Old:-1, New:1
+Hold Temperature Changed: 10/21/2020 1:20:36 PM, Old:20, New:25
+Unsaved Data Changed: 10/21/2020 1:27:56 PM, Old:0, New:1
+Connected to Controller Changed: 10/21/2020 1:36:30 PM, Old:1, New:0
+Cary Online Changed: 10/21/2020 1:36:30 PM, Old:1, New:-1
+COM Port Number Changed: 10/21/2020 1:36:30 PM, Old:, New:-1
+COM Port Number Changed: 10/21/2020 1:36:31 PM, Old:-1, New:
+Number Samples Changed: 10/21/2020 1:36:31 PM, Old:-6, New:0
+Connected to Controller Changed: 10/21/2020 1:36:38 PM, Old:0, New:1
+Number Samples Changed: 10/21/2020 1:36:40 PM, Old:0, New:-6
+Unsaved Data Changed: 10/21/2020 1:39:19 PM, Old:1, New:0
+End Method Modifications
+
+Cell 4 - 6.25e-4,
+Cell 4 - 6.25e-4
+Collection Time: 10/21/2020 1:39:22 PM
+Operator Name  :
+ADL Shell Version 5.0.0.1002
+Method Log     :
+Method Name    : C:\ADLs_QNW\Version_050\measurements\201021\297K-hold.MAD
+Date/Time stamp: 10/21/2020 9:07:55 AM
+Method Modifications:
+COM Port Number Changed: 10/21/2020 8:37:59 AM, Old:Off, New:-1
+COM Port Number Changed: 10/21/2020 8:38:00 AM, Old:-1, New:
+Connected to Controller Changed: 10/21/2020 8:38:07 AM, Old:0, New:1
+Number Samples Changed: 10/21/2020 8:38:09 AM, Old:0, New:-6
+Cary Online Changed: 10/21/2020 8:38:18 AM, Old:-1, New:1
+Sample ID 1 Changed: 10/21/2020 8:38:18 AM, Old:, New:1111
+Sample ID 2 Changed: 10/21/2020 8:38:18 AM, Old:, New:2222
+Sample ID 3 Changed: 10/21/2020 8:38:18 AM, Old:, New:3333
+Sample ID 4 Changed: 10/21/2020 8:38:18 AM, Old:, New:4444
+Sample ID 5 Changed: 10/21/2020 8:38:18 AM, Old:, New:5555
+Sample ID 6 Changed: 10/21/2020 8:38:18 AM, Old:, New:6666
+Data Simulation Changed: 10/21/2020 8:38:18 AM, Old:None, New:Abs Only
+Data Simulation Changed: 10/21/2020 8:38:18 AM, Old:Abs Only, New:None
+Parameter Setup First Time Changed: 10/21/2020 8:38:18 AM, Old:1, New:0
+Method Changed: 10/21/2020 8:38:24 AM, Old:Ramp T, New:2
+Method Changed: 10/21/2020 8:38:24 AM, Old:2, New:Hold T
+Hold Temperature Changed: 10/21/2020 8:38:31 AM, Old:37, New:4
+Time Interval Changed: 10/21/2020 8:38:32 AM, Old:0.2, New:0.3
+Maximum Time Changed: 10/21/2020 8:38:34 AM, Old:60, New:5
+Equilibration Time Changed: 10/21/2020 8:38:36 AM, Old:    10.00, New:     0.00
+Unsaved Data Changed: 10/21/2020 8:38:42 AM, Old:0, New:1
+Connected to Controller Changed: 10/21/2020 8:42:02 AM, Old:1, New:0
+Cary Online Changed: 10/21/2020 8:42:02 AM, Old:1, New:-1
+COM Port Number Changed: 10/21/2020 8:42:02 AM, Old:, New:-1
+COM Port Number Changed: 10/21/2020 8:42:03 AM, Old:-1, New:
+Number Samples Changed: 10/21/2020 8:42:03 AM, Old:-6, New:0
+Connected to Controller Changed: 10/21/2020 8:42:11 AM, Old:0, New:1
+Number Samples Changed: 10/21/2020 8:42:13 AM, Old:0, New:-6
+Unsaved Data Changed: 10/21/2020 8:42:23 AM, Old:1, New:0
+Unsaved Data Changed: 10/21/2020 8:42:27 AM, Old:0, New:1
+Unsaved Data Changed: 10/21/2020 8:47:38 AM, Old:1, New:0
+Unsaved Data Changed: 10/21/2020 8:47:43 AM, Old:0, New:1
+Cary Online Changed: 10/21/2020 8:50:56 AM, Old:-1, New:1
+Sample ID 1 Changed: 10/21/2020 8:51:00 AM, Old:1111, New:5e-3
+Sample ID 2 Changed: 10/21/2020 8:51:02 AM, Old:2222, New:2.5e-3
+Sample ID 3 Changed: 10/21/2020 8:51:05 AM, Old:3333, New:1.25e-3
+Sample ID 4 Changed: 10/21/2020 8:51:08 AM, Old:4444, New:6.25e-4
+Sample ID 5 Changed: 10/21/2020 8:51:11 AM, Old:5555, New:3.125e-4
+Sample ID 6 Changed: 10/21/2020 8:51:28 AM, Old:6666, New:1.561e-4
+Equilibration Time Changed: 10/21/2020 8:51:30 AM, Old:     0.00, New:     1.00
+Stirrer Speed Changed: 10/21/2020 8:51:35 AM, Old:0, New:1200
+Unsaved Data Changed: 10/21/2020 8:52:16 AM, Old:1, New:0
+Unsaved Data Changed: 10/21/2020 8:53:44 AM, Old:0, New:1
+Unsaved Data Changed: 10/21/2020 8:59:45 AM, Old:1, New:0
+Saved as C:\ADLs_QNW\Version_050\measurements\201021\297K-hold.MAD
+Opened C:\ADLs_QNW\Version_050\measurements\201021\297K-hold.MAD
+Hold Temperature Changed: 10/21/2020 10:26:11 AM, Old:4, New:10
+Connected to Controller Changed: 10/21/2020 10:26:25 AM, Old:1, New:0
+Cary Online Changed: 10/21/2020 10:26:25 AM, Old:1, New:-1
+COM Port Number Changed: 10/21/2020 10:26:25 AM, Old:, New:-1
+COM Port Number Changed: 10/21/2020 10:26:26 AM, Old:-1, New:
+Number Samples Changed: 10/21/2020 10:26:26 AM, Old:-6, New:0
+Connected to Controller Changed: 10/21/2020 10:26:33 AM, Old:0, New:1
+Number Samples Changed: 10/21/2020 10:26:35 AM, Old:0, New:-6
+Cary Online Changed: 10/21/2020 10:26:41 AM, Old:-1, New:1
+Unsaved Data Changed: 10/21/2020 10:33:43 AM, Old:0, New:1
+Unsaved Data Changed: 10/21/2020 10:39:35 AM, Old:1, New:0
+Unsaved Data Changed: 10/21/2020 12:02:45 PM, Old:0, New:1
+Unsaved Data Changed: 10/21/2020 12:08:20 PM, Old:1, New:0
+Hold Temperature Changed: 10/21/2020 12:15:11 PM, Old:10, New:15
+Unsaved Data Changed: 10/21/2020 12:17:33 PM, Old:0, New:1
+Unsaved Data Changed: 10/21/2020 12:23:26 PM, Old:1, New:0
+Unsaved Data Changed: 10/21/2020 12:36:04 PM, Old:0, New:1
+Unsaved Data Changed: 10/21/2020 12:40:04 PM, Old:1, New:0
+Connected to Controller Changed: 10/21/2020 12:41:41 PM, Old:1, New:0
+Cary Online Changed: 10/21/2020 12:41:41 PM, Old:1, New:-1
+COM Port Number Changed: 10/21/2020 12:41:41 PM, Old:, New:-1
+COM Port Number Changed: 10/21/2020 12:41:42 PM, Old:-1, New:
+Number Samples Changed: 10/21/2020 12:41:42 PM, Old:-6, New:0
+Connected to Controller Changed: 10/21/2020 12:41:48 PM, Old:0, New:1
+Number Samples Changed: 10/21/2020 12:41:51 PM, Old:0, New:-6
+Cary Online Changed: 10/21/2020 12:41:57 PM, Old:-1, New:1
+Hold Temperature Changed: 10/21/2020 12:42:01 PM, Old:15, New:20
+Unsaved Data Changed: 10/21/2020 12:59:32 PM, Old:0, New:1
+Unsaved Data Changed: 10/21/2020 1:07:35 PM, Old:1, New:0
+Unsaved Data Changed: 10/21/2020 1:13:43 PM, Old:0, New:1
+Unsaved Data Changed: 10/21/2020 1:18:00 PM, Old:1, New:0
+Connected to Controller Changed: 10/21/2020 1:20:10 PM, Old:1, New:0
+Cary Online Changed: 10/21/2020 1:20:10 PM, Old:1, New:-1
+COM Port Number Changed: 10/21/2020 1:20:10 PM, Old:, New:-1
+COM Port Number Changed: 10/21/2020 1:20:12 PM, Old:-1, New:
+Number Samples Changed: 10/21/2020 1:20:12 PM, Old:-6, New:0
+Connected to Controller Changed: 10/21/2020 1:20:21 PM, Old:0, New:1
+Number Samples Changed: 10/21/2020 1:20:23 PM, Old:0, New:-6
+Cary Online Changed: 10/21/2020 1:20:32 PM, Old:-1, New:1
+Hold Temperature Changed: 10/21/2020 1:20:36 PM, Old:20, New:25
+Unsaved Data Changed: 10/21/2020 1:27:56 PM, Old:0, New:1
+Connected to Controller Changed: 10/21/2020 1:36:30 PM, Old:1, New:0
+Cary Online Changed: 10/21/2020 1:36:30 PM, Old:1, New:-1
+COM Port Number Changed: 10/21/2020 1:36:30 PM, Old:, New:-1
+COM Port Number Changed: 10/21/2020 1:36:31 PM, Old:-1, New:
+Number Samples Changed: 10/21/2020 1:36:31 PM, Old:-6, New:0
+Connected to Controller Changed: 10/21/2020 1:36:38 PM, Old:0, New:1
+Number Samples Changed: 10/21/2020 1:36:40 PM, Old:0, New:-6
+Unsaved Data Changed: 10/21/2020 1:39:19 PM, Old:1, New:0
+End Method Modifications
+
+Cell 5 - 3.125e-4,
+Cell 5 - 3.125e-4
+Collection Time: 10/21/2020 1:39:22 PM
+Operator Name  :
+ADL Shell Version 5.0.0.1002
+Method Log     :
+Method Name    : C:\ADLs_QNW\Version_050\measurements\201021\297K-hold.MAD
+Date/Time stamp: 10/21/2020 9:07:55 AM
+Method Modifications:
+COM Port Number Changed: 10/21/2020 8:37:59 AM, Old:Off, New:-1
+COM Port Number Changed: 10/21/2020 8:38:00 AM, Old:-1, New:
+Connected to Controller Changed: 10/21/2020 8:38:07 AM, Old:0, New:1
+Number Samples Changed: 10/21/2020 8:38:09 AM, Old:0, New:-6
+Cary Online Changed: 10/21/2020 8:38:18 AM, Old:-1, New:1
+Sample ID 1 Changed: 10/21/2020 8:38:18 AM, Old:, New:1111
+Sample ID 2 Changed: 10/21/2020 8:38:18 AM, Old:, New:2222
+Sample ID 3 Changed: 10/21/2020 8:38:18 AM, Old:, New:3333
+Sample ID 4 Changed: 10/21/2020 8:38:18 AM, Old:, New:4444
+Sample ID 5 Changed: 10/21/2020 8:38:18 AM, Old:, New:5555
+Sample ID 6 Changed: 10/21/2020 8:38:18 AM, Old:, New:6666
+Data Simulation Changed: 10/21/2020 8:38:18 AM, Old:None, New:Abs Only
+Data Simulation Changed: 10/21/2020 8:38:18 AM, Old:Abs Only, New:None
+Parameter Setup First Time Changed: 10/21/2020 8:38:18 AM, Old:1, New:0
+Method Changed: 10/21/2020 8:38:24 AM, Old:Ramp T, New:2
+Method Changed: 10/21/2020 8:38:24 AM, Old:2, New:Hold T
+Hold Temperature Changed: 10/21/2020 8:38:31 AM, Old:37, New:4
+Time Interval Changed: 10/21/2020 8:38:32 AM, Old:0.2, New:0.3
+Maximum Time Changed: 10/21/2020 8:38:34 AM, Old:60, New:5
+Equilibration Time Changed: 10/21/2020 8:38:36 AM, Old:    10.00, New:     0.00
+Unsaved Data Changed: 10/21/2020 8:38:42 AM, Old:0, New:1
+Connected to Controller Changed: 10/21/2020 8:42:02 AM, Old:1, New:0
+Cary Online Changed: 10/21/2020 8:42:02 AM, Old:1, New:-1
+COM Port Number Changed: 10/21/2020 8:42:02 AM, Old:, New:-1
+COM Port Number Changed: 10/21/2020 8:42:03 AM, Old:-1, New:
+Number Samples Changed: 10/21/2020 8:42:03 AM, Old:-6, New:0
+Connected to Controller Changed: 10/21/2020 8:42:11 AM, Old:0, New:1
+Number Samples Changed: 10/21/2020 8:42:13 AM, Old:0, New:-6
+Unsaved Data Changed: 10/21/2020 8:42:23 AM, Old:1, New:0
+Unsaved Data Changed: 10/21/2020 8:42:27 AM, Old:0, New:1
+Unsaved Data Changed: 10/21/2020 8:47:38 AM, Old:1, New:0
+Unsaved Data Changed: 10/21/2020 8:47:43 AM, Old:0, New:1
+Cary Online Changed: 10/21/2020 8:50:56 AM, Old:-1, New:1
+Sample ID 1 Changed: 10/21/2020 8:51:00 AM, Old:1111, New:5e-3
+Sample ID 2 Changed: 10/21/2020 8:51:02 AM, Old:2222, New:2.5e-3
+Sample ID 3 Changed: 10/21/2020 8:51:05 AM, Old:3333, New:1.25e-3
+Sample ID 4 Changed: 10/21/2020 8:51:08 AM, Old:4444, New:6.25e-4
+Sample ID 5 Changed: 10/21/2020 8:51:11 AM, Old:5555, New:3.125e-4
+Sample ID 6 Changed: 10/21/2020 8:51:28 AM, Old:6666, New:1.561e-4
+Equilibration Time Changed: 10/21/2020 8:51:30 AM, Old:     0.00, New:     1.00
+Stirrer Speed Changed: 10/21/2020 8:51:35 AM, Old:0, New:1200
+Unsaved Data Changed: 10/21/2020 8:52:16 AM, Old:1, New:0
+Unsaved Data Changed: 10/21/2020 8:53:44 AM, Old:0, New:1
+Unsaved Data Changed: 10/21/2020 8:59:45 AM, Old:1, New:0
+Saved as C:\ADLs_QNW\Version_050\measurements\201021\297K-hold.MAD
+Opened C:\ADLs_QNW\Version_050\measurements\201021\297K-hold.MAD
+Hold Temperature Changed: 10/21/2020 10:26:11 AM, Old:4, New:10
+Connected to Controller Changed: 10/21/2020 10:26:25 AM, Old:1, New:0
+Cary Online Changed: 10/21/2020 10:26:25 AM, Old:1, New:-1
+COM Port Number Changed: 10/21/2020 10:26:25 AM, Old:, New:-1
+COM Port Number Changed: 10/21/2020 10:26:26 AM, Old:-1, New:
+Number Samples Changed: 10/21/2020 10:26:26 AM, Old:-6, New:0
+Connected to Controller Changed: 10/21/2020 10:26:33 AM, Old:0, New:1
+Number Samples Changed: 10/21/2020 10:26:35 AM, Old:0, New:-6
+Cary Online Changed: 10/21/2020 10:26:41 AM, Old:-1, New:1
+Unsaved Data Changed: 10/21/2020 10:33:43 AM, Old:0, New:1
+Unsaved Data Changed: 10/21/2020 10:39:35 AM, Old:1, New:0
+Unsaved Data Changed: 10/21/2020 12:02:45 PM, Old:0, New:1
+Unsaved Data Changed: 10/21/2020 12:08:20 PM, Old:1, New:0
+Hold Temperature Changed: 10/21/2020 12:15:11 PM, Old:10, New:15
+Unsaved Data Changed: 10/21/2020 12:17:33 PM, Old:0, New:1
+Unsaved Data Changed: 10/21/2020 12:23:26 PM, Old:1, New:0
+Unsaved Data Changed: 10/21/2020 12:36:04 PM, Old:0, New:1
+Unsaved Data Changed: 10/21/2020 12:40:04 PM, Old:1, New:0
+Connected to Controller Changed: 10/21/2020 12:41:41 PM, Old:1, New:0
+Cary Online Changed: 10/21/2020 12:41:41 PM, Old:1, New:-1
+COM Port Number Changed: 10/21/2020 12:41:41 PM, Old:, New:-1
+COM Port Number Changed: 10/21/2020 12:41:42 PM, Old:-1, New:
+Number Samples Changed: 10/21/2020 12:41:42 PM, Old:-6, New:0
+Connected to Controller Changed: 10/21/2020 12:41:48 PM, Old:0, New:1
+Number Samples Changed: 10/21/2020 12:41:51 PM, Old:0, New:-6
+Cary Online Changed: 10/21/2020 12:41:57 PM, Old:-1, New:1
+Hold Temperature Changed: 10/21/2020 12:42:01 PM, Old:15, New:20
+Unsaved Data Changed: 10/21/2020 12:59:32 PM, Old:0, New:1
+Unsaved Data Changed: 10/21/2020 1:07:35 PM, Old:1, New:0
+Unsaved Data Changed: 10/21/2020 1:13:43 PM, Old:0, New:1
+Unsaved Data Changed: 10/21/2020 1:18:00 PM, Old:1, New:0
+Connected to Controller Changed: 10/21/2020 1:20:10 PM, Old:1, New:0
+Cary Online Changed: 10/21/2020 1:20:10 PM, Old:1, New:-1
+COM Port Number Changed: 10/21/2020 1:20:10 PM, Old:, New:-1
+COM Port Number Changed: 10/21/2020 1:20:12 PM, Old:-1, New:
+Number Samples Changed: 10/21/2020 1:20:12 PM, Old:-6, New:0
+Connected to Controller Changed: 10/21/2020 1:20:21 PM, Old:0, New:1
+Number Samples Changed: 10/21/2020 1:20:23 PM, Old:0, New:-6
+Cary Online Changed: 10/21/2020 1:20:32 PM, Old:-1, New:1
+Hold Temperature Changed: 10/21/2020 1:20:36 PM, Old:20, New:25
+Unsaved Data Changed: 10/21/2020 1:27:56 PM, Old:0, New:1
+Connected to Controller Changed: 10/21/2020 1:36:30 PM, Old:1, New:0
+Cary Online Changed: 10/21/2020 1:36:30 PM, Old:1, New:-1
+COM Port Number Changed: 10/21/2020 1:36:30 PM, Old:, New:-1
+COM Port Number Changed: 10/21/2020 1:36:31 PM, Old:-1, New:
+Number Samples Changed: 10/21/2020 1:36:31 PM, Old:-6, New:0
+Connected to Controller Changed: 10/21/2020 1:36:38 PM, Old:0, New:1
+Number Samples Changed: 10/21/2020 1:36:40 PM, Old:0, New:-6
+Unsaved Data Changed: 10/21/2020 1:39:19 PM, Old:1, New:0
+End Method Modifications
+
+Cell 6 - 1.561e-4,
+Cell 6 - 1.561e-4
+Collection Time: 10/21/2020 1:39:22 PM
+Operator Name  :
+ADL Shell Version 5.0.0.1002
+Method Log     :
+Method Name    : C:\ADLs_QNW\Version_050\measurements\201021\297K-hold.MAD
+Date/Time stamp: 10/21/2020 9:07:55 AM
+Method Modifications:
+COM Port Number Changed: 10/21/2020 8:37:59 AM, Old:Off, New:-1
+COM Port Number Changed: 10/21/2020 8:38:00 AM, Old:-1, New:
+Connected to Controller Changed: 10/21/2020 8:38:07 AM, Old:0, New:1
+Number Samples Changed: 10/21/2020 8:38:09 AM, Old:0, New:-6
+Cary Online Changed: 10/21/2020 8:38:18 AM, Old:-1, New:1
+Sample ID 1 Changed: 10/21/2020 8:38:18 AM, Old:, New:1111
+Sample ID 2 Changed: 10/21/2020 8:38:18 AM, Old:, New:2222
+Sample ID 3 Changed: 10/21/2020 8:38:18 AM, Old:, New:3333
+Sample ID 4 Changed: 10/21/2020 8:38:18 AM, Old:, New:4444
+Sample ID 5 Changed: 10/21/2020 8:38:18 AM, Old:, New:5555
+Sample ID 6 Changed: 10/21/2020 8:38:18 AM, Old:, New:6666
+Data Simulation Changed: 10/21/2020 8:38:18 AM, Old:None, New:Abs Only
+Data Simulation Changed: 10/21/2020 8:38:18 AM, Old:Abs Only, New:None
+Parameter Setup First Time Changed: 10/21/2020 8:38:18 AM, Old:1, New:0
+Method Changed: 10/21/2020 8:38:24 AM, Old:Ramp T, New:2
+Method Changed: 10/21/2020 8:38:24 AM, Old:2, New:Hold T
+Hold Temperature Changed: 10/21/2020 8:38:31 AM, Old:37, New:4
+Time Interval Changed: 10/21/2020 8:38:32 AM, Old:0.2, New:0.3
+Maximum Time Changed: 10/21/2020 8:38:34 AM, Old:60, New:5
+Equilibration Time Changed: 10/21/2020 8:38:36 AM, Old:    10.00, New:     0.00
+Unsaved Data Changed: 10/21/2020 8:38:42 AM, Old:0, New:1
+Connected to Controller Changed: 10/21/2020 8:42:02 AM, Old:1, New:0
+Cary Online Changed: 10/21/2020 8:42:02 AM, Old:1, New:-1
+COM Port Number Changed: 10/21/2020 8:42:02 AM, Old:, New:-1
+COM Port Number Changed: 10/21/2020 8:42:03 AM, Old:-1, New:
+Number Samples Changed: 10/21/2020 8:42:03 AM, Old:-6, New:0
+Connected to Controller Changed: 10/21/2020 8:42:11 AM, Old:0, New:1
+Number Samples Changed: 10/21/2020 8:42:13 AM, Old:0, New:-6
+Unsaved Data Changed: 10/21/2020 8:42:23 AM, Old:1, New:0
+Unsaved Data Changed: 10/21/2020 8:42:27 AM, Old:0, New:1
+Unsaved Data Changed: 10/21/2020 8:47:38 AM, Old:1, New:0
+Unsaved Data Changed: 10/21/2020 8:47:43 AM, Old:0, New:1
+Cary Online Changed: 10/21/2020 8:50:56 AM, Old:-1, New:1
+Sample ID 1 Changed: 10/21/2020 8:51:00 AM, Old:1111, New:5e-3
+Sample ID 2 Changed: 10/21/2020 8:51:02 AM, Old:2222, New:2.5e-3
+Sample ID 3 Changed: 10/21/2020 8:51:05 AM, Old:3333, New:1.25e-3
+Sample ID 4 Changed: 10/21/2020 8:51:08 AM, Old:4444, New:6.25e-4
+Sample ID 5 Changed: 10/21/2020 8:51:11 AM, Old:5555, New:3.125e-4
+Sample ID 6 Changed: 10/21/2020 8:51:28 AM, Old:6666, New:1.561e-4
+Equilibration Time Changed: 10/21/2020 8:51:30 AM, Old:     0.00, New:     1.00
+Stirrer Speed Changed: 10/21/2020 8:51:35 AM, Old:0, New:1200
+Unsaved Data Changed: 10/21/2020 8:52:16 AM, Old:1, New:0
+Unsaved Data Changed: 10/21/2020 8:53:44 AM, Old:0, New:1
+Unsaved Data Changed: 10/21/2020 8:59:45 AM, Old:1, New:0
+Saved as C:\ADLs_QNW\Version_050\measurements\201021\297K-hold.MAD
+Opened C:\ADLs_QNW\Version_050\measurements\201021\297K-hold.MAD
+Hold Temperature Changed: 10/21/2020 10:26:11 AM, Old:4, New:10
+Connected to Controller Changed: 10/21/2020 10:26:25 AM, Old:1, New:0
+Cary Online Changed: 10/21/2020 10:26:25 AM, Old:1, New:-1
+COM Port Number Changed: 10/21/2020 10:26:25 AM, Old:, New:-1
+COM Port Number Changed: 10/21/2020 10:26:26 AM, Old:-1, New:
+Number Samples Changed: 10/21/2020 10:26:26 AM, Old:-6, New:0
+Connected to Controller Changed: 10/21/2020 10:26:33 AM, Old:0, New:1
+Number Samples Changed: 10/21/2020 10:26:35 AM, Old:0, New:-6
+Cary Online Changed: 10/21/2020 10:26:41 AM, Old:-1, New:1
+Unsaved Data Changed: 10/21/2020 10:33:43 AM, Old:0, New:1
+Unsaved Data Changed: 10/21/2020 10:39:35 AM, Old:1, New:0
+Unsaved Data Changed: 10/21/2020 12:02:45 PM, Old:0, New:1
+Unsaved Data Changed: 10/21/2020 12:08:20 PM, Old:1, New:0
+Hold Temperature Changed: 10/21/2020 12:15:11 PM, Old:10, New:15
+Unsaved Data Changed: 10/21/2020 12:17:33 PM, Old:0, New:1
+Unsaved Data Changed: 10/21/2020 12:23:26 PM, Old:1, New:0
+Unsaved Data Changed: 10/21/2020 12:36:04 PM, Old:0, New:1
+Unsaved Data Changed: 10/21/2020 12:40:04 PM, Old:1, New:0
+Connected to Controller Changed: 10/21/2020 12:41:41 PM, Old:1, New:0
+Cary Online Changed: 10/21/2020 12:41:41 PM, Old:1, New:-1
+COM Port Number Changed: 10/21/2020 12:41:41 PM, Old:, New:-1
+COM Port Number Changed: 10/21/2020 12:41:42 PM, Old:-1, New:
+Number Samples Changed: 10/21/2020 12:41:42 PM, Old:-6, New:0
+Connected to Controller Changed: 10/21/2020 12:41:48 PM, Old:0, New:1
+Number Samples Changed: 10/21/2020 12:41:51 PM, Old:0, New:-6
+Cary Online Changed: 10/21/2020 12:41:57 PM, Old:-1, New:1
+Hold Temperature Changed: 10/21/2020 12:42:01 PM, Old:15, New:20
+Unsaved Data Changed: 10/21/2020 12:59:32 PM, Old:0, New:1
+Unsaved Data Changed: 10/21/2020 1:07:35 PM, Old:1, New:0
+Unsaved Data Changed: 10/21/2020 1:13:43 PM, Old:0, New:1
+Unsaved Data Changed: 10/21/2020 1:18:00 PM, Old:1, New:0
+Connected to Controller Changed: 10/21/2020 1:20:10 PM, Old:1, New:0
+Cary Online Changed: 10/21/2020 1:20:10 PM, Old:1, New:-1
+COM Port Number Changed: 10/21/2020 1:20:10 PM, Old:, New:-1
+COM Port Number Changed: 10/21/2020 1:20:12 PM, Old:-1, New:
+Number Samples Changed: 10/21/2020 1:20:12 PM, Old:-6, New:0
+Connected to Controller Changed: 10/21/2020 1:20:21 PM, Old:0, New:1
+Number Samples Changed: 10/21/2020 1:20:23 PM, Old:0, New:-6
+Cary Online Changed: 10/21/2020 1:20:32 PM, Old:-1, New:1
+Hold Temperature Changed: 10/21/2020 1:20:36 PM, Old:20, New:25
+Unsaved Data Changed: 10/21/2020 1:27:56 PM, Old:0, New:1
+Connected to Controller Changed: 10/21/2020 1:36:30 PM, Old:1, New:0
+Cary Online Changed: 10/21/2020 1:36:30 PM, Old:1, New:-1
+COM Port Number Changed: 10/21/2020 1:36:30 PM, Old:, New:-1
+COM Port Number Changed: 10/21/2020 1:36:31 PM, Old:-1, New:
+Number Samples Changed: 10/21/2020 1:36:31 PM, Old:-6, New:0
+Connected to Controller Changed: 10/21/2020 1:36:38 PM, Old:0, New:1
+Number Samples Changed: 10/21/2020 1:36:40 PM, Old:0, New:-6
+Unsaved Data Changed: 10/21/2020 1:39:19 PM, Old:1, New:0
+End Method Modifications
+
