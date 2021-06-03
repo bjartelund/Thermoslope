@@ -6,3 +6,4 @@ scipy
 matplotlib
 flask
 nbformat
+xlsxwriter
