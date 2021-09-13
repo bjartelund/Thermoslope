@@ -22,5 +22,4 @@ else:
     dG = dG/4181
     print("dG:%e" % dG)
     dS = (dH-dG)
-    dS = dS/4.18
     print("TdS:%e" % dS)
