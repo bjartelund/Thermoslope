@@ -116,7 +116,6 @@ class ThermoSlope:
         dfwregression["Time_regression"] = np.abs(
             dfwregression["Time_regression"])
         return dfwregression
-    #@profile
     def process(self):
         # Should probably not be changed
         R = 8.314
@@ -190,11 +189,8 @@ class ThermoSlope:
         kcatsvstemp["ln(Kcaterror)"] = np.log(kcatsvstemp["Kcaterror"])
         self.kcatsvstemp = kcatsvstemp  # To be used in the report
         # Fit ln(kcat) against inverse Temp, weighing the parameters by the stddev of the estimated Kd
-        # try:
         Arrheniusmodel = sm.WLS(kcatsvstemp["ln(Kcat)"].values, sm.add_constant(
             kcatsvstemp["1/T"].values), weights=1/kcatsvstemp["ln(Kcaterror)"].values**2).fit()
-        # except:
-        # Arrheniusmodel=sm.OLS(kcatsvstemp["ln(Kcat)"],sm.add_constant(kcatsvstemp["1/T"])).fit()
         # Fit Arrhenius-equation
         slope=Arrheniusmodel.params[1]
         A=Arrheniusmodel.params[0]
@@ -210,7 +206,6 @@ class ThermoSlope:
         Values = pd.Series((dG, dH, dS, TdS,slope,A, Ea, lnkcat))
         frame = {"Parameters": Parameters, "Values": Values}
         arrheniusparameters = pd.DataFrame(frame)
-        #arrheniusparameters["Values(kcal/mol)"] = arrheniusparameters.Values/4181
         arrheniusparameters.loc[arrheniusparameters["Parameters"].isin(("dG","dH","dS","TdS","Ea")),"Values"] = arrheniusparameters.Values/4181
         self.arrheniusparameters = arrheniusparameters
         fig = Figure()
@@ -226,7 +221,7 @@ class ThermoSlope:
 
 
 if __name__ == '__main__':
-    analysis = ThermoSlope(sys.argv[1:])
+    analysis = ThermoSlope(sys.argv[1:],ProductAbsorbing=True)
     analysis.process()
     analysis.kcatsvstemp.to_csv("kcatsvstemp.csv",index=False,columns=("1/T","ln(Kcat)")) 
-    #print(analysis.arrheniusparameters)
+    print(analysis.arrheniusparameters)
