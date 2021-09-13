@@ -41,7 +41,7 @@ class ThermoSlope:
         self.datafiles = datafiles
         # assumes that all files are from the same directory
         self.path = os.path.dirname(datafiles[0])
-        self.ProductAbsorbing = kwargs["ProductAbsorbing"] if "ProductAbsorbing" in kwargs else True
+        self.ProductAbsorbing = kwargs["ProductAbsorbing"] if "ProductAbsorbing" in kwargs else False
         self.EnzymeConcentration = float(
             kwargs["EnzymeConcentration"]) if "EnzymeConcentration" in kwargs else 1.0e-9
         self.ExtCoeff = float(
