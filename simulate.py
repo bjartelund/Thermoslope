@@ -41,7 +41,6 @@ resultater=np.hstack((kineticarray,np.row_stack(np.apply_along_axis(intMM,1,kine
 X=resultater[:,0] # the concentration
 Y=resultater[:,1] #time in seconds
 noise = np.random.normal(1, 0.01, Y.shape) #1 centered with .01 std dev
-print(noise)
 Z=resultater[:,2] #*noise #the calculated velocity with some noise multiplied in
 
 if figure:
